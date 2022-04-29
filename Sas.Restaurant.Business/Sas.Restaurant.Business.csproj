@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.10.4.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,11 +55,15 @@
     <Compile Include="Services\IPorsiyonService.cs" />
     <Compile Include="Services\ITanimService.cs" />
     <Compile Include="Services\IUrunService.cs" />
+    <Compile Include="Validations\EkMalzemeValidator.cs" />
+    <Compile Include="Validations\Porsiyon Validator.cs" />
+    <Compile Include="Validations\TanimValidator.cs" />
+    <Compile Include="Validations\UrunValidator.cs" />
     <Compile Include="Workers\IWorker.cs" />
     <Compile Include="Workers\RestaurantWorker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Validations\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sas.Restaurant.DataAccess\Sas.Restaurant.DataAccess.csproj">
