@@ -63,9 +63,9 @@ namespace Sas.Restaurant.DataAccess.Dals.Base
         }
 
 
-        public void Delete(TEntity entitiy)
+        public void Delete(TEntity entity)
         {
-            _context.Entry(entitiy).State = EntityState.Deleted;
+            _context.Entry(entity).State = EntityState.Deleted;
         }
 
         public void Delete(IEnumerable<TEntity> entities)
@@ -101,7 +101,7 @@ namespace Sas.Restaurant.DataAccess.Dals.Base
             return _context.ChangeTracker.Entries<TEntity>().Any();
         }
 
-        public void Load(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] include)
+        public void Load(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes)
         {
             if (filter == null)
             {

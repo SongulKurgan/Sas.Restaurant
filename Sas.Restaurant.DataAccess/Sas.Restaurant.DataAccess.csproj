@@ -61,7 +61,7 @@
     <Compile Include="Dals\TanimDal.cs" />
     <Compile Include="Dals\UrunDal.cs" />
     <Compile Include="Functions\EntityBaseInfo.cs" />
-    <Compile Include="Functions\GetConnectionString.cs" />
+    <Compile Include="Functions\ConnectionStringInfo.cs" />
     <Compile Include="Interfaces\Base\IRepository.cs" />
     <Compile Include="Interfaces\IEkMalzemeDal.cs" />
     <Compile Include="Interfaces\IPorsiyonDal.cs" />

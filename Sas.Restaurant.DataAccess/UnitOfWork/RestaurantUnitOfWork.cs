@@ -25,7 +25,7 @@ namespace Sas.Restaurant.DataAccess.UnitOfWork
         {
             if (connectionString==null)
             {
-
+                _context = new RestaurantContext(ConnectionStringInfo.Get());
             }
             else
             {
