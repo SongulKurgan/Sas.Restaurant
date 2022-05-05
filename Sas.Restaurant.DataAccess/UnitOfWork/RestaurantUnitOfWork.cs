@@ -4,6 +4,7 @@ using Sas.Restaurant.DataAccess.Dals.Base;
 using Sas.Restaurant.DataAccess.Functions;
 using Sas.Restaurant.DataAccess.Interfaces;
 using Sas.Restaurant.DataAccess.Interfaces.Base;
+using Sas.Reustrant.Core.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

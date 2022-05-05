@@ -101,9 +101,17 @@
       <Project>{24381f4b-c6f0-4f70-a912-422e4c8c09f2}</Project>
       <Name>Sas.Restaurant.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sas.Restaurant.DataAccess\Sas.Restaurant.DataAccess.csproj">
+      <Project>{729e6f3e-a987-40db-b197-cc3848442b52}</Project>
+      <Name>Sas.Restaurant.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sas.Restaurant.Entites\Sas.Restaurant.Entites.csproj">
       <Project>{b187d76f-d2cb-4ea9-ad34-81ea9b8c9b8e}</Project>
       <Name>Sas.Restaurant.Entites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sas.Reustrant.Core\Sas.Restaurant.Core.csproj">
+      <Project>{453147b2-087d-40a5-a4dd-9fd0042224f4}</Project>
+      <Name>Sas.Restaurant.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
