@@ -11,7 +11,7 @@ namespace Sas.Reustrant.Core.Functions
 {
     public class ConnectionStringInfo
     {
-        private static string FilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\{Application.CompanyName}\\Connection.dat";
+        private static string FilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) }\\{Application.CompanyName}\\Connection.dat";
         //C:Users\Asus\AppData\Roaming\Restaurant AŞ.\Connection.dat
         public static string Get()
         {
@@ -26,7 +26,7 @@ namespace Sas.Reustrant.Core.Functions
             File.WriteAllText(FilePath, connectionString);
         }
 
-        public static bool Check(string connectionString=null)
+        public static bool Check(string connectionString = null)
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder(connectionString ?? Get());
             using (SqlConnection connection = new SqlConnection(connectionStringBuilder.ConnectionString))

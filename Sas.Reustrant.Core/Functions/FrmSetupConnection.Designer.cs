@@ -32,6 +32,7 @@ namespace Sas.Reustrant.Core.Functions
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSetupConnection));
             this.chkWindows = new DevExpress.XtraEditors.CheckButton();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.chkSql = new DevExpress.XtraEditors.CheckButton();
             this.txtServer = new DevExpress.XtraEditors.TextEdit();
@@ -39,7 +40,6 @@ namespace Sas.Reustrant.Core.Functions
             this.btnBaglantiTest = new DevExpress.XtraEditors.SimpleButton();
             this.btnKapat = new DevExpress.XtraEditors.SimpleButton();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
@@ -57,7 +57,15 @@ namespace Sas.Reustrant.Core.Functions
             this.chkWindows.Name = "chkWindows";
             this.chkWindows.Size = new System.Drawing.Size(217, 206);
             this.chkWindows.TabIndex = 0;
+            this.chkWindows.TabStop = false;
             this.chkWindows.Text = "Windows Oturumu";
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "SQL Server.png");
+            this.ımageList1.Images.SetKeyName(1, "Windows.png");
             // 
             // txtPassword
             // 
@@ -82,6 +90,7 @@ namespace Sas.Reustrant.Core.Functions
             this.chkSql.Name = "chkSql";
             this.chkSql.Size = new System.Drawing.Size(217, 206);
             this.chkSql.TabIndex = 2;
+            this.chkSql.TabStop = false;
             this.chkSql.Text = "SQL Server Oturumu";
             this.chkSql.CheckedChanged += new System.EventHandler(this.chkSql_CheckedChanged);
             // 
@@ -114,6 +123,7 @@ namespace Sas.Reustrant.Core.Functions
             this.btnBaglantiTest.Size = new System.Drawing.Size(142, 41);
             this.btnBaglantiTest.TabIndex = 5;
             this.btnBaglantiTest.Text = "Bağlantıyı Test Et";
+            this.btnBaglantiTest.Click += new System.EventHandler(this.btnBaglantiTest_Click_1);
             // 
             // btnKapat
             // 
@@ -132,13 +142,6 @@ namespace Sas.Reustrant.Core.Functions
             this.btnKaydet.Size = new System.Drawing.Size(142, 41);
             this.btnKaydet.TabIndex = 7;
             this.btnKaydet.Text = "Ayarları Kaydet";
-            // 
-            // ımageList1
-            // 
-            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
-            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.ımageList1.Images.SetKeyName(0, "SQL Server.png");
-            this.ımageList1.Images.SetKeyName(1, "Windows.png");
             // 
             // FrmSetupConnection
             // 

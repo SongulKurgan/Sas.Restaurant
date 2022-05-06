@@ -37,11 +37,6 @@ namespace Sas.Reustrant.Core.Functions
 
         }
 
-        private void textEdit2_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void chkSql_CheckedChanged(object sender, EventArgs e)
         {
             if (chkSql.Checked)
@@ -69,12 +64,13 @@ namespace Sas.Reustrant.Core.Functions
             }
         }
 
-        private void btnKapat_Click(object sender, EventArgs e)
+        private void btnKaydet_Click(object sender, EventArgs e)
         {
+
             BaglantiCumleOlustur();
             if (ConnectionStringInfo.Check(connectionStringBuilder.ConnectionString))
             {
-                connectionStringBuilder.InitialCatalog = "Restorant";
+                connectionStringBuilder.InitialCatalog = "Restaurant";
                 ConnectionStringInfo.Set(connectionStringBuilder.ConnectionString);
                 Kaydedildi = true;
                 Close();
@@ -84,10 +80,11 @@ namespace Sas.Reustrant.Core.Functions
                 MessageBox.Show("Bağlantı Başarısız");
             }
         }
-
-        private void btnKaydet_Click(object sender, EventArgs e)
+        private void btnKapat_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+
     }
 }
