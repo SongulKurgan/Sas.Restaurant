@@ -34,8 +34,8 @@ namespace Sas.Reustrant.Core.Functions
                 connectionStringBuilder.Password = txtPassword.Text;
                 connectionStringBuilder.IntegratedSecurity = false;
             }
-
         }
+        
 
         private void chkSql_CheckedChanged(object sender, EventArgs e)
         {
@@ -66,7 +66,6 @@ namespace Sas.Reustrant.Core.Functions
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-
             BaglantiCumleOlustur();
             if (ConnectionStringInfo.Check(connectionStringBuilder.ConnectionString))
             {
@@ -80,11 +79,10 @@ namespace Sas.Reustrant.Core.Functions
                 MessageBox.Show("Bağlantı Başarısız");
             }
         }
+
         private void btnKapat_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
     }
 }

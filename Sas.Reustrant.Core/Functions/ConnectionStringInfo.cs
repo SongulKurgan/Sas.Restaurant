@@ -23,6 +23,10 @@ namespace Sas.Reustrant.Core.Functions
         }
         public static void Set(string connectionString)
         {
+            if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) }\\{Application.CompanyName}"))
+            {
+                Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) }\\{Application.CompanyName}");
+            }
             File.WriteAllText(FilePath, connectionString);
         }
 
