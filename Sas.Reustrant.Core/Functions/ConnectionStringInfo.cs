@@ -32,7 +32,8 @@ namespace Sas.Reustrant.Core.Functions
 
         public static bool Check(string connectionString = null)
         {
-            SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder(connectionString ?? Get());
+            SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder(connectionString??Get());
+            connectionStringBuilder.InitialCatalog = "master";
             using (SqlConnection connection = new SqlConnection(connectionStringBuilder.ConnectionString))
             {
                 try
