@@ -48,7 +48,7 @@
     <Compile Include="Managers\EkMalzemeManager.cs" />
     <Compile Include="Managers\PorsiyonManager.cs" />
     <Compile Include="Managers\TanimManager.cs" />
-    <Compile Include="Managers\UrumManager.cs" />
+    <Compile Include="Managers\UrunManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\IBaseService.cs" />
     <Compile Include="Services\IEkMalzemeService.cs" />

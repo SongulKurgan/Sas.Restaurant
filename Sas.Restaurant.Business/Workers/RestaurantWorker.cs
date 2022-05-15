@@ -21,7 +21,7 @@ namespace Sas.Restaurant.Business.Workers
         public RestaurantWorker(string connetionString=null)
         {
             _uow = new RestaurantUnitOfWork(connetionString);
-            UrunService = new UrumManager(_uow);
+            UrunService = new UrunManager(_uow);
             TanimService = new TanimManager(_uow);
             PorsiyonService = new PorsiyonManager(_uow);
             EkMalzemeService = new EkMalzemeManager(_uow);

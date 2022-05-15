@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.Business.Managers
 {
-   public class UrumManager:BaseManager<Urun>,IUrunService
+   public class UrunManager:BaseManager<Urun>,IUrunService
     {
-        public UrumManager(IUnitOfWork uow):base(uow)
+        public UrunManager(IUnitOfWork uow):base(uow)
         {
 
         }
