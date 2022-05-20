@@ -51,6 +51,10 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.tabPorsiyon = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gridControlPorsiyon = new DevExpress.XtraGrid.GridControl();
             this.gridPorsiyon = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPorsiyonAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPorsiyonFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPorsiyonCarpan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPorsiyonBirim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupPorsiyonMenu = new DevExpress.XtraEditors.GroupControl();
             this.groupPorsiyonBilgi = new DevExpress.XtraEditors.GroupControl();
             this.txtBirim = new DevExpress.XtraEditors.ButtonEdit();
@@ -66,6 +70,9 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.tabEkMalzeme = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gridControlMalzeme = new DevExpress.XtraGrid.GridControl();
             this.gridMalzeme = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMalzemeAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMalzemeFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMalzemeAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupMalzemeMenu = new DevExpress.XtraEditors.GroupControl();
             this.groupEkMalzeme = new DevExpress.XtraEditors.GroupControl();
             this.txtMalzemeAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -74,13 +81,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtMalzemeAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.colPorsiyonAdi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPorsiyonFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPorsiyonCarpan = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPorsiyonBirim = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMalzemeAdi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMalzemeFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMalzemeAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlMenuKayit1 = new Sas.Restaurant.UserControls.ControlMenuKayit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -97,6 +98,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPorsiyon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPorsiyon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPorsiyonMenu)).BeginInit();
+            this.groupPorsiyonMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupPorsiyonBilgi)).BeginInit();
             this.groupPorsiyonBilgi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirim.Properties)).BeginInit();
@@ -352,8 +354,49 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.gridPorsiyon.Name = "gridPorsiyon";
             this.gridPorsiyon.OptionsView.ShowGroupPanel = false;
             // 
+            // colPorsiyonAdi
+            // 
+            this.colPorsiyonAdi.Caption = "Adı";
+            this.colPorsiyonAdi.FieldName = "Adi";
+            this.colPorsiyonAdi.MinWidth = 25;
+            this.colPorsiyonAdi.Name = "colPorsiyonAdi";
+            this.colPorsiyonAdi.Visible = true;
+            this.colPorsiyonAdi.VisibleIndex = 0;
+            this.colPorsiyonAdi.Width = 304;
+            // 
+            // colPorsiyonFiyat
+            // 
+            this.colPorsiyonFiyat.Caption = "Fiyatı";
+            this.colPorsiyonFiyat.FieldName = "Fiyat";
+            this.colPorsiyonFiyat.MinWidth = 25;
+            this.colPorsiyonFiyat.Name = "colPorsiyonFiyat";
+            this.colPorsiyonFiyat.Visible = true;
+            this.colPorsiyonFiyat.VisibleIndex = 2;
+            this.colPorsiyonFiyat.Width = 184;
+            // 
+            // colPorsiyonCarpan
+            // 
+            this.colPorsiyonCarpan.Caption = "Çarpan";
+            this.colPorsiyonCarpan.FieldName = "EkMalzemeCarpan";
+            this.colPorsiyonCarpan.MinWidth = 25;
+            this.colPorsiyonCarpan.Name = "colPorsiyonCarpan";
+            this.colPorsiyonCarpan.Visible = true;
+            this.colPorsiyonCarpan.VisibleIndex = 3;
+            this.colPorsiyonCarpan.Width = 115;
+            // 
+            // colPorsiyonBirim
+            // 
+            this.colPorsiyonBirim.Caption = "Birimi";
+            this.colPorsiyonBirim.FieldName = "Birim.Adi";
+            this.colPorsiyonBirim.MinWidth = 25;
+            this.colPorsiyonBirim.Name = "colPorsiyonBirim";
+            this.colPorsiyonBirim.Visible = true;
+            this.colPorsiyonBirim.VisibleIndex = 1;
+            this.colPorsiyonBirim.Width = 134;
+            // 
             // groupPorsiyonMenu
             // 
+            this.groupPorsiyonMenu.Controls.Add(this.controlMenuKayit1);
             this.groupPorsiyonMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPorsiyonMenu.Location = new System.Drawing.Point(0, 185);
             this.groupPorsiyonMenu.Name = "groupPorsiyonMenu";
@@ -516,6 +559,36 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.gridMalzeme.Name = "gridMalzeme";
             this.gridMalzeme.OptionsView.ShowGroupPanel = false;
             // 
+            // colMalzemeAdi
+            // 
+            this.colMalzemeAdi.Caption = "Adı";
+            this.colMalzemeAdi.FieldName = "Adi";
+            this.colMalzemeAdi.MinWidth = 25;
+            this.colMalzemeAdi.Name = "colMalzemeAdi";
+            this.colMalzemeAdi.Visible = true;
+            this.colMalzemeAdi.VisibleIndex = 0;
+            this.colMalzemeAdi.Width = 94;
+            // 
+            // colMalzemeFiyat
+            // 
+            this.colMalzemeFiyat.Caption = "Fiyatı";
+            this.colMalzemeFiyat.FieldName = "Fiyat";
+            this.colMalzemeFiyat.MinWidth = 25;
+            this.colMalzemeFiyat.Name = "colMalzemeFiyat";
+            this.colMalzemeFiyat.Visible = true;
+            this.colMalzemeFiyat.VisibleIndex = 1;
+            this.colMalzemeFiyat.Width = 94;
+            // 
+            // colMalzemeAciklama
+            // 
+            this.colMalzemeAciklama.Caption = "Açıklama";
+            this.colMalzemeAciklama.FieldName = "Aciklama";
+            this.colMalzemeAciklama.MinWidth = 25;
+            this.colMalzemeAciklama.Name = "colMalzemeAciklama";
+            this.colMalzemeAciklama.Visible = true;
+            this.colMalzemeAciklama.VisibleIndex = 2;
+            this.colMalzemeAciklama.Width = 94;
+            // 
             // groupMalzemeMenu
             // 
             this.groupMalzemeMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -602,75 +675,15 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl13.TabIndex = 1;
             this.labelControl13.Text = "Malzeme Adı :";
             // 
-            // colPorsiyonAdi
+            // controlMenuKayit1
             // 
-            this.colPorsiyonAdi.Caption = "Adı";
-            this.colPorsiyonAdi.FieldName = "Adi";
-            this.colPorsiyonAdi.MinWidth = 25;
-            this.colPorsiyonAdi.Name = "colPorsiyonAdi";
-            this.colPorsiyonAdi.Visible = true;
-            this.colPorsiyonAdi.VisibleIndex = 0;
-            this.colPorsiyonAdi.Width = 304;
-            // 
-            // colPorsiyonFiyat
-            // 
-            this.colPorsiyonFiyat.Caption = "Fiyatı";
-            this.colPorsiyonFiyat.FieldName = "Fiyat";
-            this.colPorsiyonFiyat.MinWidth = 25;
-            this.colPorsiyonFiyat.Name = "colPorsiyonFiyat";
-            this.colPorsiyonFiyat.Visible = true;
-            this.colPorsiyonFiyat.VisibleIndex = 2;
-            this.colPorsiyonFiyat.Width = 184;
-            // 
-            // colPorsiyonCarpan
-            // 
-            this.colPorsiyonCarpan.Caption = "Çarpan";
-            this.colPorsiyonCarpan.FieldName = "EkMalzemeCarpan";
-            this.colPorsiyonCarpan.MinWidth = 25;
-            this.colPorsiyonCarpan.Name = "colPorsiyonCarpan";
-            this.colPorsiyonCarpan.Visible = true;
-            this.colPorsiyonCarpan.VisibleIndex = 3;
-            this.colPorsiyonCarpan.Width = 115;
-            // 
-            // colPorsiyonBirim
-            // 
-            this.colPorsiyonBirim.Caption = "Birimi";
-            this.colPorsiyonBirim.FieldName = "Birim.Adi";
-            this.colPorsiyonBirim.MinWidth = 25;
-            this.colPorsiyonBirim.Name = "colPorsiyonBirim";
-            this.colPorsiyonBirim.Visible = true;
-            this.colPorsiyonBirim.VisibleIndex = 1;
-            this.colPorsiyonBirim.Width = 134;
-            // 
-            // colMalzemeAdi
-            // 
-            this.colMalzemeAdi.Caption = "Adı";
-            this.colMalzemeAdi.FieldName = "Adi";
-            this.colMalzemeAdi.MinWidth = 25;
-            this.colMalzemeAdi.Name = "colMalzemeAdi";
-            this.colMalzemeAdi.Visible = true;
-            this.colMalzemeAdi.VisibleIndex = 0;
-            this.colMalzemeAdi.Width = 94;
-            // 
-            // colMalzemeFiyat
-            // 
-            this.colMalzemeFiyat.Caption = "Fiyatı";
-            this.colMalzemeFiyat.FieldName = "Fiyat";
-            this.colMalzemeFiyat.MinWidth = 25;
-            this.colMalzemeFiyat.Name = "colMalzemeFiyat";
-            this.colMalzemeFiyat.Visible = true;
-            this.colMalzemeFiyat.VisibleIndex = 1;
-            this.colMalzemeFiyat.Width = 94;
-            // 
-            // colMalzemeAciklama
-            // 
-            this.colMalzemeAciklama.Caption = "Açıklama";
-            this.colMalzemeAciklama.FieldName = "Aciklama";
-            this.colMalzemeAciklama.MinWidth = 25;
-            this.colMalzemeAciklama.Name = "colMalzemeAciklama";
-            this.colMalzemeAciklama.Visible = true;
-            this.colMalzemeAciklama.VisibleIndex = 2;
-            this.colMalzemeAciklama.Width = 94;
+            this.controlMenuKayit1.KapatVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            this.controlMenuKayit1.KayitAc = false;
+            this.controlMenuKayit1.Location = new System.Drawing.Point(43, 31);
+            this.controlMenuKayit1.Name = "controlMenuKayit1";
+            this.controlMenuKayit1.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            this.controlMenuKayit1.Size = new System.Drawing.Size(712, 61);
+            this.controlMenuKayit1.TabIndex = 0;
             // 
             // FrmUrunIslem
             // 
@@ -702,6 +715,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPorsiyon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPorsiyon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPorsiyonMenu)).EndInit();
+            this.groupPorsiyonMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupPorsiyonBilgi)).EndInit();
             this.groupPorsiyonBilgi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtBirim.Properties)).EndInit();
@@ -775,5 +789,6 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeFiyat;
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeAciklama;
+        private UserControls.ControlMenuKayit controlMenuKayit1;
     }
 }

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sas.Restaurant.UI.BackOffic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sas.Restaurant.UI.FrontOffice", "Sas.Restaurant.UI.FrontOffice\Sas.Restaurant.UI.FrontOffice.csproj", "{9EB40314-9E68-40F6-AD7F-3992F2748B77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sas.Restaurant.UserControls", "Sas.Restaurant.UserControls\Sas.Restaurant.UserControls.csproj", "{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{9EB40314-9E68-40F6-AD7F-3992F2748B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EB40314-9E68-40F6-AD7F-3992F2748B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EB40314-9E68-40F6-AD7F-3992F2748B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{453147B2-087D-40A5-A4DD-9FD0042224F4} = {2902A7D9-2EBA-466E-8B4D-36570971DE98}
 		{51B91B67-D8F1-4BDC-AF3B-64CBCDEF7478} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
 		{9EB40314-9E68-40F6-AD7F-3992F2748B77} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
+		{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58784C35-56AF-487A-BCA9-F729BA7F4D37}

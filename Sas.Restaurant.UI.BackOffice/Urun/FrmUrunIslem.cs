@@ -18,6 +18,9 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             InitializeComponent();
         }
 
-        
+        private void controlMenuKayit1_EkleClick_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ekleye tıklandı");
+        }
     }
 }
