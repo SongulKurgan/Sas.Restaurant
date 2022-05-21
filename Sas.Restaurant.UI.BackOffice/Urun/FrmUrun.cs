@@ -23,7 +23,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            FrmUrunIslem form = new FrmUrunIslem();
+            FrmUrunIslem form = new FrmUrunIslem(new Entites.Tables.Urun());
             form.ShowDialog();
         }
     }

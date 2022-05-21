@@ -56,6 +56,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colPorsiyonCarpan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPorsiyonBirim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupPorsiyonMenu = new DevExpress.XtraEditors.GroupControl();
+            this.controlMenuPorsiyon = new Sas.Restaurant.UserControls.ControlMenuKayit();
             this.groupPorsiyonBilgi = new DevExpress.XtraEditors.GroupControl();
             this.txtBirim = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -74,6 +75,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colMalzemeFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMalzemeAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupMalzemeMenu = new DevExpress.XtraEditors.GroupControl();
+            this.controlMenuEkMalzeme = new Sas.Restaurant.UserControls.ControlMenuKayit();
             this.groupEkMalzeme = new DevExpress.XtraEditors.GroupControl();
             this.txtMalzemeAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.txtMalzemeFiyat = new DevExpress.XtraEditors.CalcEdit();
@@ -81,7 +83,6 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtMalzemeAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.controlMenuKayit1 = new Sas.Restaurant.UserControls.ControlMenuKayit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -110,6 +111,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMalzeme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMalzeme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupMalzemeMenu)).BeginInit();
+            this.groupMalzemeMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupEkMalzeme)).BeginInit();
             this.groupEkMalzeme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeAciklama.Properties)).BeginInit();
@@ -141,7 +143,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.groupAltMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupAltMenu.Location = new System.Drawing.Point(0, 580);
             this.groupAltMenu.Name = "groupAltMenu";
-            this.groupAltMenu.Size = new System.Drawing.Size(767, 100);
+            this.groupAltMenu.Size = new System.Drawing.Size(767, 81);
             this.groupAltMenu.TabIndex = 2;
             this.groupAltMenu.Text = "Menu";
             // 
@@ -151,7 +153,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.ImageOptions.Image")));
             this.btnKaydet.Location = new System.Drawing.Point(470, 28);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(145, 70);
+            this.btnKaydet.Size = new System.Drawing.Size(145, 51);
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Kaydet";
             // 
@@ -161,7 +163,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.ImageOptions.Image")));
             this.btnKapat.Location = new System.Drawing.Point(615, 28);
             this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(150, 70);
+            this.btnKapat.Size = new System.Drawing.Size(150, 51);
             this.btnKapat.TabIndex = 0;
             this.btnKapat.Text = "Kapat";
             // 
@@ -396,13 +398,29 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             // 
             // groupPorsiyonMenu
             // 
-            this.groupPorsiyonMenu.Controls.Add(this.controlMenuKayit1);
+            this.groupPorsiyonMenu.Controls.Add(this.controlMenuPorsiyon);
             this.groupPorsiyonMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPorsiyonMenu.Location = new System.Drawing.Point(0, 185);
             this.groupPorsiyonMenu.Name = "groupPorsiyonMenu";
             this.groupPorsiyonMenu.Size = new System.Drawing.Size(767, 100);
             this.groupPorsiyonMenu.TabIndex = 2;
             this.groupPorsiyonMenu.Text = "Porsiyon Menüsü";
+            // 
+            // controlMenuPorsiyon
+            // 
+            this.controlMenuPorsiyon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlMenuPorsiyon.KapatVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlMenuPorsiyon.KayitAc = false;
+            this.controlMenuPorsiyon.Location = new System.Drawing.Point(2, 28);
+            this.controlMenuPorsiyon.Name = "controlMenuPorsiyon";
+            this.controlMenuPorsiyon.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlMenuPorsiyon.Size = new System.Drawing.Size(763, 70);
+            this.controlMenuPorsiyon.TabIndex = 0;
+            this.controlMenuPorsiyon.EkleClick += new System.EventHandler(this.controlMenuPorsiyon_EkleClick);
+            this.controlMenuPorsiyon.DuzenleClick += new System.EventHandler(this.controlMenuPorsiyon_DuzenleClick);
+            this.controlMenuPorsiyon.SilClick += new System.EventHandler(this.controlMenuPorsiyon_SilClick);
+            this.controlMenuPorsiyon.KaydetClick += new System.EventHandler(this.controlMenuPorsiyon_KaydetClick);
+            this.controlMenuPorsiyon.VazgecClick += new System.EventHandler(this.controlMenuPorsiyon_VazgecClick);
             // 
             // groupPorsiyonBilgi
             // 
@@ -422,6 +440,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.groupPorsiyonBilgi.Size = new System.Drawing.Size(767, 185);
             this.groupPorsiyonBilgi.TabIndex = 1;
             this.groupPorsiyonBilgi.Text = "Porsiyon Bilgisi";
+            this.groupPorsiyonBilgi.Visible = false;
             // 
             // txtBirim
             // 
@@ -591,12 +610,24 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             // 
             // groupMalzemeMenu
             // 
+            this.groupMalzemeMenu.Controls.Add(this.controlMenuEkMalzeme);
             this.groupMalzemeMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupMalzemeMenu.Location = new System.Drawing.Point(0, 148);
             this.groupMalzemeMenu.Name = "groupMalzemeMenu";
             this.groupMalzemeMenu.Size = new System.Drawing.Size(767, 100);
             this.groupMalzemeMenu.TabIndex = 3;
             this.groupMalzemeMenu.Text = "Ek Malzeme Menüsü";
+            // 
+            // controlMenuEkMalzeme
+            // 
+            this.controlMenuEkMalzeme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlMenuEkMalzeme.KapatVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlMenuEkMalzeme.KayitAc = false;
+            this.controlMenuEkMalzeme.Location = new System.Drawing.Point(2, 28);
+            this.controlMenuEkMalzeme.Name = "controlMenuEkMalzeme";
+            this.controlMenuEkMalzeme.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlMenuEkMalzeme.Size = new System.Drawing.Size(763, 70);
+            this.controlMenuEkMalzeme.TabIndex = 0;
             // 
             // groupEkMalzeme
             // 
@@ -612,6 +643,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.groupEkMalzeme.Size = new System.Drawing.Size(767, 148);
             this.groupEkMalzeme.TabIndex = 2;
             this.groupEkMalzeme.Text = "Ek Malzeme Bilgisi";
+            this.groupEkMalzeme.Visible = false;
             // 
             // txtMalzemeAciklama
             // 
@@ -675,21 +707,11 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl13.TabIndex = 1;
             this.labelControl13.Text = "Malzeme Adı :";
             // 
-            // controlMenuKayit1
-            // 
-            this.controlMenuKayit1.KapatVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            this.controlMenuKayit1.KayitAc = false;
-            this.controlMenuKayit1.Location = new System.Drawing.Point(43, 31);
-            this.controlMenuKayit1.Name = "controlMenuKayit1";
-            this.controlMenuKayit1.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            this.controlMenuKayit1.Size = new System.Drawing.Size(712, 61);
-            this.controlMenuKayit1.TabIndex = 0;
-            // 
             // FrmUrunIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 680);
+            this.ClientSize = new System.Drawing.Size(767, 661);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.groupAltMenu);
             this.Controls.Add(this.labelControl1);
@@ -727,6 +749,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMalzeme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMalzeme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupMalzemeMenu)).EndInit();
+            this.groupMalzemeMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupEkMalzeme)).EndInit();
             this.groupEkMalzeme.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeAciklama.Properties)).EndInit();
@@ -789,6 +812,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeFiyat;
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeAciklama;
-        private UserControls.ControlMenuKayit controlMenuKayit1;
+        private UserControls.ControlMenuKayit controlMenuPorsiyon;
+        private UserControls.ControlMenuKayit controlMenuEkMalzeme;
     }
 }
