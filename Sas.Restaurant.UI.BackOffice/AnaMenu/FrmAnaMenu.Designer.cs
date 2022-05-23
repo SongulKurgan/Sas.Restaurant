@@ -31,10 +31,10 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
         {
             this.components = new System.ComponentModel.Container();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.btnUrun = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnUrun = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,13 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(884, 193);
             // 
+            // btnUrun
+            // 
+            this.btnUrun.Caption = "barButtonItem1";
+            this.btnUrun.Id = 1;
+            this.btnUrun.Name = "btnUrun";
+            this.btnUrun.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUrun_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -73,18 +80,11 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // btnUrun
-            // 
-            this.btnUrun.Caption = "barButtonItem1";
-            this.btnUrun.Id = 1;
-            this.btnUrun.Name = "btnUrun";
-            this.btnUrun.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUrun_ItemClick);
-            // 
             // FrmAnaMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 443);
+            this.ClientSize = new System.Drawing.Size(884, 670);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

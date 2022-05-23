@@ -44,20 +44,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\AdresManager.cs" />
     <Compile Include="Managers\Base\BaseManager.cs" />
     <Compile Include="Managers\EkMalzemeManager.cs" />
+    <Compile Include="Managers\MusteriManager.cs" />
     <Compile Include="Managers\PorsiyonManager.cs" />
     <Compile Include="Managers\TanimManager.cs" />
+    <Compile Include="Managers\TelefonManager.cs" />
     <Compile Include="Managers\UrunManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\IBaseService.cs" />
+    <Compile Include="Services\IAdresService.cs" />
     <Compile Include="Services\IEkMalzemeService.cs" />
+    <Compile Include="Services\IMusteriService.cs" />
     <Compile Include="Services\IPorsiyonService.cs" />
     <Compile Include="Services\ITanimService.cs" />
+    <Compile Include="Services\ITelefonService.cs" />
     <Compile Include="Services\IUrunService.cs" />
+    <Compile Include="Validations\AdresValidator.cs" />
     <Compile Include="Validations\EkMalzemeValidator.cs" />
+    <Compile Include="Validations\MusteriValidator.cs" />
     <Compile Include="Validations\Porsiyon Validator.cs" />
     <Compile Include="Validations\TanimValidator.cs" />
+    <Compile Include="Validations\TelefonValidator.cs" />
     <Compile Include="Validations\UrunValidator.cs" />
     <Compile Include="Workers\IWorker.cs" />
     <Compile Include="Workers\RestaurantWorker.cs" />

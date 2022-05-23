@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using Sas.Restaurant.Business.Workers;
+using Sas.Restaurant.Entites.Enums;
 using Sas.Restaurant.Entites.Tables;
+using Sas.Restaurant.UI.BackOffice.Tanim;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +32,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             worker.PorsiyonService.Load(c=>c.UrunId==urunEntity.Id);
             gridControlPorsiyon.DataSource = worker.PorsiyonService.BindingList();
             worker.EkMalzemeService.Load(c => c.UrunId == urunEntity.Id);
-            gridControlMalzeme.DataSource = worker.PorsiyonService.BindingList();
+            gridControlMalzeme.DataSource = worker.EkMalzemeService.BindingList();
             UrunBinding();
 
         }
@@ -39,12 +41,12 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             txtBarkod.DataBindings.Clear();
             txtUrunAdi.DataBindings.Clear();
-            txturunAciklama.DataBindings.Clear();
+            txtUrunAciklama.DataBindings.Clear();
             picUrunFoto.DataBindings.Clear();
             txtBarkod.DataBindings.Add("Text", _urunEntity, "Barkod", false, DataSourceUpdateMode.OnPropertyChanged);
             txtUrunAdi.DataBindings.Add("Text", _urunEntity, "Adi", false, DataSourceUpdateMode.OnPropertyChanged);
-            txturunAciklama.DataBindings.Add("Text", _urunEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
-            picUrunFoto.DataBindings.Add("Image", _urunEntity, "Fotograf", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtUrunAciklama.DataBindings.Add("Text", _urunEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
+            picUrunFoto.DataBindings.Add("EditValue", _urunEntity, "Fotograf", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         void PorsiyonBinding()
@@ -98,6 +100,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuPorsiyon.KayitAc = false;
             groupPorsiyonBilgi.Visible = false;
+            worker.PorsiyonService.AddOrUpdate(_porsiyonEntity);
 
         }
 
@@ -105,6 +108,73 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuPorsiyon.KayitAc = false;
             groupPorsiyonBilgi.Visible = false;
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            worker.UrunService.AddOrUpdate(_urunEntity);
+            worker.Commit();
+            Close();
+        }
+
+        private void controlMenuEkMalzeme_EkleClick(object sender, EventArgs e)
+        {
+            controlMenuEkMalzeme.KayitAc = true;
+            groupEkMalzeme.Visible = true;
+            _ekMalzemeEntity = new EkMalzeme();
+            _ekMalzemeEntity.UrunId = _urunEntity.Id;
+            EkMalzemeBinding();
+        }
+
+        private void controlMenuEkMalzeme_DuzenleClick(object sender, EventArgs e)
+        {
+            controlMenuEkMalzeme.KayitAc = true;
+            groupEkMalzeme.Visible = true;
+            _ekMalzemeEntity =(EkMalzeme) gridMalzeme.GetFocusedRow();
+            EkMalzemeBinding();
+        }
+
+        private void controlMenuEkMalzeme_SilClick(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                gridMalzeme.DeleteSelectedRows();
+            }
+        }
+
+        private void controlMenuEkMalzeme_KaydetClick(object sender, EventArgs e)
+        {
+            controlMenuEkMalzeme.KayitAc = false;
+            groupEkMalzeme.Visible = false;
+            worker.EkMalzemeService.AddOrUpdate(_ekMalzemeEntity);
+        }
+
+        private void controlMenuEkMalzeme_VazgecClick(object sender, EventArgs e)
+        {
+            controlMenuEkMalzeme.KayitAc = false;
+            groupEkMalzeme.Visible = false;
+        }
+
+        private void txtKategori_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FrmTanim form = new FrmTanim(TanimTip.UrunGrup);
+            form.ShowDialog();
+            if (form.Secildi)
+            {
+                txtKategori.Text = form.tanimEntity.Adi;
+                _urunEntity.UrunGrupId = form.tanimEntity.Id;
+            }
+        }
+
+        private void txtBirim_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FrmTanim form = new FrmTanim(TanimTip.Birim);
+            form.ShowDialog();
+            if (form.Secildi)
+            {
+                txtBirim.Text = form.tanimEntity.Adi;
+                _porsiyonEntity.BirimId = form.tanimEntity.Id;
+            }
         }
     }
 }

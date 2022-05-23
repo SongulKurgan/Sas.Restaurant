@@ -39,7 +39,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.groupUrunBilgi = new DevExpress.XtraEditors.GroupControl();
             this.btnResimSil = new DevExpress.XtraEditors.SimpleButton();
             this.btnResimEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.txturunAciklama = new DevExpress.XtraEditors.MemoEdit();
+            this.txtUrunAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.picUrunFoto = new DevExpress.XtraEditors.PictureEdit();
             this.txtKategori = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -90,7 +90,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.tabUrunBilgi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupUrunBilgi)).BeginInit();
             this.groupUrunBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txturunAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUrunFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKategori.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrunAdi.Properties)).BeginInit();
@@ -156,6 +156,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnKaydet.Size = new System.Drawing.Size(145, 51);
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnKapat
             // 
@@ -198,7 +199,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             // 
             this.groupUrunBilgi.Controls.Add(this.btnResimSil);
             this.groupUrunBilgi.Controls.Add(this.btnResimEkle);
-            this.groupUrunBilgi.Controls.Add(this.txturunAciklama);
+            this.groupUrunBilgi.Controls.Add(this.txtUrunAciklama);
             this.groupUrunBilgi.Controls.Add(this.picUrunFoto);
             this.groupUrunBilgi.Controls.Add(this.txtKategori);
             this.groupUrunBilgi.Controls.Add(this.labelControl5);
@@ -234,12 +235,12 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnResimEkle.TabIndex = 5;
             this.btnResimEkle.Text = "Ekle";
             // 
-            // txturunAciklama
+            // txtUrunAciklama
             // 
-            this.txturunAciklama.Location = new System.Drawing.Point(118, 114);
-            this.txturunAciklama.Name = "txturunAciklama";
-            this.txturunAciklama.Size = new System.Drawing.Size(323, 346);
-            this.txturunAciklama.TabIndex = 4;
+            this.txtUrunAciklama.Location = new System.Drawing.Point(118, 114);
+            this.txtUrunAciklama.Name = "txtUrunAciklama";
+            this.txtUrunAciklama.Size = new System.Drawing.Size(323, 346);
+            this.txtUrunAciklama.TabIndex = 4;
             // 
             // picUrunFoto
             // 
@@ -255,8 +256,10 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtKategori.Name = "txtKategori";
             this.txtKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtKategori.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtKategori.Size = new System.Drawing.Size(637, 22);
             this.txtKategori.TabIndex = 2;
+            this.txtKategori.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtKategori_ButtonClick);
             // 
             // labelControl5
             // 
@@ -448,8 +451,10 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtBirim.Name = "txtBirim";
             this.txtBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtBirim.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtBirim.Size = new System.Drawing.Size(638, 22);
             this.txtBirim.TabIndex = 7;
+            this.txtBirim.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtBirim_ButtonClick);
             // 
             // labelControl14
             // 
@@ -628,6 +633,11 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.controlMenuEkMalzeme.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             this.controlMenuEkMalzeme.Size = new System.Drawing.Size(763, 70);
             this.controlMenuEkMalzeme.TabIndex = 0;
+            this.controlMenuEkMalzeme.EkleClick += new System.EventHandler(this.controlMenuEkMalzeme_EkleClick);
+            this.controlMenuEkMalzeme.DuzenleClick += new System.EventHandler(this.controlMenuEkMalzeme_DuzenleClick);
+            this.controlMenuEkMalzeme.SilClick += new System.EventHandler(this.controlMenuEkMalzeme_SilClick);
+            this.controlMenuEkMalzeme.KaydetClick += new System.EventHandler(this.controlMenuEkMalzeme_KaydetClick);
+            this.controlMenuEkMalzeme.VazgecClick += new System.EventHandler(this.controlMenuEkMalzeme_VazgecClick);
             // 
             // groupEkMalzeme
             // 
@@ -728,7 +738,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.tabUrunBilgi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupUrunBilgi)).EndInit();
             this.groupUrunBilgi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txturunAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUrunFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKategori.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrunAdi.Properties)).EndInit();
@@ -770,7 +780,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private DevExpress.XtraEditors.GroupControl groupUrunBilgi;
         private DevExpress.XtraEditors.SimpleButton btnResimSil;
         private DevExpress.XtraEditors.SimpleButton btnResimEkle;
-        private DevExpress.XtraEditors.MemoEdit txturunAciklama;
+        private DevExpress.XtraEditors.MemoEdit txtUrunAciklama;
         private DevExpress.XtraEditors.PictureEdit picUrunFoto;
         private DevExpress.XtraEditors.ButtonEdit txtKategori;
         private DevExpress.XtraEditors.LabelControl labelControl5;

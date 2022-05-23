@@ -62,7 +62,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(747, 69);
+            this.labelControl1.Size = new System.Drawing.Size(1261, 69);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Ürünler";
             // 
@@ -74,16 +74,16 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.groupControl1.Controls.Add(this.simpleButton2);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl1.Location = new System.Drawing.Point(0, 377);
+            this.groupControl1.Location = new System.Drawing.Point(0, 649);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(747, 100);
+            this.groupControl1.Size = new System.Drawing.Size(1261, 100);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Menü";
             // 
             // simpleButton5
             // 
             this.simpleButton5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.simpleButton5.Location = new System.Drawing.Point(651, 28);
+            this.simpleButton5.Location = new System.Drawing.Point(1165, 28);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.simpleButton5.Size = new System.Drawing.Size(94, 70);
@@ -119,6 +119,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.simpleButton2.Size = new System.Drawing.Size(94, 70);
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "Düzenle";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton1
             // 
@@ -140,7 +141,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.gridControlUrunler.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnFotografEkle,
             this.picFotograf});
-            this.gridControlUrunler.Size = new System.Drawing.Size(747, 308);
+            this.gridControlUrunler.Size = new System.Drawing.Size(1261, 580);
             this.gridControlUrunler.TabIndex = 2;
             this.gridControlUrunler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridUrunler});
@@ -230,7 +231,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 477);
+            this.ClientSize = new System.Drawing.Size(1261, 749);
             this.Controls.Add(this.gridControlUrunler);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
