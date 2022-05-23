@@ -486,6 +486,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.controlMenuAdres.TabIndex = 0;
             this.controlMenuAdres.EkleClick += new System.EventHandler(this.controlMenuAdres_EkleClick);
             this.controlMenuAdres.DuzenleClick += new System.EventHandler(this.controlMenuAdres_DuzenleClick);
+            this.controlMenuAdres.SilClick += new System.EventHandler(this.controlMenuAdres_SilClick);
             this.controlMenuAdres.KaydetClick += new System.EventHandler(this.controlMenuAdres_KaydetClick);
             this.controlMenuAdres.VazgecClick += new System.EventHandler(this.controlMenuAdres_VazgecClick);
             // 

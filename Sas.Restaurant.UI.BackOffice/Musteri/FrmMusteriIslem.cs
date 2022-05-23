@@ -27,6 +27,11 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             {
                 _musteriEntity.Id = Guid.NewGuid();
             }
+            worker.TelefonService.Load(c => c.MusteriId == _musteriEntity.Id);
+            gridControlTelefon.DataSource = worker.TelefonService.BindingList();
+            worker.AdresService.Load(c => c.MusteriId == _musteriEntity.Id);
+            gridControlAdres.DataSource = worker.AdresService.BindingList();
+            MusteriBinding();
         }
         void MusteriBinding()
         {
@@ -106,22 +111,42 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
 
         private void controlMenuAdres_EkleClick(object sender, EventArgs e)
         {
-
+            controlMenuAdres.KayitAc = true;
+            groupAdresBilgi.Visible = true;
+            _adresEntity = new Adres();
+            _adresEntity.MusteriId = _musteriEntity.Id;
+            AdresBinding();
         }
 
         private void controlMenuAdres_DuzenleClick(object sender, EventArgs e)
         {
+            controlMenuAdres.KayitAc = true;
+            groupAdresBilgi.Visible = true;
+            _adresEntity = (Adres)gridAdres.GetFocusedRow();
+            AdresBinding();
+        }
 
+        private void controlMenuAdres_SilClick(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seçili olan kaydı silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                gridAdres.DeleteSelectedRows();
+            }
         }
 
         private void controlMenuAdres_KaydetClick(object sender, EventArgs e)
         {
-
+            worker.AdresService.AddOrUpdate(_adresEntity);
+            controlMenuAdres.KayitAc = false;
+            groupAdresBilgi.Visible = false;
         }
 
         private void controlMenuAdres_VazgecClick(object sender, EventArgs e)
         {
-
+            controlMenuAdres.KayitAc = false;
+            groupAdresBilgi.Visible = false;
         }
+
+        
     }
 }
