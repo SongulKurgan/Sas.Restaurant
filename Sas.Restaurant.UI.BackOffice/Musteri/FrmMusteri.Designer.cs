@@ -31,17 +31,13 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlMusteri = new DevExpress.XtraGrid.GridControl();
             this.gridMusteri = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colKartNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoyadi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSirket = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colKartNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlMenu = new Sas.Restaurant.UserControls.ControlAnaMenuAlt();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMusteri)).BeginInit();
@@ -63,67 +59,13 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.simpleButton5);
-            this.groupControl1.Controls.Add(this.simpleButton4);
-            this.groupControl1.Controls.Add(this.simpleButton3);
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.controlMenu);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupControl1.Location = new System.Drawing.Point(0, 649);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1261, 100);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Menü";
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.simpleButton5.Location = new System.Drawing.Point(1165, 28);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton5.Size = new System.Drawing.Size(94, 70);
-            this.simpleButton5.TabIndex = 4;
-            this.simpleButton5.Text = "Kapat";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton4.Location = new System.Drawing.Point(284, 28);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton4.Size = new System.Drawing.Size(94, 70);
-            this.simpleButton4.TabIndex = 3;
-            this.simpleButton4.Text = "Güncelle";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton3.Location = new System.Drawing.Point(190, 28);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton3.Size = new System.Drawing.Size(94, 70);
-            this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "Sil";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton2.Location = new System.Drawing.Point(96, 28);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton2.Size = new System.Drawing.Size(94, 70);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Düzenle";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton1.Location = new System.Drawing.Point(2, 28);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton1.Size = new System.Drawing.Size(94, 70);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Ekle";
             // 
             // gridControlMusteri
             // 
@@ -145,6 +87,16 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.colSirket});
             this.gridMusteri.GridControl = this.gridControlMusteri;
             this.gridMusteri.Name = "gridMusteri";
+            // 
+            // colKartNo
+            // 
+            this.colKartNo.Caption = "Kart No";
+            this.colKartNo.FieldName = "KartNo";
+            this.colKartNo.MinWidth = 25;
+            this.colKartNo.Name = "colKartNo";
+            this.colKartNo.Visible = true;
+            this.colKartNo.VisibleIndex = 0;
+            this.colKartNo.Width = 94;
             // 
             // colAdi
             // 
@@ -176,15 +128,19 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.colSirket.VisibleIndex = 3;
             this.colSirket.Width = 94;
             // 
-            // colKartNo
+            // controlMenu
             // 
-            this.colKartNo.Caption = "Kart No";
-            this.colKartNo.FieldName = "KartNo";
-            this.colKartNo.MinWidth = 25;
-            this.colKartNo.Name = "colKartNo";
-            this.colKartNo.Visible = true;
-            this.colKartNo.VisibleIndex = 0;
-            this.colKartNo.Width = 94;
+            this.controlMenu.ButtonFont = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlMenu.Location = new System.Drawing.Point(2, 28);
+            this.controlMenu.Name = "controlMenu";
+            this.controlMenu.Size = new System.Drawing.Size(1257, 70);
+            this.controlMenu.TabIndex = 0;
+            this.controlMenu.ButtonEkle += new System.EventHandler(this.controlMenu_ButtonEkle);
+            this.controlMenu.ButtonDuzenle += new System.EventHandler(this.controlMenu_ButtonDuzenle);
+            this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
+            this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
+            this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
             // 
             // FrmMusteri
             // 
@@ -208,16 +164,12 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraGrid.GridControl gridControlMusteri;
         private DevExpress.XtraGrid.Views.Grid.GridView gridMusteri;
         private DevExpress.XtraGrid.Columns.GridColumn colKartNo;
         private DevExpress.XtraGrid.Columns.GridColumn colAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colSoyadi;
         private DevExpress.XtraGrid.Columns.GridColumn colSirket;
+        private UserControls.ControlAnaMenuAlt controlMenu;
     }
 }

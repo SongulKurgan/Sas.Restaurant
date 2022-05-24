@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAnaMenuAlt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAnaMenuAlt.Designer.cs">
+      <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlMenuKayit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ControlAnaMenuAlt.resx">
+      <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlMenuKayit.resx">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>
     </EmbeddedResource>

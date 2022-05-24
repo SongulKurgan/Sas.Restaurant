@@ -19,6 +19,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         private Entites.Tables.Musteri _musteriEntity;
         private Telefon _telefonEntity;
         private Adres _adresEntity;
+        public bool Kaydedildi = false;
         public FrmMusteriIslem(Entites.Tables.Musteri musteriEntity)
         {
             InitializeComponent();
@@ -68,7 +69,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             txtIl.DataBindings.Add("Text", _adresEntity, "Il", false, DataSourceUpdateMode.OnPropertyChanged);
             txtIlce.DataBindings.Add("Text", _adresEntity, "Ilce", false, DataSourceUpdateMode.OnPropertyChanged);
             txtSemt.DataBindings.Add("Text", _adresEntity, "Semt", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtAdres.DataBindings.Add("Text", _adresEntity, "Adres", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtAdres.DataBindings.Add("Text", _adresEntity, "Adresi", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void controlMenuTelefon_EkleClick(object sender, EventArgs e)
@@ -147,6 +148,17 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             groupAdresBilgi.Visible = false;
         }
 
-        
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            worker.MusteriService.AddOrUpdate(_musteriEntity);
+            worker.Commit();
+            Kaydedildi = true;
+            Close();
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

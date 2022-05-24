@@ -21,6 +21,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private Entites.Tables.Urun _urunEntity;
         private Porsiyon _porsiyonEntity;
         private EkMalzeme _ekMalzemeEntity;
+        public bool Eklendi = false;
         public FrmUrunIslem(Entites.Tables.Urun urunEntity)
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             {
                 _urunEntity.Id = Guid.NewGuid();
             }
-            worker.PorsiyonService.Load(c=>c.UrunId==urunEntity.Id);
+            worker.PorsiyonService.Load(c=>c.UrunId==urunEntity.Id,c=>c.Birim);
             gridControlPorsiyon.DataSource = worker.PorsiyonService.BindingList();
             worker.EkMalzemeService.Load(c => c.UrunId == urunEntity.Id);
             gridControlMalzeme.DataSource = worker.EkMalzemeService.BindingList();
@@ -43,10 +44,12 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             txtUrunAdi.DataBindings.Clear();
             txtUrunAciklama.DataBindings.Clear();
             picUrunFoto.DataBindings.Clear();
+            txtKategori.DataBindings.Clear();
             txtBarkod.DataBindings.Add("Text", _urunEntity, "Barkod", false, DataSourceUpdateMode.OnPropertyChanged);
             txtUrunAdi.DataBindings.Add("Text", _urunEntity, "Adi", false, DataSourceUpdateMode.OnPropertyChanged);
             txtUrunAciklama.DataBindings.Add("Text", _urunEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
             picUrunFoto.DataBindings.Add("EditValue", _urunEntity, "Fotograf", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtKategori.DataBindings.Add("Text", _urunEntity, "UrunGrup.Adi", false, DataSourceUpdateMode.Never);
         }
 
         void PorsiyonBinding()
@@ -55,10 +58,12 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             txtPorsiyonFiyat.DataBindings.Clear();
             txtEkMalzemeCarpan.DataBindings.Clear();
             txtPorsiyonAciklama.DataBindings.Clear();
+            txtBirim.DataBindings.Clear();
             txtPorsiyonAdi.DataBindings.Add("Text", _porsiyonEntity, "Adi", false, DataSourceUpdateMode.OnPropertyChanged);
             txtPorsiyonFiyat.DataBindings.Add("Value", _porsiyonEntity, "Fiyat", false, DataSourceUpdateMode.OnPropertyChanged);
             txtEkMalzemeCarpan.DataBindings.Add("Value", _porsiyonEntity, "EkMalzemeCarpan", false, DataSourceUpdateMode.OnPropertyChanged);
             txtPorsiyonAciklama.DataBindings.Add("Text", _porsiyonEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtBirim.DataBindings.Add("Text", _porsiyonEntity.Birim??new Entites.Tables.Tanim(), "Adi", false, DataSourceUpdateMode.Never);
         }
 
         void EkMalzemeBinding()
@@ -100,6 +105,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuPorsiyon.KayitAc = false;
             groupPorsiyonBilgi.Visible = false;
+            worker.TanimService.Load(c => c.Id == _porsiyonEntity.BirimId);
             worker.PorsiyonService.AddOrUpdate(_porsiyonEntity);
 
         }
@@ -114,6 +120,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             worker.UrunService.AddOrUpdate(_urunEntity);
             worker.Commit();
+            Eklendi = true;
             Close();
         }
 
@@ -175,6 +182,11 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
                 txtBirim.Text = form.tanimEntity.Adi;
                 _porsiyonEntity.BirimId = form.tanimEntity.Id;
             }
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
