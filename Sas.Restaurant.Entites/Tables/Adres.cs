@@ -9,7 +9,7 @@ namespace Sas.Restaurant.Entites.Tables
 {
    public class Adres:EntityBase
     {
-        public TelefonAdresTip TelefonAdresTip { get; set; }
+        public TelefonAdresTip AdresTip { get; set; }
         public string Il { get; set; }
         public string Ilce { get; set; }
         public string Semt { get; set; }

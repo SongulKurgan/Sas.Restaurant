@@ -80,6 +80,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuPorsiyon.KayitAc = true;
             groupPorsiyonBilgi.Visible = true;
+            groupAltMenu.Enabled = false;
             _porsiyonEntity = new Porsiyon();
             _porsiyonEntity.UrunId = _urunEntity.Id;
             PorsiyonBinding();
@@ -87,14 +88,23 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
 
         private void controlMenuPorsiyon_DuzenleClick(object sender, EventArgs e)
         {
+            if (gridPorsiyon.GetFocusedRow()==null)
+            {
+                return;
+            }
             controlMenuPorsiyon.KayitAc = true;
             groupPorsiyonBilgi.Visible = true;
+            groupAltMenu.Enabled = false;
             _porsiyonEntity = (Porsiyon) gridPorsiyon.GetFocusedRow();
             PorsiyonBinding();
         }
 
         private void controlMenuPorsiyon_SilClick(object sender, EventArgs e)
         {
+            if (gridPorsiyon.GetFocusedRow() == null)
+            {
+                return;
+            }
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?","Uyarı",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
                 gridPorsiyon.DeleteSelectedRows();
@@ -105,6 +115,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuPorsiyon.KayitAc = false;
             groupPorsiyonBilgi.Visible = false;
+            groupAltMenu.Enabled = true;
             worker.TanimService.Load(c => c.Id == _porsiyonEntity.BirimId);
             worker.PorsiyonService.AddOrUpdate(_porsiyonEntity);
 
@@ -114,6 +125,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuPorsiyon.KayitAc = false;
             groupPorsiyonBilgi.Visible = false;
+            groupAltMenu.Enabled = true;
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -128,6 +140,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuEkMalzeme.KayitAc = true;
             groupEkMalzeme.Visible = true;
+            groupAltMenu.Enabled = false;
             _ekMalzemeEntity = new EkMalzeme();
             _ekMalzemeEntity.UrunId = _urunEntity.Id;
             EkMalzemeBinding();
@@ -135,14 +148,23 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
 
         private void controlMenuEkMalzeme_DuzenleClick(object sender, EventArgs e)
         {
+            if (gridMalzeme.GetFocusedRow() == null)
+            {
+                return;
+            }
             controlMenuEkMalzeme.KayitAc = true;
             groupEkMalzeme.Visible = true;
+            groupAltMenu.Enabled = false;
             _ekMalzemeEntity =(EkMalzeme) gridMalzeme.GetFocusedRow();
             EkMalzemeBinding();
         }
 
         private void controlMenuEkMalzeme_SilClick(object sender, EventArgs e)
         {
+            if (gridMalzeme.GetFocusedRow() == null)
+            {
+                return;
+            }
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridMalzeme.DeleteSelectedRows();
@@ -153,6 +175,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuEkMalzeme.KayitAc = false;
             groupEkMalzeme.Visible = false;
+            groupAltMenu.Enabled = true;
             worker.EkMalzemeService.AddOrUpdate(_ekMalzemeEntity);
         }
 
@@ -160,6 +183,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         {
             controlMenuEkMalzeme.KayitAc = false;
             groupEkMalzeme.Visible = false;
+            groupAltMenu.Enabled = true;
         }
 
         private void txtKategori_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

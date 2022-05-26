@@ -38,6 +38,10 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
 
         private void controlAnaMenu_ButtonDuzenle(object sender, EventArgs e)
         {
+            if (gridUrunler.GetFocusedRow()==null)
+            {
+                return;
+            }
             FrmUrunIslem form = new FrmUrunIslem((Entites.Tables.Urun)gridUrunler.GetFocusedRow());
             form.ShowDialog();
             if (form.Eklendi)
@@ -48,6 +52,10 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
 
         private void controlAnaMenu_ButtonSil(object sender, EventArgs e)
         {
+            if (gridUrunler.GetFocusedRow() == null)
+            {
+                return;
+            }
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridUrunler.DeleteSelectedRows();

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.Entites.Enums
 {
-   public  enum TanimTip
+   public enum UrunHareketTip
     {
-        Birim,
-        UrunGrup,
-        Konum
+        Satis,
+        Iptal,
+        Ikram
     }
 }

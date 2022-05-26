@@ -50,13 +50,13 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.tabTelefon = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gridControlTelefon = new DevExpress.XtraGrid.GridControl();
             this.gridTelefon = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colTelefon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTelefonTip = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTelefon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupTelefonMenu = new DevExpress.XtraEditors.GroupControl();
             this.controlMenuTelefon = new Sas.Restaurant.UserControls.ControlMenuKayit();
             this.groupTelefonBilgi = new DevExpress.XtraEditors.GroupControl();
-            this.cmbTelefonTip = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lookTelefonTip = new DevExpress.XtraEditors.LookUpEdit();
             this.txtTelefonAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.txtTelefonNumarasi = new DevExpress.XtraEditors.TextEdit();
@@ -74,7 +74,6 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.controlMenuAdres = new Sas.Restaurant.UserControls.ControlMenuKayit();
             this.groupAdresBilgi = new DevExpress.XtraEditors.GroupControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbAdresTip = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtIlce = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtAdres = new DevExpress.XtraEditors.MemoEdit();
@@ -83,6 +82,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtIl = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.lookAdresTip = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -102,7 +102,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.groupTelefonMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupTelefonBilgi)).BeginInit();
             this.groupTelefonBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTelefonTip.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefonAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefonNumarasi.Properties)).BeginInit();
             this.tabAdres.SuspendLayout();
@@ -112,11 +112,11 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.groupAdresMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupAdresBilgi)).BeginInit();
             this.groupAdresBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAdresTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIlce.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdres.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSemt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookAdresTip.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -154,7 +154,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.btnKaydet.Location = new System.Drawing.Point(470, 28);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(145, 51);
-            this.btnKaydet.TabIndex = 1;
+            this.btnKaydet.TabIndex = 0;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
@@ -165,7 +165,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.btnKapat.Location = new System.Drawing.Point(615, 28);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(150, 51);
-            this.btnKapat.TabIndex = 0;
+            this.btnKapat.TabIndex = 1;
             this.btnKapat.Text = "Kapat";
             this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
@@ -220,7 +220,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtMusteriAciklama.Location = new System.Drawing.Point(118, 154);
             this.txtMusteriAciklama.Name = "txtMusteriAciklama";
             this.txtMusteriAciklama.Size = new System.Drawing.Size(637, 306);
-            this.txtMusteriAciklama.TabIndex = 4;
+            this.txtMusteriAciklama.TabIndex = 5;
             // 
             // labelControl5
             // 
@@ -241,7 +241,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtSirketAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtSirketAdi.Properties.Appearance.Options.UseFont = true;
             this.txtSirketAdi.Size = new System.Drawing.Size(638, 22);
-            this.txtSirketAdi.TabIndex = 1;
+            this.txtSirketAdi.TabIndex = 3;
             // 
             // txtMusteriSoyadi
             // 
@@ -250,7 +250,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtMusteriSoyadi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtMusteriSoyadi.Properties.Appearance.Options.UseFont = true;
             this.txtMusteriSoyadi.Size = new System.Drawing.Size(638, 22);
-            this.txtMusteriSoyadi.TabIndex = 1;
+            this.txtMusteriSoyadi.TabIndex = 2;
             // 
             // txtMusteriAdi
             // 
@@ -304,7 +304,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtKartNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKartNo.Properties.Appearance.Options.UseFont = true;
             this.txtKartNo.Size = new System.Drawing.Size(325, 22);
-            this.txtKartNo.TabIndex = 1;
+            this.txtKartNo.TabIndex = 0;
             // 
             // labelControl2
             // 
@@ -342,23 +342,12 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             // gridTelefon
             // 
             this.gridTelefon.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colTelefon,
             this.colTelefonTip,
+            this.colTelefon,
             this.colAciklama});
             this.gridTelefon.GridControl = this.gridControlTelefon;
             this.gridTelefon.Name = "gridTelefon";
             this.gridTelefon.OptionsView.ShowGroupPanel = false;
-            // 
-            // colTelefon
-            // 
-            this.colTelefon.Caption = "Telefon";
-            this.colTelefon.FieldName = "Telefonu";
-            this.colTelefon.MinWidth = 25;
-            this.colTelefon.Name = "colTelefon";
-            this.colTelefon.OptionsColumn.AllowEdit = false;
-            this.colTelefon.Visible = true;
-            this.colTelefon.VisibleIndex = 0;
-            this.colTelefon.Width = 94;
             // 
             // colTelefonTip
             // 
@@ -368,8 +357,19 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.colTelefonTip.Name = "colTelefonTip";
             this.colTelefonTip.OptionsColumn.AllowEdit = false;
             this.colTelefonTip.Visible = true;
-            this.colTelefonTip.VisibleIndex = 1;
+            this.colTelefonTip.VisibleIndex = 0;
             this.colTelefonTip.Width = 94;
+            // 
+            // colTelefon
+            // 
+            this.colTelefon.Caption = "Telefon";
+            this.colTelefon.FieldName = "Telefonu";
+            this.colTelefon.MinWidth = 25;
+            this.colTelefon.Name = "colTelefon";
+            this.colTelefon.OptionsColumn.AllowEdit = false;
+            this.colTelefon.Visible = true;
+            this.colTelefon.VisibleIndex = 1;
+            this.colTelefon.Width = 94;
             // 
             // colAciklama
             // 
@@ -410,7 +410,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             // 
             // groupTelefonBilgi
             // 
-            this.groupTelefonBilgi.Controls.Add(this.cmbTelefonTip);
+            this.groupTelefonBilgi.Controls.Add(this.lookTelefonTip);
             this.groupTelefonBilgi.Controls.Add(this.txtTelefonAciklama);
             this.groupTelefonBilgi.Controls.Add(this.labelControl9);
             this.groupTelefonBilgi.Controls.Add(this.txtTelefonNumarasi);
@@ -424,21 +424,23 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.groupTelefonBilgi.Text = "Telefon Bilgisi";
             this.groupTelefonBilgi.Visible = false;
             // 
-            // cmbTelefonTip
+            // lookTelefonTip
             // 
-            this.cmbTelefonTip.Location = new System.Drawing.Point(140, 47);
-            this.cmbTelefonTip.Name = "cmbTelefonTip";
-            this.cmbTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lookTelefonTip.Location = new System.Drawing.Point(140, 47);
+            this.lookTelefonTip.Name = "lookTelefonTip";
+            this.lookTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbTelefonTip.Size = new System.Drawing.Size(615, 22);
-            this.cmbTelefonTip.TabIndex = 6;
+            this.lookTelefonTip.Properties.NullText = "Lütfen BirTelefon Tipi Seçin";
+            this.lookTelefonTip.Properties.ShowFooter = false;
+            this.lookTelefonTip.Size = new System.Drawing.Size(614, 22);
+            this.lookTelefonTip.TabIndex = 0;
             // 
             // txtTelefonAciklama
             // 
             this.txtTelefonAciklama.Location = new System.Drawing.Point(140, 106);
             this.txtTelefonAciklama.Name = "txtTelefonAciklama";
             this.txtTelefonAciklama.Size = new System.Drawing.Size(615, 82);
-            this.txtTelefonAciklama.TabIndex = 5;
+            this.txtTelefonAciklama.TabIndex = 3;
             // 
             // labelControl9
             // 
@@ -461,7 +463,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtTelefonNumarasi.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtTelefonNumarasi.Properties.MaskSettings.Set("mask", "(000) 000-0000");
             this.txtTelefonNumarasi.Size = new System.Drawing.Size(615, 22);
-            this.txtTelefonNumarasi.TabIndex = 2;
+            this.txtTelefonNumarasi.TabIndex = 1;
             // 
             // labelControl7
             // 
@@ -504,7 +506,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.gridControlAdres.MainView = this.gridAdres;
             this.gridControlAdres.Name = "gridControlAdres";
             this.gridControlAdres.Size = new System.Drawing.Size(767, 196);
-            this.gridControlAdres.TabIndex = 4;
+            this.gridControlAdres.TabIndex = 0;
             this.gridControlAdres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridAdres});
             // 
@@ -599,7 +601,6 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             // groupAdresBilgi
             // 
             this.groupAdresBilgi.Controls.Add(this.labelControl14);
-            this.groupAdresBilgi.Controls.Add(this.cmbAdresTip);
             this.groupAdresBilgi.Controls.Add(this.txtIlce);
             this.groupAdresBilgi.Controls.Add(this.labelControl8);
             this.groupAdresBilgi.Controls.Add(this.txtAdres);
@@ -608,6 +609,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.groupAdresBilgi.Controls.Add(this.labelControl12);
             this.groupAdresBilgi.Controls.Add(this.txtIl);
             this.groupAdresBilgi.Controls.Add(this.labelControl13);
+            this.groupAdresBilgi.Controls.Add(this.lookAdresTip);
             this.groupAdresBilgi.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupAdresBilgi.Location = new System.Drawing.Point(0, 0);
             this.groupAdresBilgi.Name = "groupAdresBilgi";
@@ -628,15 +630,6 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.labelControl14.TabIndex = 9;
             this.labelControl14.Text = "Adres Tipi :";
             // 
-            // cmbAdresTip
-            // 
-            this.cmbAdresTip.Location = new System.Drawing.Point(118, 47);
-            this.cmbAdresTip.Name = "cmbAdresTip";
-            this.cmbAdresTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAdresTip.Size = new System.Drawing.Size(273, 22);
-            this.cmbAdresTip.TabIndex = 8;
-            // 
             // txtIlce
             // 
             this.txtIlce.Location = new System.Drawing.Point(499, 78);
@@ -644,7 +637,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtIlce.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtIlce.Properties.Appearance.Options.UseFont = true;
             this.txtIlce.Size = new System.Drawing.Size(263, 22);
-            this.txtIlce.TabIndex = 7;
+            this.txtIlce.TabIndex = 2;
             // 
             // labelControl8
             // 
@@ -663,7 +656,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtAdres.Location = new System.Drawing.Point(118, 108);
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(644, 40);
-            this.txtAdres.TabIndex = 5;
+            this.txtAdres.TabIndex = 4;
             // 
             // labelControl11
             // 
@@ -684,7 +677,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtSemt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtSemt.Properties.Appearance.Options.UseFont = true;
             this.txtSemt.Size = new System.Drawing.Size(273, 22);
-            this.txtSemt.TabIndex = 2;
+            this.txtSemt.TabIndex = 3;
             // 
             // labelControl12
             // 
@@ -705,7 +698,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtIl.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtIl.Properties.Appearance.Options.UseFont = true;
             this.txtIl.Size = new System.Drawing.Size(263, 22);
-            this.txtIl.TabIndex = 2;
+            this.txtIl.TabIndex = 1;
             // 
             // labelControl13
             // 
@@ -718,6 +711,18 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.labelControl13.Size = new System.Drawing.Size(96, 22);
             this.labelControl13.TabIndex = 1;
             this.labelControl13.Text = "İl :";
+            // 
+            // lookAdresTip
+            // 
+            this.lookAdresTip.Location = new System.Drawing.Point(118, 47);
+            this.lookAdresTip.Name = "lookAdresTip";
+            this.lookAdresTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookAdresTip.Properties.NullText = "Lütfen Bir Adres Tipi Seçin";
+            this.lookAdresTip.Properties.PopupSizeable = false;
+            this.lookAdresTip.Properties.ShowFooter = false;
+            this.lookAdresTip.Size = new System.Drawing.Size(273, 22);
+            this.lookAdresTip.TabIndex = 0;
             // 
             // FrmMusteriIslem
             // 
@@ -732,7 +737,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.MinimizeBox = false;
             this.Name = "FrmMusteriIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMusteriIslem";
+            this.Text = "Muşteri İşlem Formu";
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
@@ -752,7 +757,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.groupTelefonMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupTelefonBilgi)).EndInit();
             this.groupTelefonBilgi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTelefonTip.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefonAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefonNumarasi.Properties)).EndInit();
             this.tabAdres.ResumeLayout(false);
@@ -762,11 +767,11 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.groupAdresMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupAdresBilgi)).EndInit();
             this.groupAdresBilgi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAdresTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIlce.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdres.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSemt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookAdresTip.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -810,12 +815,10 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.TextEdit txtIl;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbTelefonTip;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit txtIlce;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbAdresTip;
         private DevExpress.XtraEditors.TextEdit txtSemt;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraGrid.Columns.GridColumn colTelefon;
@@ -826,5 +829,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         private DevExpress.XtraGrid.Columns.GridColumn colIlce;
         private DevExpress.XtraGrid.Columns.GridColumn colSemt;
         private DevExpress.XtraGrid.Columns.GridColumn colAdres;
+        private DevExpress.XtraEditors.LookUpEdit lookTelefonTip;
+        private DevExpress.XtraEditors.LookUpEdit lookAdresTip;
     }
 }

@@ -44,22 +44,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\AdisyonManager.cs" />
     <Compile Include="Managers\AdresManager.cs" />
     <Compile Include="Managers\Base\BaseManager.cs" />
+    <Compile Include="Managers\EkMalzemeHareketManager.cs" />
     <Compile Include="Managers\EkMalzemeManager.cs" />
+    <Compile Include="Managers\GarsonManager.cs" />
+    <Compile Include="Managers\MasaManager.cs" />
     <Compile Include="Managers\MusteriManager.cs" />
     <Compile Include="Managers\PorsiyonManager.cs" />
     <Compile Include="Managers\TanimManager.cs" />
     <Compile Include="Managers\TelefonManager.cs" />
+    <Compile Include="Managers\UrunHareketManager.cs" />
     <Compile Include="Managers\UrunManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\IBaseService.cs" />
+    <Compile Include="Services\IAdisyonService.cs" />
     <Compile Include="Services\IAdresService.cs" />
+    <Compile Include="Services\IEkMalzemeHareketService.cs" />
     <Compile Include="Services\IEkMalzemeService.cs" />
+    <Compile Include="Services\IGarsonService.cs" />
+    <Compile Include="Services\IMasaService.cs" />
     <Compile Include="Services\IMusteriService.cs" />
     <Compile Include="Services\IPorsiyonService.cs" />
     <Compile Include="Services\ITanimService.cs" />
     <Compile Include="Services\ITelefonService.cs" />
+    <Compile Include="Services\IUrunHareketService.cs" />
     <Compile Include="Services\IUrunService.cs" />
     <Compile Include="Validations\AdresValidator.cs" />
     <Compile Include="Validations\EkMalzemeValidator.cs" />

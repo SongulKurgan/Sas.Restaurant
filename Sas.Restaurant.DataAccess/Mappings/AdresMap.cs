@@ -22,7 +22,7 @@ namespace Sas.Restaurant.DataAccess.Mappings
             Property(c => c.Adresi).HasColumnName("Adresi");
             Property(c => c.Ilce).HasColumnName("Ilce");
             Property(c => c.Semt).HasColumnName("Semt");
-            Property(c => c.TelefonAdresTip).HasColumnName("TelefonAdresTip");
+            Property(c => c.AdresTip).HasColumnName("AdresTip");
         }
     }
 }

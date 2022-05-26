@@ -154,7 +154,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnKaydet.Location = new System.Drawing.Point(470, 28);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(145, 51);
-            this.btnKaydet.TabIndex = 1;
+            this.btnKaydet.TabIndex = 0;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
@@ -165,7 +165,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnKapat.Location = new System.Drawing.Point(615, 28);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(150, 51);
-            this.btnKapat.TabIndex = 0;
+            this.btnKapat.TabIndex = 1;
             this.btnKapat.Text = "Kapat";
             this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
@@ -223,7 +223,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnResimSil.Name = "btnResimSil";
             this.btnResimSil.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnResimSil.Size = new System.Drawing.Size(140, 53);
-            this.btnResimSil.TabIndex = 6;
+            this.btnResimSil.TabIndex = 5;
             this.btnResimSil.Text = "Sil";
             // 
             // btnResimEkle
@@ -233,7 +233,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.btnResimEkle.Name = "btnResimEkle";
             this.btnResimEkle.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnResimEkle.Size = new System.Drawing.Size(141, 53);
-            this.btnResimEkle.TabIndex = 5;
+            this.btnResimEkle.TabIndex = 4;
             this.btnResimEkle.Text = "Ekle";
             // 
             // txtUrunAciklama
@@ -241,7 +241,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtUrunAciklama.Location = new System.Drawing.Point(118, 114);
             this.txtUrunAciklama.Name = "txtUrunAciklama";
             this.txtUrunAciklama.Size = new System.Drawing.Size(323, 346);
-            this.txtUrunAciklama.TabIndex = 4;
+            this.txtUrunAciklama.TabIndex = 3;
             // 
             // picUrunFoto
             // 
@@ -293,7 +293,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtUrunAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtUrunAdi.Properties.Appearance.Options.UseFont = true;
             this.txtUrunAdi.Size = new System.Drawing.Size(638, 22);
-            this.txtUrunAdi.TabIndex = 1;
+            this.txtUrunAdi.TabIndex = 6;
             // 
             // labelControl3
             // 
@@ -314,7 +314,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtBarkod.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtBarkod.Properties.Appearance.Options.UseFont = true;
             this.txtBarkod.Size = new System.Drawing.Size(325, 22);
-            this.txtBarkod.TabIndex = 1;
+            this.txtBarkod.TabIndex = 0;
             // 
             // labelControl2
             // 
@@ -454,7 +454,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtBirim.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtBirim.Size = new System.Drawing.Size(638, 22);
-            this.txtBirim.TabIndex = 7;
+            this.txtBirim.TabIndex = 3;
             this.txtBirim.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtBirim_ButtonClick);
             // 
             // labelControl14
@@ -474,7 +474,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtPorsiyonAciklama.Location = new System.Drawing.Point(117, 124);
             this.txtPorsiyonAciklama.Name = "txtPorsiyonAciklama";
             this.txtPorsiyonAciklama.Size = new System.Drawing.Size(638, 55);
-            this.txtPorsiyonAciklama.TabIndex = 5;
+            this.txtPorsiyonAciklama.TabIndex = 4;
             // 
             // txtEkMalzemeCarpan
             // 
@@ -484,7 +484,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtEkMalzemeCarpan.Properties.Appearance.Options.UseFont = true;
             this.txtEkMalzemeCarpan.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtEkMalzemeCarpan.Size = new System.Drawing.Size(146, 34);
-            this.txtEkMalzemeCarpan.TabIndex = 4;
+            this.txtEkMalzemeCarpan.TabIndex = 2;
             // 
             // labelControl8
             // 
@@ -506,7 +506,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtPorsiyonFiyat.Properties.Appearance.Options.UseFont = true;
             this.txtPorsiyonFiyat.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtPorsiyonFiyat.Size = new System.Drawing.Size(347, 34);
-            this.txtPorsiyonFiyat.TabIndex = 4;
+            this.txtPorsiyonFiyat.TabIndex = 1;
             // 
             // labelControl9
             // 
@@ -539,7 +539,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtPorsiyonAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPorsiyonAdi.Properties.Appearance.Options.UseFont = true;
             this.txtPorsiyonAdi.Size = new System.Drawing.Size(638, 22);
-            this.txtPorsiyonAdi.TabIndex = 2;
+            this.txtPorsiyonAdi.TabIndex = 0;
             // 
             // labelControl6
             // 
@@ -570,7 +570,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.gridControlMalzeme.MainView = this.gridMalzeme;
             this.gridControlMalzeme.Name = "gridControlMalzeme";
             this.gridControlMalzeme.Size = new System.Drawing.Size(767, 218);
-            this.gridControlMalzeme.TabIndex = 4;
+            this.gridControlMalzeme.TabIndex = 0;
             this.gridControlMalzeme.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMalzeme});
             // 
@@ -661,7 +661,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtMalzemeAciklama.Location = new System.Drawing.Point(118, 97);
             this.txtMalzemeAciklama.Name = "txtMalzemeAciklama";
             this.txtMalzemeAciklama.Size = new System.Drawing.Size(644, 44);
-            this.txtMalzemeAciklama.TabIndex = 5;
+            this.txtMalzemeAciklama.TabIndex = 3;
             // 
             // txtMalzemeFiyat
             // 
@@ -671,7 +671,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtMalzemeFiyat.Properties.Appearance.Options.UseFont = true;
             this.txtMalzemeFiyat.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtMalzemeFiyat.Size = new System.Drawing.Size(644, 34);
-            this.txtMalzemeFiyat.TabIndex = 4;
+            this.txtMalzemeFiyat.TabIndex = 2;
             // 
             // labelControl11
             // 
@@ -704,7 +704,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.txtMalzemeAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtMalzemeAdi.Properties.Appearance.Options.UseFont = true;
             this.txtMalzemeAdi.Size = new System.Drawing.Size(645, 22);
-            this.txtMalzemeAdi.TabIndex = 2;
+            this.txtMalzemeAdi.TabIndex = 1;
             // 
             // labelControl13
             // 
@@ -731,7 +731,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.MinimizeBox = false;
             this.Name = "FrmUrunIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmUrunIslem";
+            this.Text = "Ürün İşlemleri Formu";
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();

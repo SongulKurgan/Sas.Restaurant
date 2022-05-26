@@ -18,7 +18,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         public FrmMusteri()
         {
             InitializeComponent();
-            
+            Listele();
         }
         void Listele()
         {
@@ -38,11 +38,23 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
 
         private void controlMenu_ButtonDuzenle(object sender, EventArgs e)
         {
+            if (gridMusteri.GetFocusedRow()==null)
+            {
+                return;
+            }
             FrmMusteriIslem form = new FrmMusteriIslem((Entites.Tables.Musteri)gridMusteri.GetFocusedRow());
             form.ShowDialog();
+            if (form.Kaydedildi)
+            {
+                Listele();
+            }
         }
         private void controlMenu_ButtonSil(object sender, EventArgs e)
         {
+            if (gridMusteri.GetFocusedRow() == null)
+            {
+                return;
+            }
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridMusteri.DeleteSelectedRows();

@@ -24,6 +24,11 @@ namespace Sas.Restaurant.DataAccess.UnitOfWork
         public IMusteriDal MusteriDal { get; set; }
         public ITelefonDal TelefonDal { get; set; }
         public IAdresDal AdresDal { get; set; }
+        public IAdisyonDal AdisyonDal { get; set; }
+        public IEkMalzemeHareketDal EkMalzemeHareketDal { get; set; }
+        public IGarsonDal GarsonDal { get; set; }
+        public IMasaDal MasaDal { get; set; }
+        public IUrunHareketDal UrunHareketDal { get; set; }
 
         public RestaurantUnitOfWork(string connectionString=null)
         {
@@ -43,6 +48,11 @@ namespace Sas.Restaurant.DataAccess.UnitOfWork
             MusteriDal = new MusteriDal(_context);
             TelefonDal = new TelefonDal(_context);
             AdresDal = new AdresDal(_context);
+            AdisyonDal = new AdisyonDal(_context);
+            EkMalzemeHareketDal = new EkMalzemeHareketDal(_context);
+            GarsonDal = new GarsonDal(_context);
+            MasaDal = new MasaDal(_context);
+            UrunHareketDal = new UrunHareketDal(_context);
 
         }
         private bool disposedValue;

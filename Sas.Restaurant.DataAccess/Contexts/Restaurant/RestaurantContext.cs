@@ -31,6 +31,11 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
         public DbSet<Musteri> Musteriler { get; set; }
         public DbSet<Telefon> Telefonlar { get; set; }
         public DbSet<Adres> Adresler { get; set; }
+        public DbSet<Adisyon> Adisyonlar { get; set; }
+        public DbSet<EkMalzemeHareket> EkMalzemeHareketleri { get; set; }
+        public DbSet<Garson> Garsonlar { get; set; }
+        public DbSet<Masa> Masalar { get; set; }
+        public DbSet<UrunHareket> UrunHareketler { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -58,6 +63,9 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
             //Müsteri ilişkileri
             modelBuilder.Entity<Telefon>().HasRequired(c => c.Musteri).WithMany(c => c.Telefonlar).HasForeignKey(c => c.MusteriId);
             modelBuilder.Entity<Adres>().HasRequired(c => c.Musteri).WithMany(c => c.Adresler).HasForeignKey(c => c.MusteriId);
+            //Masa İlişkileri
+            modelBuilder.Entity<Masa>().HasRequired(c => c.Konum).WithOptional().Map(c => c.MapKey("KonumId"));
+            modelBuilder.Entity<Masa>().HasRequired(c => c.Adisyon).WithOptional(c => c.Masa).Map(c => c.MapKey("Adisyon","MasaId"));
 
             modelBuilder.Configurations.Add(new UrunMap());
             modelBuilder.Configurations.Add(new TanimMap());
@@ -66,6 +74,11 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Configurations.Add(new MusteriMap());
             modelBuilder.Configurations.Add(new TelefonMap());
             modelBuilder.Configurations.Add(new AdresMap());
+            modelBuilder.Configurations.Add(new AdisyonMap());
+            modelBuilder.Configurations.Add(new EkMalzemeHareketMap());
+            modelBuilder.Configurations.Add(new GarsonMap());
+            modelBuilder.Configurations.Add(new MasaMap());
+            modelBuilder.Configurations.Add(new UrunHareketMap());
         }
     }
 }
