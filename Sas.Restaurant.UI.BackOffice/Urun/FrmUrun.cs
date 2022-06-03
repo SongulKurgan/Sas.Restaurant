@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Sas.Restaurant.Business.Workers;
+using Sas.Restaurant.UI.BackOffice.Fotograf;
+using Sas.Reustrant.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +40,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
 
         private void controlAnaMenu_ButtonDuzenle(object sender, EventArgs e)
         {
-            if (gridUrunler.GetFocusedRow()==null)
+            if (gridUrunler.GetFocusedRow() == null)
             {
                 return;
             }
@@ -72,6 +74,19 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private void controlAnaMenu_ButtonKapat(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnFotografEkle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            Entites.Tables.Urun entity = (Entites.Tables.Urun)gridUrunler.GetFocusedRow();
+            FrmImageEditor form = new FrmImageEditor();
+            form.ShowDialog();
+            if (form.ReturnedImage != null)
+            {
+                entity.Fotograf =form.ReturnedImage.ImageToByteArray();
+                worker.Commit();
+                gridUrunler.RefreshData();
+            }
         }
     }
 }

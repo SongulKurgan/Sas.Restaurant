@@ -29,8 +29,15 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUrun));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.controlAnaMenu = new Sas.Restaurant.UserControls.ControlAnaMenuAlt();
             this.gridControlUrunler = new DevExpress.XtraGrid.GridControl();
             this.gridUrunler = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collFotograf = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,7 +47,6 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.collurunGrup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collFotografEkle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnFotografEkle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.controlAnaMenu = new Sas.Restaurant.UserControls.ControlAnaMenuAlt();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlUrunler)).BeginInit();
@@ -71,6 +77,20 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.groupControl1.Size = new System.Drawing.Size(1261, 100);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Menü";
+            // 
+            // controlAnaMenu
+            // 
+            this.controlAnaMenu.ButtonFont = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.controlAnaMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlAnaMenu.Location = new System.Drawing.Point(2, 28);
+            this.controlAnaMenu.Name = "controlAnaMenu";
+            this.controlAnaMenu.Size = new System.Drawing.Size(1257, 70);
+            this.controlAnaMenu.TabIndex = 0;
+            this.controlAnaMenu.ButtonEkle += new System.EventHandler(this.controlAnaMenu_ButtonEkle);
+            this.controlAnaMenu.ButtonDuzenle += new System.EventHandler(this.controlAnaMenu_ButtonDuzenle);
+            this.controlAnaMenu.ButtonSil += new System.EventHandler(this.controlAnaMenu_ButtonSil);
+            this.controlAnaMenu.ButtonGuncelle += new System.EventHandler(this.controlAnaMenu_ButtonGuncelle);
+            this.controlAnaMenu.ButtonKapat += new System.EventHandler(this.controlAnaMenu_ButtonKapat);
             // 
             // gridControlUrunler
             // 
@@ -114,6 +134,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             // picFotograf
             // 
             this.picFotograf.Name = "picFotograf";
+            this.picFotograf.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             // 
             // collAdi
             // 
@@ -162,24 +183,12 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             // btnFotografEkle
             // 
             this.btnFotografEkle.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnFotografEkle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnFotografEkle.Name = "btnFotografEkle";
-            this.btnFotografEkle.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            // 
-            // controlAnaMenu
-            // 
-            this.controlAnaMenu.ButtonFont = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.controlAnaMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlAnaMenu.Location = new System.Drawing.Point(2, 28);
-            this.controlAnaMenu.Name = "controlAnaMenu";
-            this.controlAnaMenu.Size = new System.Drawing.Size(1257, 70);
-            this.controlAnaMenu.TabIndex = 0;
-            this.controlAnaMenu.ButtonEkle += new System.EventHandler(this.controlAnaMenu_ButtonEkle);
-            this.controlAnaMenu.ButtonDuzenle += new System.EventHandler(this.controlAnaMenu_ButtonDuzenle);
-            this.controlAnaMenu.ButtonSil += new System.EventHandler(this.controlAnaMenu_ButtonSil);
-            this.controlAnaMenu.ButtonGuncelle += new System.EventHandler(this.controlAnaMenu_ButtonGuncelle);
-            this.controlAnaMenu.ButtonKapat += new System.EventHandler(this.controlAnaMenu_ButtonKapat);
+            this.btnFotografEkle.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnFotografEkle.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnFotografEkle_ButtonClick);
             // 
             // FrmUrun
             // 

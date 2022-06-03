@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.DataAccess.Mappings
 {
-   public class MasaMap: EntityTypeConfiguration<Masa>
+    public class MasaMap : EntityTypeConfiguration<Masa>
     {
         public MasaMap()
         {
             Property(c => c.Adi).HasMaxLength(30);
-            ToTable("Masalar");
+            HasRequired(c => c.Adisyon);
 
+            ToTable("Masalar");
             Property(c => c.Adi).HasColumnName("Adi");
             Property(c => c.Dolu).HasColumnName("Dolu");
             Property(c => c.AdisyonId).HasColumnName("AdisyonId");

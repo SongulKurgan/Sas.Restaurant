@@ -2,6 +2,7 @@
 using Sas.Restaurant.Business.Workers;
 using Sas.Restaurant.Entites.Enums;
 using Sas.Restaurant.Entites.Tables;
+using Sas.Restaurant.UI.BackOffice.Fotograf;
 using Sas.Restaurant.UI.BackOffice.Tanim;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             txtUrunAdi.DataBindings.Add("Text", _urunEntity, "Adi", false, DataSourceUpdateMode.OnPropertyChanged);
             txtUrunAciklama.DataBindings.Add("Text", _urunEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
             picUrunFoto.DataBindings.Add("EditValue", _urunEntity, "Fotograf", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtKategori.DataBindings.Add("Text", _urunEntity, "UrunGrup.Adi", false, DataSourceUpdateMode.Never);
+            txtKategori.DataBindings.Add("Text", _urunEntity.UrunGrup??new Entites.Tables.Tanim(), "Adi", false, DataSourceUpdateMode.Never);
         }
 
         void PorsiyonBinding()
@@ -211,6 +212,17 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private void btnKapat_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnResimEkle_Click(object sender, EventArgs e)
+        {
+            FrmImageEditor form = new FrmImageEditor();
+            form.ShowDialog();
+            if (form.ReturnedImage!=null)
+            {
+                picUrunFoto.Image = form.ReturnedImage;
+            }
+           
         }
     }
 }

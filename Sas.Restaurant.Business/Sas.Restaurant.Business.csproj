@@ -71,12 +71,17 @@
     <Compile Include="Services\ITelefonService.cs" />
     <Compile Include="Services\IUrunHareketService.cs" />
     <Compile Include="Services\IUrunService.cs" />
+    <Compile Include="Validations\AdisyonValidator.cs" />
     <Compile Include="Validations\AdresValidator.cs" />
+    <Compile Include="Validations\EkMalzemeHareketValidator.cs" />
     <Compile Include="Validations\EkMalzemeValidator.cs" />
+    <Compile Include="Validations\GarsonValidator.cs" />
+    <Compile Include="Validations\MasaValidator.cs" />
     <Compile Include="Validations\MusteriValidator.cs" />
     <Compile Include="Validations\Porsiyon Validator.cs" />
     <Compile Include="Validations\TanimValidator.cs" />
     <Compile Include="Validations\TelefonValidator.cs" />
+    <Compile Include="Validations\UrunHareketValidator.cs" />
     <Compile Include="Validations\UrunValidator.cs" />
     <Compile Include="Workers\IWorker.cs" />
     <Compile Include="Workers\RestaurantWorker.cs" />

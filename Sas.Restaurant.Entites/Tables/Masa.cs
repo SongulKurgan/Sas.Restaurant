@@ -13,7 +13,7 @@ namespace Sas.Restaurant.Entites.Tables
         public bool Dolu { get; set; }
         public Guid KonumId { get; set; }
         public virtual Tanim Konum { get; set; }
-        public Guid? AdisyonId { get; set; }
+        public Guid AdisyonId { get; set; }
         public virtual Adisyon Adisyon { get; set; }
     }
 }

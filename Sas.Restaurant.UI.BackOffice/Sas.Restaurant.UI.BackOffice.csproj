@@ -35,17 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v21.2" />
     <Reference Include="DevExpress.Data.Desktop.v21.2" />
     <Reference Include="DevExpress.Data.v21.2" />
+    <Reference Include="DevExpress.Dialogs.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v21.2.Core" />
     <Reference Include="DevExpress.Utils.v21.2" />
     <Reference Include="DevExpress.XtraBars.v21.2" />
     <Reference Include="DevExpress.Sparkline.v21.2.Core" />
+    <Reference Include="DevExpress.XtraDialogs.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2" />
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -73,6 +79,18 @@
     </Compile>
     <Compile Include="AnaMenu\FrmAnaMenu.Designer.cs">
       <DependentUpon>FrmAnaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fotograf\FrmImageEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fotograf\FrmImageEditor.Designer.cs">
+      <DependentUpon>FrmImageEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fotograf\FrmKamera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fotograf\FrmKamera.Designer.cs">
+      <DependentUpon>FrmKamera.cs</DependentUpon>
     </Compile>
     <Compile Include="Musteri\FrmMusteri.cs">
       <SubType>Form</SubType>
@@ -108,6 +126,12 @@
     </Compile>
     <EmbeddedResource Include="AnaMenu\FrmAnaMenu.resx">
       <DependentUpon>FrmAnaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fotograf\FrmImageEditor.resx">
+      <DependentUpon>FrmImageEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fotograf\FrmKamera.resx">
+      <DependentUpon>FrmKamera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Musteri\FrmMusteri.resx">
       <DependentUpon>FrmMusteri.cs</DependentUpon>

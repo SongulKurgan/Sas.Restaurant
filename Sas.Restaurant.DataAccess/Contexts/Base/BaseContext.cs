@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.DataAccess.Contexts.Base
 {
-    public class BaseContext<TContext>:DbContext where TContext: DbContext,new()
+    public class BaseContext<TContext>:DbContext where TContext:DbContext, new()
     {
-        private static string ConnectionString = " ";
+        private static string ConnectionString ="";
         public BaseContext():base(ConnectionString)
         {
 

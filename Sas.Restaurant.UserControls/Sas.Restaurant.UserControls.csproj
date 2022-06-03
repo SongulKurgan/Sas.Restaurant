@@ -56,6 +56,9 @@
     <Compile Include="ControlAnaMenuAlt.Designer.cs">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlKategoriButon.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlMenuKayit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +84,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sas.Restaurant.Entites\Sas.Restaurant.Entites.csproj">
+      <Project>{B187D76F-D2CB-4EA9-AD34-81EA9B8C9B8E}</Project>
+      <Name>Sas.Restaurant.Entites</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

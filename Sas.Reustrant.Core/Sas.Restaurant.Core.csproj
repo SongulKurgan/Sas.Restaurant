@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ConvertTypes.cs" />
     <Compile Include="Extensions\IncludeMaltiple.cs" />
     <Compile Include="Functions\ConnectionStringInfo.cs" />
     <Compile Include="Functions\FrmSetupConnection.cs">

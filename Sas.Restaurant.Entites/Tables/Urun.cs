@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.Entites.Tables
 {
-    public class Urun:EntityBase
+    public class Urun : EntityBase
     {
         public string Barkod { get; set; }
         public string Adi { get; set; }
         public byte[] Fotograf { get; set; }
-        public ICollection<Porsiyon>  Porsiyonlar { get; set; }
-        public ICollection<EkMalzeme>  EkMalzemeler { get; set; }
+        public ICollection<Porsiyon> Porsiyonlar { get; set; }
+        public ICollection<EkMalzeme> EkMalzemeler { get; set; }
         public Guid UrunGrupId { get; set; }
         public virtual Tanim UrunGrup { get; set; }
+        public virtual ICollection<UrunHareket> UrunHareketleri { get; set; }
 
     }
 }
