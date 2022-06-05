@@ -35,6 +35,11 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panelurunHareketHizliSatis = new DevExpress.XtraEditors.PanelControl();
+            this.navigationKategori = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.pageKategoriUrunler = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowKategoriUrunleri = new System.Windows.Forms.FlowLayoutPanel();
+            this.pageUrunPorsiyon = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowPorsiyon = new System.Windows.Forms.FlowLayoutPanel();
             this.panelUrunGrupKeyPad = new DevExpress.XtraEditors.PanelControl();
             this.groupKategori = new DevExpress.XtraEditors.GroupControl();
             this.flowKategori = new System.Windows.Forms.FlowLayoutPanel();
@@ -53,7 +58,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
+            this.txtMiktar = new DevExpress.XtraEditors.CalcEdit();
             this.panelUrunHareket = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
@@ -94,20 +99,27 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnAdisyonDetay = new DevExpress.XtraEditors.SimpleButton();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.flowKategoriUrunleri = new System.Windows.Forms.FlowLayoutPanel();
+            this.pageEkMalzeme = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowEkMalzeme = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnEkMalzemeOnay = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelurunHareketHizliSatis)).BeginInit();
             this.panelurunHareketHizliSatis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationKategori)).BeginInit();
+            this.navigationKategori.SuspendLayout();
+            this.pageKategoriUrunler.SuspendLayout();
+            this.pageUrunPorsiyon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeyPad)).BeginInit();
             this.panelUrunGrupKeyPad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).BeginInit();
             this.groupKategori.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKeyPad)).BeginInit();
             this.groupKeyPad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareket)).BeginInit();
             this.panelUrunHareket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -131,6 +143,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
+            this.pageEkMalzeme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -173,13 +188,59 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // panelurunHareketHizliSatis
             // 
-            this.panelurunHareketHizliSatis.Controls.Add(this.flowKategoriUrunleri);
+            this.panelurunHareketHizliSatis.Controls.Add(this.navigationKategori);
             this.panelurunHareketHizliSatis.Controls.Add(this.panelUrunGrupKeyPad);
             this.panelurunHareketHizliSatis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelurunHareketHizliSatis.Location = new System.Drawing.Point(660, 0);
             this.panelurunHareketHizliSatis.Name = "panelurunHareketHizliSatis";
             this.panelurunHareketHizliSatis.Size = new System.Drawing.Size(630, 737);
             this.panelurunHareketHizliSatis.TabIndex = 2;
+            // 
+            // navigationKategori
+            // 
+            this.navigationKategori.Controls.Add(this.pageKategoriUrunler);
+            this.navigationKategori.Controls.Add(this.pageUrunPorsiyon);
+            this.navigationKategori.Controls.Add(this.pageEkMalzeme);
+            this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationKategori.Location = new System.Drawing.Point(298, 2);
+            this.navigationKategori.Name = "navigationKategori";
+            this.navigationKategori.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.pageKategoriUrunler,
+            this.pageUrunPorsiyon,
+            this.pageEkMalzeme});
+            this.navigationKategori.SelectedPage = this.pageKategoriUrunler;
+            this.navigationKategori.Size = new System.Drawing.Size(330, 733);
+            this.navigationKategori.TabIndex = 2;
+            this.navigationKategori.Text = "navigationFrame2";
+            // 
+            // pageKategoriUrunler
+            // 
+            this.pageKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
+            this.pageKategoriUrunler.Name = "pageKategoriUrunler";
+            this.pageKategoriUrunler.Size = new System.Drawing.Size(330, 733);
+            // 
+            // flowKategoriUrunleri
+            // 
+            this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowKategoriUrunleri.Location = new System.Drawing.Point(0, 0);
+            this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
+            this.flowKategoriUrunleri.Size = new System.Drawing.Size(330, 733);
+            this.flowKategoriUrunleri.TabIndex = 1;
+            // 
+            // pageUrunPorsiyon
+            // 
+            this.pageUrunPorsiyon.Caption = "pageUrunPorsiyon";
+            this.pageUrunPorsiyon.Controls.Add(this.flowPorsiyon);
+            this.pageUrunPorsiyon.Name = "pageUrunPorsiyon";
+            this.pageUrunPorsiyon.Size = new System.Drawing.Size(330, 733);
+            // 
+            // flowPorsiyon
+            // 
+            this.flowPorsiyon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPorsiyon.Location = new System.Drawing.Point(0, 0);
+            this.flowPorsiyon.Name = "flowPorsiyon";
+            this.flowPorsiyon.Size = new System.Drawing.Size(330, 733);
+            this.flowPorsiyon.TabIndex = 0;
             // 
             // panelUrunGrupKeyPad
             // 
@@ -225,7 +286,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.groupKeyPad.Controls.Add(this.simpleButton13);
             this.groupKeyPad.Controls.Add(this.simpleButton9);
             this.groupKeyPad.Controls.Add(this.simpleButton8);
-            this.groupKeyPad.Controls.Add(this.calcEdit1);
+            this.groupKeyPad.Controls.Add(this.txtMiktar);
             this.groupKeyPad.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupKeyPad.Location = new System.Drawing.Point(2, 2);
             this.groupKeyPad.Name = "groupKeyPad";
@@ -370,19 +431,19 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.simpleButton8.TabIndex = 4;
             this.simpleButton8.Text = "7";
             // 
-            // calcEdit1
+            // txtMiktar
             // 
-            this.calcEdit1.EditValue = new decimal(new int[] {
+            this.txtMiktar.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.calcEdit1.Location = new System.Drawing.Point(3, 31);
-            this.calcEdit1.Name = "calcEdit1";
-            this.calcEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.calcEdit1.Properties.Appearance.Options.UseFont = true;
-            this.calcEdit1.Size = new System.Drawing.Size(281, 40);
-            this.calcEdit1.TabIndex = 3;
+            this.txtMiktar.Location = new System.Drawing.Point(3, 31);
+            this.txtMiktar.Name = "txtMiktar";
+            this.txtMiktar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMiktar.Properties.Appearance.Options.UseFont = true;
+            this.txtMiktar.Size = new System.Drawing.Size(281, 40);
+            this.txtMiktar.TabIndex = 3;
             // 
             // panelUrunHareket
             // 
@@ -916,13 +977,38 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnUrunEkle.TabIndex = 0;
             this.btnUrunEkle.Text = "Ürün Ekle";
             // 
-            // flowKategoriUrunleri
+            // pageEkMalzeme
             // 
-            this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowKategoriUrunleri.Location = new System.Drawing.Point(298, 2);
-            this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
-            this.flowKategoriUrunleri.Size = new System.Drawing.Size(330, 733);
-            this.flowKategoriUrunleri.TabIndex = 1;
+            this.pageEkMalzeme.Controls.Add(this.flowEkMalzeme);
+            this.pageEkMalzeme.Controls.Add(this.panelControl3);
+            this.pageEkMalzeme.Name = "pageEkMalzeme";
+            this.pageEkMalzeme.Size = new System.Drawing.Size(330, 733);
+            // 
+            // flowEkMalzeme
+            // 
+            this.flowEkMalzeme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowEkMalzeme.Location = new System.Drawing.Point(0, 0);
+            this.flowEkMalzeme.Name = "flowEkMalzeme";
+            this.flowEkMalzeme.Size = new System.Drawing.Size(330, 633);
+            this.flowEkMalzeme.TabIndex = 0;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.btnEkMalzemeOnay);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(0, 633);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(330, 100);
+            this.panelControl3.TabIndex = 1;
+            // 
+            // btnEkMalzemeOnay
+            // 
+            this.btnEkMalzemeOnay.Location = new System.Drawing.Point(207, 7);
+            this.btnEkMalzemeOnay.Name = "btnEkMalzemeOnay";
+            this.btnEkMalzemeOnay.Size = new System.Drawing.Size(118, 90);
+            this.btnEkMalzemeOnay.TabIndex = 0;
+            this.btnEkMalzemeOnay.Text = "simpleButton22";
+            this.btnEkMalzemeOnay.Click += new System.EventHandler(this.btnEkMalzemeOnay_Click);
             // 
             // FrmMain
             // 
@@ -943,13 +1029,17 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.navigationPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelurunHareketHizliSatis)).EndInit();
             this.panelurunHareketHizliSatis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationKategori)).EndInit();
+            this.navigationKategori.ResumeLayout(false);
+            this.pageKategoriUrunler.ResumeLayout(false);
+            this.pageUrunPorsiyon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeyPad)).EndInit();
             this.panelUrunGrupKeyPad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).EndInit();
             this.groupKategori.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKeyPad)).EndInit();
             this.groupKeyPad.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareket)).EndInit();
             this.panelUrunHareket.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -973,6 +1063,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
+            this.pageEkMalzeme.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1017,7 +1110,7 @@ namespace Sas.Restaurant.UI.FrontOffice
         private DevExpress.XtraEditors.SimpleButton simpleButton13;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.CalcEdit calcEdit1;
+        private DevExpress.XtraEditors.CalcEdit txtMiktar;
         private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
@@ -1044,6 +1137,14 @@ namespace Sas.Restaurant.UI.FrontOffice
         private DevExpress.XtraLayout.SimpleLabelItem item6;
         private System.Windows.Forms.FlowLayoutPanel flowKategori;
         private System.Windows.Forms.FlowLayoutPanel flowKategoriUrunleri;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationKategori;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageKategoriUrunler;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageUrunPorsiyon;
+        private System.Windows.Forms.FlowLayoutPanel flowPorsiyon;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageEkMalzeme;
+        private System.Windows.Forms.FlowLayoutPanel flowEkMalzeme;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnEkMalzemeOnay;
     }
 }
 

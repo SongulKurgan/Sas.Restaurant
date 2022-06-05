@@ -111,6 +111,10 @@
       <Project>{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}</Project>
       <Name>Sas.Restaurant.UserControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sas.Reustrant.Core\Sas.Restaurant.Core.csproj">
+      <Project>{453147B2-087D-40A5-A4DD-9FD0042224F4}</Project>
+      <Name>Sas.Restaurant.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

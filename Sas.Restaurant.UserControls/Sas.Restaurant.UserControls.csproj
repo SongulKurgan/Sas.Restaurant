@@ -56,14 +56,26 @@
     <Compile Include="ControlAnaMenuAlt.Designer.cs">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlEkMalzemeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlKategoriButon.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlKategoriUrun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKategoriUrun.Designer.cs">
+      <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlMenuKayit.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlMenuKayit.Designer.cs">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPorsiyonButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -75,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ControlAnaMenuAlt.resx">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKategoriUrun.resx">
+      <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlMenuKayit.resx">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>
