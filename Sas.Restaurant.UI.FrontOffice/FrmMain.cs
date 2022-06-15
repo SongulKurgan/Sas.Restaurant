@@ -30,24 +30,24 @@ namespace Sas.Restaurant.UI.FrontOffice
         }
         private void KategoriButtonOlustur()
         {
-            foreach (var Kategori in worker.TanimService.Select(c=>c.TanimTip==TanimTip.UrunGrup,c=> new KategoriDto { Id=c.Id,Adi=c.Adi}).ToList())
+            foreach (var Kategori in worker.TanimService.Select(c => c.TanimTip == TanimTip.UrunGrup, c => new KategoriDto { Id = c.Id, Adi = c.Adi }).ToList())
             {
                 ControlKategoriButon button = new ControlKategoriButon
                 {
                     Name = Kategori.Id.ToString(),
                     Text = Kategori.Adi,
                     Id = Kategori.Id,
-                    Urunler = worker.UrunService.GetList(c => c.UrunGrupId == Kategori.Id,c=>c.Porsiyonlar,calcEdit1=>calcEdit1.EkMalzemeler),
+                    Urunler = worker.UrunService.GetList(c => c.UrunGrupId == Kategori.Id, c => c.Porsiyonlar, calcEdit1 => calcEdit1.EkMalzemeler),
                     GroupIndex = 1,
-                    Height=60,
-                    Font=new Font("Tahoma",12,FontStyle.Bold),
-                    Width=flowKategori.Width-6
+                    Height = 60,
+                    Font = new Font("Tahoma", 12, FontStyle.Bold),
+                    Width = flowKategori.Width - 6
                 };
                 button.CheckedChanged += KategoriSecim;
                 flowKategori.Controls.Add(button);
             }
         }
-        private void KategoriSecim(object sender, EventArgs e)
+        private void KategoriSecim(object sender, EventArgs e) // kategoriler listelendi,ürünü seçtim
         {
             flowKategoriUrunleri.Controls.Clear();
             ControlKategoriButon button = (ControlKategoriButon)sender;
@@ -56,24 +56,32 @@ namespace Sas.Restaurant.UI.FrontOffice
                 ControlKategoriUrun urunButton = new ControlKategoriUrun
                 {
                     Name = item.Id.ToString(),
-                    UrunAdi=item.Adi,
-                    Id=item.Id,
-                    UrunImage=item.Fotograf.ByteArrayToImage(),
-                    Height=220,
-                    Width=300,
-                    Aciklama=item.Aciklama,
-                    Porsiyonlar=item.Porsiyonlar,
-                    EkMalzemeler=item.EkMalzemeler
+                    UrunAdi = item.Adi,
+                    Id = item.Id,
+                    UrunImage = item.Fotograf.ByteArrayToImage(),
+                    Height = 220,
+                    Width = 300,
+                    Aciklama = item.Aciklama,
+                    Porsiyonlar = item.Porsiyonlar,
+                    EkMalzemeler = item.EkMalzemeler
                 };
                 urunButton.ButtonClick += UrunClick;
                 flowKategoriUrunleri.Controls.Add(urunButton);
             }
         }
-        
+
         private void UrunClick(object sender, EventArgs e)
         {
-            flowPorsiyon.Controls.Clear();
+
             ControlKategoriUrun button = (ControlKategoriUrun)sender;
+            //Porsiyon var mı yı kontrol ediyoruz
+            if (!button.Porsiyonlar.Any())                       //Herhangi bir porsiyon yoksa bu mesajı ver ve bunu return et
+            {
+                MessageBox.Show("Bu ürüne atanmış bir porsiyon bulunamadı");
+                return;
+            }
+            btnKategoriyeDon.Visible = true;
+            flowPorsiyon.Controls.Clear();
             urunHareketEntity = new UrunHareket();
             //Silinecek
             Adisyon entity = new Adisyon();
@@ -91,43 +99,60 @@ namespace Sas.Restaurant.UI.FrontOffice
                 ControlPorsiyonButton porsiyonButton = new ControlPorsiyonButton
                 {
                     Name = porsiyon.Id.ToString(),
-                    Text=porsiyon.Adi+System.Environment.NewLine+porsiyon.Fiyat.ToString("C2"),
-                    Fiyat=porsiyon.Fiyat,
-                    EkMalzemeCarpan=porsiyon.EkMalzemeCarpan,
-                    Id=porsiyon.Id,
-                    Height=200,
-                    Width=200,
-                    Font=new Font("Tahoma",10,FontStyle.Bold),
-                    EkMalzemeler=button.EkMalzemeler
+                    Text = porsiyon.Adi + System.Environment.NewLine + porsiyon.Fiyat.ToString("C2"),
+                    Fiyat = porsiyon.Fiyat,
+                    EkMalzemeCarpan = porsiyon.EkMalzemeCarpan,
+                    Id = porsiyon.Id,
+                    Height = 200,
+                    Width = 200,
+                    Font = new Font("Tahoma", 10, FontStyle.Bold),
+                    EkMalzemeler = button.EkMalzemeler
                 };
                 porsiyonButton.Click += PorsiyonClick;
                 flowPorsiyon.Controls.Add(porsiyonButton);
+            }
+            if (button.Porsiyonlar.Count() == 1)          //Herhangi bir porsiyon varsa işlemleri yap
+            {
+                ControlPorsiyonButton buttonPorsiyon = (ControlPorsiyonButton)flowPorsiyon.Controls[0];    //buttonPorsiyon 1 tane ise count una bak ve ControlPorsiyonButton tipinde bir buton var , 0.indexsinden başayarak git o porsiyonu click le ki ek porsiyon tablosu gelsin
+                buttonPorsiyon.PerformClick();
+
+
             }
         }
 
         private void PorsiyonClick(object sender, EventArgs e)
         {
-            flowEkMalzeme.Controls.Clear();
             ControlPorsiyonButton button = (ControlPorsiyonButton)sender;
+
             urunHareketEntity.PorsiyonId = button.Id;
             urunHareketEntity.BirimFiyat = button.Fiyat;
+            
+
+            if (!button.EkMalzemeler.Any())
+            {
+                UrunHareketEkle();
+                navigationKategori.SelectedPage = pageKategoriUrunler;
+                return;
+            }
             txtPorsiyonTutar.Value = button.Fiyat;
+            flowEkMalzeme.Controls.Clear();
             foreach (var malzeme in button.EkMalzemeler)
             {
                 ControlEkMalzemeButton MalzemeButton = new ControlEkMalzemeButton
                 {
                     Name = malzeme.Id.ToString(),
-                    Text = malzeme.Adi + System.Environment.NewLine+malzeme.Fiyat.ToString("C2"),
-                    Height=200,
-                    Width=200,
+                    Text = malzeme.Adi + System.Environment.NewLine + (malzeme.Fiyat * button.EkMalzemeCarpan).ToString("C2"),
+                    Height = 200,
+                    Width = 200,
                     Font = new Font("Tahoma", 10, FontStyle.Bold),
-                    Id=malzeme.Id,
-                    Fiyat=malzeme.Fiyat
+                    Id = malzeme.Id,
+                    Fiyat = malzeme.Fiyat*button.EkMalzemeCarpan
                 };
                 MalzemeButton.CheckedChanged += MalzemeCheckedChanged;
                 flowEkMalzeme.Controls.Add(MalzemeButton);
             }
-            navigationKategori.SelectedPage =pageEkMalzeme;
+            navigationKategori.SelectedPage = pageEkMalzeme;
+
         }
 
         private void MalzemeCheckedChanged(object sender, EventArgs e)
@@ -145,19 +170,25 @@ namespace Sas.Restaurant.UI.FrontOffice
                     worker.EkMalzemeHareketService.AddOrUpdate(new EkMalzemeHareket
                     {
                         UrunHareketId = urunHareketEntity.Id,
-                        EkMalzemeId=button.Id,
-                        Fiyat=button.Fiyat
+                        EkMalzemeId = button.Id,
+                        Fiyat = button.Fiyat
                     });
-                       
+
                 }
             }
-            worker.UrunHareketService.AddOrUpdate(urunHareketEntity);
-            worker.UrunService.Load(c=>c.Id==urunHareketEntity.UrunId);
-            worker.PorsiyonService.Load(c => c.Id==urunHareketEntity.PorsiyonId);
-            worker.TanimService.Load(c => c.Id==urunHareketEntity.Porsiyon.BirimId);
-            layoutView1.RefreshData();
+            UrunHareketEkle();
             navigationKategori.SelectedPage = pageKategoriUrunler;
 
+        }
+        void UrunHareketEkle()   //Urun ekleme kısmı
+        {
+            btnKategoriyeDon.Visible = false;
+            worker.UrunHareketService.AddOrUpdate(urunHareketEntity);
+            worker.UrunService.Load(c => c.Id == urunHareketEntity.UrunId);
+            worker.PorsiyonService.Load(c => c.Id == urunHareketEntity.PorsiyonId);
+            Guid id = urunHareketEntity.Porsiyon.BirimId;
+            worker.TanimService.Load(c => c.Id == id);
+            layoutView1.RefreshData();
         }
 
         void EkMalzemeHesapla()
@@ -182,7 +213,7 @@ namespace Sas.Restaurant.UI.FrontOffice
 
         private void layoutView1_CustomCardStyle(object sender, DevExpress.XtraGrid.Views.Layout.Events.LayoutViewCardStyleEventArgs e)
         {
-            LayoutView view = (LayoutView) sender;
+            LayoutView view = (LayoutView)sender;
             UrunHareket row = (UrunHareket)view.GetRow(e.RowHandle);
             if (view.FocusedRowHandle == e.RowHandle)
             {
@@ -212,6 +243,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             txtMiktar.Focus();
             SendKeys.Send(button.Text);
         }
+
+        private void btnKategoriyeDon_Click(object sender, EventArgs e)
+        {
+            navigationKategori.SelectedPage = pageKategoriUrunler;
+            btnKategoriyeDon.Visible = false;
+        }
     }
-    }
+}
 
