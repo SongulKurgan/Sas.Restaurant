@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Layout;
 using Sas.Restaurant.Business.Workers;
 using Sas.Restaurant.Entites.Dtos;
 using Sas.Restaurant.Entites.Enums;
@@ -83,6 +84,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             urunHareketEntity.Id = Guid.NewGuid();
             urunHareketEntity.UrunId = button.Id;
             urunHareketEntity.Miktar = txtMiktar.Value;
+            urunHareketEntity.UrunHareketTip = UrunHareketTip.Satis;
             navigationKategori.SelectedPage = pageUrunPorsiyon;
             foreach (var porsiyon in button.Porsiyonlar)
             {
@@ -109,6 +111,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             ControlPorsiyonButton button = (ControlPorsiyonButton)sender;
             urunHareketEntity.PorsiyonId = button.Id;
             urunHareketEntity.BirimFiyat = button.Fiyat;
+            txtPorsiyonTutar.Value = button.Fiyat;
             foreach (var malzeme in button.EkMalzemeler)
             {
                 ControlEkMalzemeButton MalzemeButton = new ControlEkMalzemeButton
@@ -121,9 +124,15 @@ namespace Sas.Restaurant.UI.FrontOffice
                     Id=malzeme.Id,
                     Fiyat=malzeme.Fiyat
                 };
+                MalzemeButton.CheckedChanged += MalzemeCheckedChanged;
                 flowEkMalzeme.Controls.Add(MalzemeButton);
             }
             navigationKategori.SelectedPage =pageEkMalzeme;
+        }
+
+        private void MalzemeCheckedChanged(object sender, EventArgs e)
+        {
+            EkMalzemeHesapla();
         }
 
         private void btnEkMalzemeOnay_Click(object sender, EventArgs e)
@@ -150,5 +159,59 @@ namespace Sas.Restaurant.UI.FrontOffice
             navigationKategori.SelectedPage = pageKategoriUrunler;
 
         }
+
+        void EkMalzemeHesapla()
+        {
+            txtEkMalzemeTutar.Value = 0;
+            foreach (ControlEkMalzemeButton button in flowEkMalzeme.Controls)
+            {
+                if (button.Checked)
+                {
+                    txtEkMalzemeTutar.Value += button.Fiyat;
+                }
+            }
+            txtToplamTutar.Value = txtPorsiyonTutar.Value + txtEkMalzemeTutar.Value;
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            UrunHareket entity = (UrunHareket)layoutView1.GetFocusedRow();
+            entity.UrunHareketTip = UrunHareketTip.Iptal;
+            layoutView1.RefreshData();
+        }
+
+        private void layoutView1_CustomCardStyle(object sender, DevExpress.XtraGrid.Views.Layout.Events.LayoutViewCardStyleEventArgs e)
+        {
+            LayoutView view = (LayoutView) sender;
+            UrunHareket row = (UrunHareket)view.GetRow(e.RowHandle);
+            if (view.FocusedRowHandle == e.RowHandle)
+            {
+                e.Appearance.BackColor = Color.DarkSeaGreen;
+                return;
+            }
+
+
+            switch (row.UrunHareketTip)
+            {
+                case UrunHareketTip.Satis:
+                    e.Appearance.BackColor = Color.PaleTurquoise;
+                    break;
+                case UrunHareketTip.Ikram:
+                    e.Appearance.BackColor = Color.MediumSpringGreen;
+                    break;
+                case UrunHareketTip.Iptal:
+                    e.Appearance.BackColor = Color.Tomato;
+                    break;
+            }
+
+        }
+
+        private void KeyPadSend(object sender, EventArgs e)
+        {
+            SimpleButton button = (SimpleButton)sender;
+            txtMiktar.Focus();
+            SendKeys.Send(button.Text);
+        }
     }
-}
+    }
+
