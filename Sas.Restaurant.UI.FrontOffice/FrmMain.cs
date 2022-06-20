@@ -19,14 +19,34 @@ namespace Sas.Restaurant.UI.FrontOffice
 {
     public partial class FrmMain : DevExpress.XtraEditors.XtraForm
     {
+        enum KeypadIslem
+        {
+            Yok,
+            FiyatDegistir,
+            Iade,
+            Ikram,
+            Bol
+        }
+
         RestaurantWorker worker = new RestaurantWorker();
         private UrunHareket urunHareketEntity;
+        private KeypadIslem keypadIslem = KeypadIslem.Yok;
         public FrmMain()
         {
             InitializeComponent();
             KategoriButtonOlustur();
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
 
+        }
+        void MiktarArttir(int sayi)
+        {
+            UrunHareket row = (UrunHareket)layoutView1.GetFocusedRow();
+            if (sayi<0 && row.Miktar<=1)  // urun miktarı 1 den az olmasını önlüyor
+            {
+                return;
+            }
+            row.Miktar += sayi;    //Gelen sayıyı urun harekete atıyor
+            layoutView1.RefreshData();
         }
         private void KategoriButtonOlustur()
         {
@@ -206,9 +226,7 @@ namespace Sas.Restaurant.UI.FrontOffice
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            UrunHareket entity = (UrunHareket)layoutView1.GetFocusedRow();
-            entity.UrunHareketTip = UrunHareketTip.Iptal;
-            layoutView1.RefreshData();
+           
         }
 
         private void layoutView1_CustomCardStyle(object sender, DevExpress.XtraGrid.Views.Layout.Events.LayoutViewCardStyleEventArgs e)
@@ -248,6 +266,148 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             navigationKategori.SelectedPage = pageKategoriUrunler;
             btnKategoriyeDon.Visible = false;
+        }
+
+        private void btnMiktarArttir_Click(object sender, EventArgs e)
+        {
+            MiktarArttir(1);   //urun miktarı arttırıyor
+        }
+
+        private void btnMiktarAzalt_Click(object sender, EventArgs e)
+        {
+            MiktarArttir(-1);    //urun miktarı azaltıyor
+        }
+
+        private void btnFiyatDegistir_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow()==null)
+            {
+                return;
+            }
+            keypadIslem = KeypadIslem.FiyatDegistir;
+            txtMiktar.Value = 0;
+            txtMiktar.Properties.NullValuePrompt = "Lütfen yeni fiyat girin";
+        }
+
+        private void btnKeypadOk_Click(object sender, EventArgs e)
+        {
+            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            switch (keypadIslem)
+            {
+                case KeypadIslem.FiyatDegistir:
+                    hareketEntity.BirimFiyat = txtMiktar.Value;
+                    layoutView1.RefreshData();
+                    break;
+                case KeypadIslem.Iade:
+                    if (hareketEntity.Miktar == txtMiktar.Value)
+                    {
+                        hareketEntity.UrunHareketTip = UrunHareketTip.Iptal;
+                    }
+                    else if(hareketEntity.Miktar < txtMiktar.Value)
+                    {
+                        MessageBox.Show($"{hareketEntity.Miktar}'den daha fazla iade yapılamaz");
+                        return;
+                    }
+                    else
+                    {
+                        UrunHareket yeniEntity = hareketEntity.Clone();
+                        yeniEntity.Id = Guid.NewGuid();
+                        yeniEntity.UrunHareketTip = UrunHareketTip.Iptal;
+                        yeniEntity.Miktar = txtMiktar.Value;
+                        worker.UrunHareketService.AddOrUpdate(yeniEntity);
+                        hareketEntity.Miktar -= txtMiktar.Value;
+                        
+                    }
+                    layoutView1.RefreshData();
+                    break;
+                case KeypadIslem.Ikram:
+                    if (hareketEntity.Miktar==txtMiktar.Value)
+                    {
+                        hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
+                    }
+                    else if (hareketEntity.Miktar<txtMiktar.Value)
+                    {
+                        MessageBox.Show($"{hareketEntity.Miktar}'den daha fazla ikram yapılamaz");
+                    }
+                    else
+                    {
+                        UrunHareket yeniEntity = hareketEntity.Clone();
+                        yeniEntity.Id = Guid.NewGuid();
+                        yeniEntity.UrunHareketTip = UrunHareketTip.Ikram;
+                        yeniEntity.Miktar = txtMiktar.Value;
+                        worker.UrunHareketService.AddOrUpdate(yeniEntity);
+                        hareketEntity.Miktar -= txtMiktar.Value;
+                    }
+                    layoutView1.RefreshData();
+                    break;
+                case KeypadIslem.Bol:
+                    if (hareketEntity.Miktar==txtMiktar.Value)
+                    {
+                        MessageBox.Show("Miktar alanıyla yeni girilen alan eşit olamaz");
+                    }
+                    else
+                    {
+                        UrunHareket yeniEntity = hareketEntity.Clone();
+                        yeniEntity.Id = Guid.NewGuid();
+                        yeniEntity.Miktar = txtMiktar.Value;
+                        worker.UrunHareketService.AddOrUpdate(yeniEntity);
+                        hareketEntity.Miktar -= txtMiktar.Value;
+                    }
+                    layoutView1.RefreshData();
+                    break;
+            }
+            keypadIslem = KeypadIslem.Yok;
+        }
+
+        private void btnIade_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow() == null) return;
+            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (hareketEntity.UrunHareketTip==UrunHareketTip.Iptal)
+            {
+                MessageBox.Show("Seçtiğiniz ürün zaten iptal edilmiş ");
+            }
+            else if (hareketEntity.Miktar == 1)
+            {
+                hareketEntity.UrunHareketTip = UrunHareketTip.Iptal;
+                layoutView1.RefreshData();
+            }
+            else
+            {
+                keypadIslem = KeypadIslem.Iade;
+                txtMiktar.Properties.NullValuePrompt = "Lütfen iade edilecek miktarı girin";
+            }
+        }
+
+        private void btnIkram_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow() == null) return;
+            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (hareketEntity.Miktar == 1)
+            {
+                hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
+                layoutView1.RefreshData();
+            }
+            else
+            {
+                keypadIslem = KeypadIslem.Ikram;
+                txtMiktar.Properties.NullValuePrompt = "Lütfen ikram edilecek miktarı girin";
+            }
+        }
+
+        private void btnBol_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow() == null) return;
+            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (hareketEntity.Miktar==1)
+            {
+                MessageBox.Show("Miktarınız bölmeye uygun değil");
+            }
+            else
+            {
+                keypadIslem = KeypadIslem.Bol;
+                txtMiktar.Properties.NullValuePrompt = "Lütfen bölünecek miktarı girin";
+            }
         }
     }
 }

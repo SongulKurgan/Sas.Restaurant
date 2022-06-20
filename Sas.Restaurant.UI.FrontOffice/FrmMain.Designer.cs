@@ -31,6 +31,7 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -103,19 +104,18 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelUrunHareketMenu = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBol = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIkram = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIade = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFiyatDegistir = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMiktarAzalt = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMiktarArttir = new DevExpress.XtraEditors.SimpleButton();
             this.panelHareketSolMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnSiparisKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnSiparisİptal = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdisyonDetay = new DevExpress.XtraEditors.SimpleButton();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
@@ -183,6 +183,18 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1452, 39);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnKategoriyeDon
+            // 
+            this.btnKategoriyeDon.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnKategoriyeDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKategoriyeDon.ImageOptions.Image")));
+            this.btnKategoriyeDon.Location = new System.Drawing.Point(1356, 2);
+            this.btnKategoriyeDon.Name = "btnKategoriyeDon";
+            this.btnKategoriyeDon.Size = new System.Drawing.Size(94, 35);
+            this.btnKategoriyeDon.TabIndex = 0;
+            this.btnKategoriyeDon.Text = "Geri Dön";
+            this.btnKategoriyeDon.Visible = false;
+            this.btnKategoriyeDon.Click += new System.EventHandler(this.btnKategoriyeDon_Click);
             // 
             // navigationFrame1
             // 
@@ -537,6 +549,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnKeypadOk.Name = "btnKeypadOk";
             this.btnKeypadOk.Size = new System.Drawing.Size(66, 119);
             this.btnKeypadOk.TabIndex = 10;
+            this.btnKeypadOk.Click += new System.EventHandler(this.btnKeypadOk_Click);
             // 
             // btnUc
             // 
@@ -1070,12 +1083,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             // panelUrunHareketMenu
             // 
             this.panelUrunHareketMenu.Controls.Add(this.simpleButton7);
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton6);
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton5);
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton4);
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton3);
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton2);
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton1);
+            this.panelUrunHareketMenu.Controls.Add(this.btnBol);
+            this.panelUrunHareketMenu.Controls.Add(this.btnIkram);
+            this.panelUrunHareketMenu.Controls.Add(this.btnIade);
+            this.panelUrunHareketMenu.Controls.Add(this.btnFiyatDegistir);
+            this.panelUrunHareketMenu.Controls.Add(this.btnMiktarAzalt);
+            this.panelUrunHareketMenu.Controls.Add(this.btnMiktarArttir);
             this.panelUrunHareketMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUrunHareketMenu.Location = new System.Drawing.Point(2, 2);
             this.panelUrunHareketMenu.Name = "panelUrunHareketMenu";
@@ -1093,72 +1106,77 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.simpleButton7.TabIndex = 6;
             this.simpleButton7.Text = "Ek\r\nMalzeme";
             // 
-            // simpleButton6
+            // btnBol
             // 
-            this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
-            this.simpleButton6.Location = new System.Drawing.Point(402, 2);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton6.Size = new System.Drawing.Size(80, 36);
-            this.simpleButton6.TabIndex = 5;
-            this.simpleButton6.Text = "Böl";
+            this.btnBol.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBol.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
+            this.btnBol.Location = new System.Drawing.Point(402, 2);
+            this.btnBol.Name = "btnBol";
+            this.btnBol.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnBol.Size = new System.Drawing.Size(80, 36);
+            this.btnBol.TabIndex = 5;
+            this.btnBol.Text = "Böl";
+            this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
             // 
-            // simpleButton5
+            // btnIkram
             // 
-            this.simpleButton5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(322, 2);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton5.Size = new System.Drawing.Size(80, 36);
-            this.simpleButton5.TabIndex = 4;
-            this.simpleButton5.Text = "İkram";
+            this.btnIkram.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnIkram.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
+            this.btnIkram.Location = new System.Drawing.Point(322, 2);
+            this.btnIkram.Name = "btnIkram";
+            this.btnIkram.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnIkram.Size = new System.Drawing.Size(80, 36);
+            this.btnIkram.TabIndex = 4;
+            this.btnIkram.Text = "İkram";
+            this.btnIkram.Click += new System.EventHandler(this.btnIkram_Click);
             // 
-            // simpleButton4
+            // btnIade
             // 
-            this.simpleButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(242, 2);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton4.Size = new System.Drawing.Size(80, 36);
-            this.simpleButton4.TabIndex = 3;
-            this.simpleButton4.Text = "İade";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            this.btnIade.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnIade.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIade.ImageOptions.Image")));
+            this.btnIade.Location = new System.Drawing.Point(242, 2);
+            this.btnIade.Name = "btnIade";
+            this.btnIade.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnIade.Size = new System.Drawing.Size(80, 36);
+            this.btnIade.TabIndex = 3;
+            this.btnIade.Text = "İade";
+            this.btnIade.Click += new System.EventHandler(this.btnIade_Click);
             // 
-            // simpleButton3
+            // btnFiyatDegistir
             // 
-            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(162, 2);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton3.Size = new System.Drawing.Size(80, 36);
-            this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "Fiyat\r\nDeğiştir";
+            this.btnFiyatDegistir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFiyatDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFiyatDegistir.ImageOptions.Image")));
+            this.btnFiyatDegistir.Location = new System.Drawing.Point(162, 2);
+            this.btnFiyatDegistir.Name = "btnFiyatDegistir";
+            this.btnFiyatDegistir.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnFiyatDegistir.Size = new System.Drawing.Size(80, 36);
+            this.btnFiyatDegistir.TabIndex = 2;
+            this.btnFiyatDegistir.Text = "Fiyat\r\nDeğiştir";
+            this.btnFiyatDegistir.Click += new System.EventHandler(this.btnFiyatDegistir_Click);
             // 
-            // simpleButton2
+            // btnMiktarAzalt
             // 
-            this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(82, 2);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton2.Size = new System.Drawing.Size(80, 36);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Azalt";
+            this.btnMiktarAzalt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMiktarAzalt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMiktarAzalt.ImageOptions.Image")));
+            this.btnMiktarAzalt.Location = new System.Drawing.Point(82, 2);
+            this.btnMiktarAzalt.Name = "btnMiktarAzalt";
+            this.btnMiktarAzalt.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnMiktarAzalt.Size = new System.Drawing.Size(80, 36);
+            this.btnMiktarAzalt.TabIndex = 1;
+            this.btnMiktarAzalt.Text = "Azalt";
+            this.btnMiktarAzalt.Click += new System.EventHandler(this.btnMiktarAzalt_Click);
             // 
-            // simpleButton1
+            // btnMiktarArttir
             // 
-            this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton1.Size = new System.Drawing.Size(80, 36);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Arttır";
+            this.btnMiktarArttir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMiktarArttir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMiktarArttir.ImageOptions.Image")));
+            this.btnMiktarArttir.Location = new System.Drawing.Point(2, 2);
+            this.btnMiktarArttir.Name = "btnMiktarArttir";
+            this.btnMiktarArttir.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnMiktarArttir.Size = new System.Drawing.Size(80, 36);
+            this.btnMiktarArttir.TabIndex = 0;
+            this.btnMiktarArttir.Text = "Arttır";
+            this.btnMiktarArttir.Click += new System.EventHandler(this.btnMiktarArttir_Click);
             // 
             // panelHareketSolMenu
             // 
@@ -1242,18 +1260,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnUrunEkle.Size = new System.Drawing.Size(82, 84);
             this.btnUrunEkle.TabIndex = 0;
             this.btnUrunEkle.Text = "Ürün Ekle";
-            // 
-            // btnKategoriyeDon
-            // 
-            this.btnKategoriyeDon.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnKategoriyeDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKategoriyeDon.ImageOptions.Image")));
-            this.btnKategoriyeDon.Location = new System.Drawing.Point(1356, 2);
-            this.btnKategoriyeDon.Name = "btnKategoriyeDon";
-            this.btnKategoriyeDon.Size = new System.Drawing.Size(94, 35);
-            this.btnKategoriyeDon.TabIndex = 0;
-            this.btnKategoriyeDon.Text = "Geri Dön";
-            this.btnKategoriyeDon.Visible = false;
-            this.btnKategoriyeDon.Click += new System.EventHandler(this.btnKategoriyeDon_Click);
             // 
             // FrmMain
             // 
@@ -1372,12 +1378,12 @@ namespace Sas.Restaurant.UI.FrontOffice
         private DevExpress.XtraEditors.CalcEdit txtMiktar;
         private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnBol;
+        private DevExpress.XtraEditors.SimpleButton btnIkram;
+        private DevExpress.XtraEditors.SimpleButton btnIade;
+        private DevExpress.XtraEditors.SimpleButton btnFiyatDegistir;
+        private DevExpress.XtraEditors.SimpleButton btnMiktarAzalt;
+        private DevExpress.XtraEditors.SimpleButton btnMiktarArttir;
         private DevExpress.XtraGrid.Columns.LayoutViewColumn colUrunAdi;
         private DevExpress.XtraGrid.Columns.LayoutViewColumn colMiktar;
         private DevExpress.XtraGrid.Columns.LayoutViewColumn colBirim;
