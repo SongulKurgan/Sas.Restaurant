@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -20,7 +21,9 @@ namespace Sas.Restaurant.DataAccess.Interfaces.Base
         void Delete(TEntity entity);
         void Delete(IEnumerable<TEntity> entities);
         void Delete(Expression<Func<TEntity, bool>> filter);
-
+        void EntityStateChange(Expression<Func<TEntity, bool>> filter, EntityState state);
+        void EntityStateChange(TEntity entity, EntityState state);
+        void EntityStateChange(IEnumerable<TEntity> entities, EntityState state);
         TEntity Get(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes);
         bool Exist(Expression<Func<TEntity, bool>> filter);
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes);

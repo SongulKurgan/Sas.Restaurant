@@ -25,7 +25,8 @@ namespace Sas.Restaurant.UI.FrontOffice
             FiyatDegistir,
             Iade,
             Ikram,
-            Bol
+            Bol,
+            Indirim
         }
 
         RestaurantWorker worker = new RestaurantWorker();
@@ -41,7 +42,8 @@ namespace Sas.Restaurant.UI.FrontOffice
         void MiktarArttir(int sayi)
         {
             UrunHareket row = (UrunHareket)layoutView1.GetFocusedRow();
-            if (sayi<0 && row.Miktar<=1)  // urun miktarı 1 den az olmasını önlüyor
+            if (row == null) return;
+            if (sayi < 0 && row.Miktar <= 1)  // urun miktarı 1 den az olmasını önlüyor
             {
                 return;
             }
@@ -146,7 +148,7 @@ namespace Sas.Restaurant.UI.FrontOffice
 
             urunHareketEntity.PorsiyonId = button.Id;
             urunHareketEntity.BirimFiyat = button.Fiyat;
-            
+
 
             if (!button.EkMalzemeler.Any())
             {
@@ -154,25 +156,29 @@ namespace Sas.Restaurant.UI.FrontOffice
                 navigationKategori.SelectedPage = pageKategoriUrunler;
                 return;
             }
+            EkMalzemeButonOlustur(button.EkMalzemeCarpan, button.EkMalzemeler);
             txtPorsiyonTutar.Value = button.Fiyat;
+
+        }
+        void EkMalzemeButonOlustur(decimal EkMalzemeCarpan, IEnumerable<EkMalzeme> EkMalzemeList)
+        {
             flowEkMalzeme.Controls.Clear();
-            foreach (var malzeme in button.EkMalzemeler)
+            foreach (var malzeme in EkMalzemeList)
             {
                 ControlEkMalzemeButton MalzemeButton = new ControlEkMalzemeButton
                 {
                     Name = malzeme.Id.ToString(),
-                    Text = malzeme.Adi + System.Environment.NewLine + (malzeme.Fiyat * button.EkMalzemeCarpan).ToString("C2"),
+                    Text = malzeme.Adi + System.Environment.NewLine + (malzeme.Fiyat * EkMalzemeCarpan).ToString("C2"),
                     Height = 200,
                     Width = 200,
                     Font = new Font("Tahoma", 10, FontStyle.Bold),
                     Id = malzeme.Id,
-                    Fiyat = malzeme.Fiyat*button.EkMalzemeCarpan
+                    Fiyat = malzeme.Fiyat * EkMalzemeCarpan
                 };
                 MalzemeButton.CheckedChanged += MalzemeCheckedChanged;
                 flowEkMalzeme.Controls.Add(MalzemeButton);
             }
             navigationKategori.SelectedPage = pageEkMalzeme;
-
         }
 
         private void MalzemeCheckedChanged(object sender, EventArgs e)
@@ -186,16 +192,23 @@ namespace Sas.Restaurant.UI.FrontOffice
             {
                 if (button.Checked)
                 {
-                    urunHareketEntity.BirimFiyat += button.Fiyat; ;
+
                     worker.EkMalzemeHareketService.AddOrUpdate(new EkMalzemeHareket
                     {
+                        Id = Guid.NewGuid(),
                         UrunHareketId = urunHareketEntity.Id,
                         EkMalzemeId = button.Id,
                         Fiyat = button.Fiyat
                     });
 
                 }
+                else
+                {
+                    worker.EkMalzemeHareketService.EntityStateChange(c => c.UrunHareketId == urunHareketEntity.Id && c.EkMalzemeId == button.Id, System.Data.Entity.EntityState.Deleted);
+                }
             }
+            EkMalzemeHesapla();
+            urunHareketEntity.BirimFiyat = txtToplamTutar.Value;
             UrunHareketEkle();
             navigationKategori.SelectedPage = pageKategoriUrunler;
 
@@ -226,7 +239,7 @@ namespace Sas.Restaurant.UI.FrontOffice
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void layoutView1_CustomCardStyle(object sender, DevExpress.XtraGrid.Views.Layout.Events.LayoutViewCardStyleEventArgs e)
@@ -273,19 +286,16 @@ namespace Sas.Restaurant.UI.FrontOffice
             MiktarArttir(1);   //urun miktarı arttırıyor
         }
 
-        private void btnMiktarAzalt_Click(object sender, EventArgs e)
-        {
-            MiktarArttir(-1);    //urun miktarı azaltıyor
-        }
+        
 
         private void btnFiyatDegistir_Click(object sender, EventArgs e)
         {
-            if (layoutView1.GetFocusedRow()==null)
+            if (layoutView1.GetFocusedRow() == null)
             {
                 return;
             }
             keypadIslem = KeypadIslem.FiyatDegistir;
-            txtMiktar.Value = 0;
+            txtMiktar.Text = null;
             txtMiktar.Properties.NullValuePrompt = "Lütfen yeni fiyat girin";
         }
 
@@ -303,7 +313,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                     {
                         hareketEntity.UrunHareketTip = UrunHareketTip.Iptal;
                     }
-                    else if(hareketEntity.Miktar < txtMiktar.Value)
+                    else if (hareketEntity.Miktar < txtMiktar.Value)
                     {
                         MessageBox.Show($"{hareketEntity.Miktar}'den daha fazla iade yapılamaz");
                         return;
@@ -316,16 +326,16 @@ namespace Sas.Restaurant.UI.FrontOffice
                         yeniEntity.Miktar = txtMiktar.Value;
                         worker.UrunHareketService.AddOrUpdate(yeniEntity);
                         hareketEntity.Miktar -= txtMiktar.Value;
-                        
+
                     }
                     layoutView1.RefreshData();
                     break;
                 case KeypadIslem.Ikram:
-                    if (hareketEntity.Miktar==txtMiktar.Value)
+                    if (hareketEntity.Miktar == txtMiktar.Value)
                     {
                         hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
                     }
-                    else if (hareketEntity.Miktar<txtMiktar.Value)
+                    else if (hareketEntity.Miktar < txtMiktar.Value)
                     {
                         MessageBox.Show($"{hareketEntity.Miktar}'den daha fazla ikram yapılamaz");
                     }
@@ -341,7 +351,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                     layoutView1.RefreshData();
                     break;
                 case KeypadIslem.Bol:
-                    if (hareketEntity.Miktar==txtMiktar.Value)
+                    if (hareketEntity.Miktar == txtMiktar.Value)
                     {
                         MessageBox.Show("Miktar alanıyla yeni girilen alan eşit olamaz");
                     }
@@ -355,15 +365,75 @@ namespace Sas.Restaurant.UI.FrontOffice
                     }
                     layoutView1.RefreshData();
                     break;
+                case KeypadIslem.Indirim:
+                    if (txtMiktar.Value < 0 || txtMiktar.Value > 100)
+                    {
+                        MessageBox.Show("Girdiğiniz indirim oranı 0 ile 100 arasında olmalı");
+                        return;
+                    }
+                    hareketEntity.Indirim = txtMiktar.Value;
+                    layoutView1.RefreshData();
+                    break;
             }
             keypadIslem = KeypadIslem.Yok;
+        }
+
+        
+
+        private void btnIkram_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow() == null) return;
+            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (hareketEntity.Miktar == 1)
+            {
+                hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
+                layoutView1.RefreshData();
+            }
+            else
+            {
+                keypadIslem = KeypadIslem.Ikram;
+                txtMiktar.Text = null;
+                txtMiktar.Properties.NullValuePrompt = "Lütfen ikram edilecek miktarı girin";
+            }
+        }
+
+        
+
+        private void btnEkMalzeme_Click(object sender, EventArgs e)
+        {
+            urunHareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (layoutView1.GetFocusedRow() == null)
+            {
+                return;
+            }
+            Porsiyon porsiyonEntity = worker.PorsiyonService.Get(c => c.Id == urunHareketEntity.PorsiyonId);
+            IEnumerable<EkMalzeme> ekMalzemesList = worker.EkMalzemeService.GetList(c => c.UrunId == urunHareketEntity.UrunId);
+            EkMalzemeButonOlustur(porsiyonEntity.EkMalzemeCarpan, ekMalzemesList);
+            List<EkMalzemeHareket> HareketList = worker.EkMalzemeHareketService.BindingList().ToList();
+            foreach (var hareket in HareketList.Where(c => c.UrunHareketId == urunHareketEntity.Id).ToList())
+            {
+                ControlEkMalzemeButton button = (ControlEkMalzemeButton)flowEkMalzeme.Controls.Find(hareket.EkMalzemeId.ToString(), true)[0];
+                button.Checked = true;
+            }
+        }
+
+        private void btnİndirim_Click(object sender, EventArgs e)
+        {
+            UrunHareket entity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (entity==null)
+            {
+                return;
+            }
+            keypadIslem = KeypadIslem.Indirim;
+            txtMiktar.Text = null;
+            txtMiktar.Properties.NullValuePrompt = "Lütfen indirm oranını girin";
         }
 
         private void btnIade_Click(object sender, EventArgs e)
         {
             if (layoutView1.GetFocusedRow() == null) return;
             UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
-            if (hareketEntity.UrunHareketTip==UrunHareketTip.Iptal)
+            if (hareketEntity.UrunHareketTip == UrunHareketTip.Iptal)
             {
                 MessageBox.Show("Seçtiğiniz ürün zaten iptal edilmiş ");
             }
@@ -379,27 +449,11 @@ namespace Sas.Restaurant.UI.FrontOffice
             }
         }
 
-        private void btnIkram_Click(object sender, EventArgs e)
-        {
-            if (layoutView1.GetFocusedRow() == null) return;
-            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
-            if (hareketEntity.Miktar == 1)
-            {
-                hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
-                layoutView1.RefreshData();
-            }
-            else
-            {
-                keypadIslem = KeypadIslem.Ikram;
-                txtMiktar.Properties.NullValuePrompt = "Lütfen ikram edilecek miktarı girin";
-            }
-        }
-
         private void btnBol_Click(object sender, EventArgs e)
         {
             if (layoutView1.GetFocusedRow() == null) return;
             UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
-            if (hareketEntity.Miktar==1)
+            if (hareketEntity.Miktar == 1)
             {
                 MessageBox.Show("Miktarınız bölmeye uygun değil");
             }
@@ -408,6 +462,16 @@ namespace Sas.Restaurant.UI.FrontOffice
                 keypadIslem = KeypadIslem.Bol;
                 txtMiktar.Properties.NullValuePrompt = "Lütfen bölünecek miktarı girin";
             }
+        }
+
+        private void btnMiktarAzalt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMiktarAzalt_Click_1(object sender, EventArgs e)
+        {
+            MiktarArttir(-1);    //urun miktarı azaltıyor
         }
     }
 }

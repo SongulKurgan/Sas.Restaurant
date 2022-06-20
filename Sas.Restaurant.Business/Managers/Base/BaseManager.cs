@@ -4,6 +4,7 @@ using Sas.Restaurant.Entites.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -67,6 +68,20 @@ namespace Sas.Restaurant.Business.Managers.Base
             _uow.Dal<TEntity>().Delete(filter);
         }
 
+        public void EntityStateChange(Expression<Func<TEntity, bool>> filter, EntityState state)
+        {
+            _uow.Dal<TEntity>().EntityStateChange(filter, state);
+        }
+
+        public void EntityStateChange(TEntity entity, EntityState state)
+        {
+            _uow.Dal<TEntity>().EntityStateChange(entity, state);
+        }
+
+        public void EntityStateChange(IEnumerable<TEntity> entities, EntityState state)
+        {
+            _uow.Dal<TEntity>().EntityStateChange(entities, state);
+        }
         public virtual bool Exist(Expression<Func<TEntity, bool>> filter)
         {
             return _uow.Dal<TEntity>().Exist(filter);
@@ -137,6 +152,6 @@ namespace Sas.Restaurant.Business.Managers.Base
             GC.SuppressFinalize(this);
         }
 
-
+        
     }
 }

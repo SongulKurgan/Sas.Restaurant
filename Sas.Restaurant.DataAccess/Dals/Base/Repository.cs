@@ -81,6 +81,27 @@ namespace Sas.Restaurant.DataAccess.Dals.Base
             _context.Set<TEntity>().RemoveRange(_context.Set<TEntity>().Where(filter));
         }
 
+        public void EntityStateChange(Expression<Func<TEntity, bool>> filter, EntityState state)
+        {
+            foreach (var entity in _context.Set<TEntity>().Local.AsQueryable().Where(filter).ToList())
+            {
+                _context.Entry(entity).State = state;
+            }
+        }
+
+        public void EntityStateChange(TEntity entity, EntityState state)
+        {
+            _context.Entry(entity).State = state;
+        }
+
+        public void EntityStateChange(IEnumerable<TEntity> entities, EntityState state)
+        {
+            foreach (var entity in entities)
+            {
+                _context.Entry(entity).State = state;
+            }
+        }
+
         public bool Exist(Expression<Func<TEntity, bool>> filter)
         {
             return _context.Set<TEntity>().Any(filter);
@@ -160,5 +181,7 @@ namespace Sas.Restaurant.DataAccess.Dals.Base
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        
     }
 }
