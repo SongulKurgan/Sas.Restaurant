@@ -31,6 +31,8 @@ namespace Sas.Restaurant.UI.FrontOffice
 
         RestaurantWorker worker = new RestaurantWorker();
         private UrunHareket urunHareketEntity;
+        private Adisyon secilenAdisyon;
+        private Masa secilenMasa;
         private KeypadIslem keypadIslem = KeypadIslem.Yok;
         public FrmMain()
         {
@@ -69,13 +71,34 @@ namespace Sas.Restaurant.UI.FrontOffice
                 ControlMasaButton masaButton = new ControlMasaButton
                 {
                     Name = masa.Id.ToString(),
-                    Text = masa.Adi + System.Environment.NewLine+ masa.Kapasite.ToString()+" Kişi",
+                    Text = masa.Adi + System.Environment.NewLine + masa.Kapasite.ToString() + " Kişi",
                     Height = 150,
                     Width = 150,
                     Font = new Font("Tahoma", 12, FontStyle.Bold),
-                    MasaDurum = MasaDurum.Dolu
+                    MasaId = masa.Id
                 };
+                masaButton.Click += MasaSec;
                 flowMasalar.Controls.Add(masaButton);
+            }
+        }
+
+        private void MasaSec(object sender, EventArgs e)
+        {
+            ControlMasaButton button = (ControlMasaButton)sender;
+            if (button.MasaDurum==MasaDurum.Bos)
+            {
+                secilenAdisyon = new Adisyon();
+                secilenAdisyon.Id = Guid.NewGuid();
+                secilenMasa = worker.MasaService.Get(c=>c.Id==button.MasaId);
+                secilenAdisyon.MasaId = button.MasaId;
+                Garson garson = new Garson();
+                garson.Adi = "Erhan";
+                garson.Soyadi = "Güven";
+                garson.Id = Guid.NewGuid();
+                worker.GarsonService.AddOrUpdate(garson);
+                secilenAdisyon.GarsonId = garson.Id;
+                button.AdisyonId = secilenAdisyon.Id;
+                navigationMain.SelectedPage = pageAdisyonAyrinti;
             }
         }
 
@@ -145,12 +168,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             btnKategoriyeDon.Visible = true;
             flowPorsiyon.Controls.Clear();
             urunHareketEntity = new UrunHareket();
-            //Silinecek
-            Adisyon entity = new Adisyon();
-            entity.Id = Guid.NewGuid();
-            worker.AdisyonService.Add(entity);
-            urunHareketEntity.AdisyonId = entity.Id;
-            //Silinecek
+            urunHareketEntity.AdisyonId = secilenAdisyon.Id;
             urunHareketEntity.Id = Guid.NewGuid();
             urunHareketEntity.UrunId = button.Id;
             urunHareketEntity.Miktar = txtMiktar.Value;
@@ -507,6 +525,15 @@ namespace Sas.Restaurant.UI.FrontOffice
         private void btnMiktarAzalt_Click_1(object sender, EventArgs e)
         {
             MiktarArttir(-1);    //urun miktarı azaltıyor
+        }
+
+        private void btnSiparisKaydet_Click(object sender, EventArgs e)
+        {
+            worker.AdisyonService.AddOrUpdate(secilenAdisyon);
+            ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(),true)[0];
+            button.MasaDurum = MasaDurum.Dolu;
+            worker.Commit();
+            navigationMain.SelectedPage = pageMasalar;
         }
     }
 }

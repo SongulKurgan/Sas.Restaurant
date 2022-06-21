@@ -34,7 +34,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             this.navigationMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.pageMasalar = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.groupMasalar = new DevExpress.XtraEditors.GroupControl();
             this.flowMasalar = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
             this.pageAdisyonAyrinti = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panelurunHareketHizliSatis = new DevExpress.XtraEditors.PanelControl();
@@ -120,13 +122,15 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnAdisyonDetay = new DevExpress.XtraEditors.SimpleButton();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.groupMasalar = new DevExpress.XtraEditors.GroupControl();
-            this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
             this.navigationMain.SuspendLayout();
             this.pageMasalar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).BeginInit();
+            this.groupMasalar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
+            this.groupKonumlar.SuspendLayout();
             this.pageAdisyonAyrinti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelurunHareketHizliSatis)).BeginInit();
             this.panelurunHareketHizliSatis.SuspendLayout();
@@ -182,10 +186,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).BeginInit();
-            this.groupMasalar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
-            this.groupKonumlar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -232,6 +232,16 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageMasalar.Name = "pageMasalar";
             this.pageMasalar.Size = new System.Drawing.Size(1452, 737);
             // 
+            // groupMasalar
+            // 
+            this.groupMasalar.Controls.Add(this.flowMasalar);
+            this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupMasalar.Location = new System.Drawing.Point(0, 124);
+            this.groupMasalar.Name = "groupMasalar";
+            this.groupMasalar.Size = new System.Drawing.Size(1452, 613);
+            this.groupMasalar.TabIndex = 2;
+            this.groupMasalar.Text = "Masalar";
+            // 
             // flowMasalar
             // 
             this.flowMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -239,6 +249,16 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.flowMasalar.Name = "flowMasalar";
             this.flowMasalar.Size = new System.Drawing.Size(1448, 583);
             this.flowMasalar.TabIndex = 1;
+            // 
+            // groupKonumlar
+            // 
+            this.groupKonumlar.Controls.Add(this.flowKonum);
+            this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
+            this.groupKonumlar.Name = "groupKonumlar";
+            this.groupKonumlar.Size = new System.Drawing.Size(1452, 124);
+            this.groupKonumlar.TabIndex = 3;
+            this.groupKonumlar.Text = "Konumlar";
             // 
             // flowKonum
             // 
@@ -1269,6 +1289,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnSiparisKaydet.Size = new System.Drawing.Size(82, 84);
             this.btnSiparisKaydet.TabIndex = 4;
             this.btnSiparisKaydet.Text = "Değişiklikleri\r\nKaydet";
+            this.btnSiparisKaydet.Click += new System.EventHandler(this.btnSiparisKaydet_Click);
             // 
             // btnSiparisİptal
             // 
@@ -1326,26 +1347,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnUrunEkle.TabIndex = 0;
             this.btnUrunEkle.Text = "Ürün Ekle";
             // 
-            // groupMasalar
-            // 
-            this.groupMasalar.Controls.Add(this.flowMasalar);
-            this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupMasalar.Location = new System.Drawing.Point(0, 124);
-            this.groupMasalar.Name = "groupMasalar";
-            this.groupMasalar.Size = new System.Drawing.Size(1452, 613);
-            this.groupMasalar.TabIndex = 2;
-            this.groupMasalar.Text = "Masalar";
-            // 
-            // groupKonumlar
-            // 
-            this.groupKonumlar.Controls.Add(this.flowKonum);
-            this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
-            this.groupKonumlar.Name = "groupKonumlar";
-            this.groupKonumlar.Size = new System.Drawing.Size(1452, 124);
-            this.groupKonumlar.TabIndex = 3;
-            this.groupKonumlar.Text = "Konumlar";
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1364,6 +1365,10 @@ namespace Sas.Restaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).EndInit();
             this.navigationMain.ResumeLayout(false);
             this.pageMasalar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).EndInit();
+            this.groupMasalar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
+            this.groupKonumlar.ResumeLayout(false);
             this.pageAdisyonAyrinti.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelurunHareketHizliSatis)).EndInit();
             this.panelurunHareketHizliSatis.ResumeLayout(false);
@@ -1419,10 +1424,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).EndInit();
-            this.groupMasalar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
-            this.groupKonumlar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

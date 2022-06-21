@@ -41,7 +41,8 @@ namespace Sas.Restaurant.UserControls
             }
         }
 
-        public Adisyon Adisyon { get; set; }
+        public Guid AdisyonId { get; set; }
+        public Guid MasaId { get; set; }
 
     }
 }
