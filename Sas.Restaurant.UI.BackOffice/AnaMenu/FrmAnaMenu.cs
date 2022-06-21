@@ -1,4 +1,5 @@
-﻿using Sas.Restaurant.UI.BackOffice.Musteri;
+﻿using Sas.Restaurant.UI.BackOffice.Masa;
+using Sas.Restaurant.UI.BackOffice.Musteri;
 using Sas.Restaurant.UI.BackOffice.Urun;
 using Sas.Reustrant.Core.Functions;
 using System;
@@ -34,6 +35,13 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmMusteri form = new FrmMusteri();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnMasa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmMasa form =new FrmMasa();
             form.MdiParent = this;
             form.Show();
         }

@@ -92,6 +92,18 @@
     <Compile Include="Fotograf\FrmKamera.Designer.cs">
       <DependentUpon>FrmKamera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Masa\FrmMasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masa\FrmMasa.Designer.cs">
+      <DependentUpon>FrmMasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Masa\FrmMasaIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masa\FrmMasaIslem.Designer.cs">
+      <DependentUpon>FrmMasaIslem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Musteri\FrmMusteri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmKamera.resx">
       <DependentUpon>FrmKamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masa\FrmMasa.resx">
+      <DependentUpon>FrmMasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masa\FrmMasaIslem.resx">
+      <DependentUpon>FrmMasaIslem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Musteri\FrmMusteri.resx">
       <DependentUpon>FrmMusteri.cs</DependentUpon>

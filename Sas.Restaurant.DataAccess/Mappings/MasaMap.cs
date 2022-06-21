@@ -13,12 +13,11 @@ namespace Sas.Restaurant.DataAccess.Mappings
         public MasaMap()
         {
             Property(c => c.Adi).HasMaxLength(30);
-            HasRequired(c => c.Adisyon);
 
             ToTable("Masalar");
             Property(c => c.Adi).HasColumnName("Adi");
+            Property(c => c.Kapasite).HasColumnName("Kapasite");
             Property(c => c.Dolu).HasColumnName("Dolu");
-            Property(c => c.AdisyonId).HasColumnName("AdisyonId");
             Property(c => c.KonumId).HasColumnName("KonumId");
         }
     }

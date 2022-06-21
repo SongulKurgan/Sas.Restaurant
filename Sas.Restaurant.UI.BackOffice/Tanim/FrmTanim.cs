@@ -63,6 +63,7 @@ namespace Sas.Restaurant.UI.BackOffice.Tanim
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridTanim.DeleteSelectedRows();
+                worker.Commit();
             }
         }
 

@@ -39,6 +39,21 @@ namespace Sas.Restaurant.UI.FrontOffice
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
 
         }
+        void MasaButonOlustur()
+        {
+            foreach (var konum in worker.TanimService.GetList(c=>c.TanimTip==TanimTip.Konum))
+            {
+                SimpleButton button = new SimpleButton
+                {
+                    Name = konum.Id.ToString(),
+                    Text = konum.Adi,
+                    Height = 50,
+                    Width=100
+
+                };
+                flowKonum.Controls.Add(button);
+            }
+        }
         void MiktarArttir(int sayi)
         {
             UrunHareket row = (UrunHareket)layoutView1.GetFocusedRow();
@@ -462,11 +477,6 @@ namespace Sas.Restaurant.UI.FrontOffice
                 keypadIslem = KeypadIslem.Bol;
                 txtMiktar.Properties.NullValuePrompt = "Lütfen bölünecek miktarı girin";
             }
-        }
-
-        private void btnMiktarAzalt_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnMiktarAzalt_Click_1(object sender, EventArgs e)

@@ -61,6 +61,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridUrunler.DeleteSelectedRows();
+                worker.Commit();
                 Listele();
             }
 

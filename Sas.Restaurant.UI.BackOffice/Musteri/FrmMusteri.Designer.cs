@@ -31,13 +31,13 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.controlMenu = new Sas.Restaurant.UserControls.ControlAnaMenuAlt();
             this.gridControlMusteri = new DevExpress.XtraGrid.GridControl();
             this.gridMusteri = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colKartNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoyadi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSirket = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.controlMenu = new Sas.Restaurant.UserControls.ControlAnaMenuAlt();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMusteri)).BeginInit();
@@ -53,7 +53,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(1261, 69);
+            this.labelControl1.Size = new System.Drawing.Size(1185, 69);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Ürünler";
             // 
@@ -61,11 +61,25 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             // 
             this.groupControl1.Controls.Add(this.controlMenu);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl1.Location = new System.Drawing.Point(0, 649);
+            this.groupControl1.Location = new System.Drawing.Point(0, 617);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1261, 100);
+            this.groupControl1.Size = new System.Drawing.Size(1185, 100);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Menü";
+            // 
+            // controlMenu
+            // 
+            this.controlMenu.ButtonFont = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlMenu.Location = new System.Drawing.Point(2, 28);
+            this.controlMenu.Name = "controlMenu";
+            this.controlMenu.Size = new System.Drawing.Size(1181, 70);
+            this.controlMenu.TabIndex = 0;
+            this.controlMenu.ButtonEkle += new System.EventHandler(this.controlMenu_ButtonEkle);
+            this.controlMenu.ButtonDuzenle += new System.EventHandler(this.controlMenu_ButtonDuzenle);
+            this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
+            this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
+            this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
             // 
             // gridControlMusteri
             // 
@@ -73,7 +87,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.gridControlMusteri.Location = new System.Drawing.Point(0, 69);
             this.gridControlMusteri.MainView = this.gridMusteri;
             this.gridControlMusteri.Name = "gridControlMusteri";
-            this.gridControlMusteri.Size = new System.Drawing.Size(1261, 580);
+            this.gridControlMusteri.Size = new System.Drawing.Size(1185, 548);
             this.gridControlMusteri.TabIndex = 3;
             this.gridControlMusteri.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMusteri});
@@ -128,25 +142,11 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.colSirket.VisibleIndex = 3;
             this.colSirket.Width = 94;
             // 
-            // controlMenu
-            // 
-            this.controlMenu.ButtonFont = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlMenu.Location = new System.Drawing.Point(2, 28);
-            this.controlMenu.Name = "controlMenu";
-            this.controlMenu.Size = new System.Drawing.Size(1257, 70);
-            this.controlMenu.TabIndex = 0;
-            this.controlMenu.ButtonEkle += new System.EventHandler(this.controlMenu_ButtonEkle);
-            this.controlMenu.ButtonDuzenle += new System.EventHandler(this.controlMenu_ButtonDuzenle);
-            this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
-            this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
-            this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
-            // 
             // FrmMusteri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1261, 749);
+            this.ClientSize = new System.Drawing.Size(1185, 717);
             this.Controls.Add(this.gridControlMusteri);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);

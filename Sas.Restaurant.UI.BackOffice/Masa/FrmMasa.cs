@@ -10,25 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sas.Restaurant.UI.BackOffice.Musteri
+namespace Sas.Restaurant.UI.BackOffice.Masa
 {
-    public partial class FrmMusteri : DevExpress.XtraEditors.XtraForm
+    public partial class FrmMasa : DevExpress.XtraEditors.XtraForm
     {
         RestaurantWorker worker = new RestaurantWorker();
-        public FrmMusteri()
+        public FrmMasa()
         {
             InitializeComponent();
             Listele();
         }
         void Listele()
         {
-            worker.MusteriService.Load(null);
-            gridControlMusteri.DataSource = worker.MusteriService.BindingList();
+            worker.MasaService.Load(null, c => c.Konum);
+            gridControlMasa.DataSource = worker.MasaService.BindingList();
         }
 
         private void controlMenu_ButtonEkle(object sender, EventArgs e)
         {
-            FrmMusteriIslem form = new FrmMusteriIslem(new Entites.Tables.Musteri());
+            FrmMasaIslem form = new FrmMasaIslem(new Entites.Tables.Masa());
             form.ShowDialog();
             if (form.Kaydedildi)
             {
@@ -38,28 +38,28 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
 
         private void controlMenu_ButtonDuzenle(object sender, EventArgs e)
         {
-            if (gridMusteri.GetFocusedRow()==null)
+            if (gridMasa.GetFocusedRow()==null)
             {
                 return;
             }
-            FrmMusteriIslem form = new FrmMusteriIslem((Entites.Tables.Musteri)gridMusteri.GetFocusedRow());
+            FrmMasaIslem form = new FrmMasaIslem((Entites.Tables.Masa)gridMasa.GetFocusedRow());
             form.ShowDialog();
             if (form.Kaydedildi)
             {
                 Listele();
             }
         }
+
         private void controlMenu_ButtonSil(object sender, EventArgs e)
         {
-            if (gridMusteri.GetFocusedRow() == null)
+            if (gridMasa.GetFocusedRow() == null)
             {
                 return;
             }
-            if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Seçili olan kaydı silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                gridMusteri.DeleteSelectedRows();
+                gridMasa.DeleteSelectedRows();
                 worker.Commit();
-                Listele();
             }
         }
 

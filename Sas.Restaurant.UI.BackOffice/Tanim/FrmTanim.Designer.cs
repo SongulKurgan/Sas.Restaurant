@@ -31,10 +31,10 @@ namespace Sas.Restaurant.UI.BackOffice.Tanim
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupTanimBilgi = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTanim = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtAciklama = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtTanim = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.controlMenu = new Sas.Restaurant.UserControls.ControlMenuKayit();
             this.gridControlTanim = new DevExpress.XtraGrid.GridControl();
@@ -43,8 +43,8 @@ namespace Sas.Restaurant.UI.BackOffice.Tanim
             this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.groupTanimBilgi)).BeginInit();
             this.groupTanimBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTanim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTanim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTanim)).BeginInit();
@@ -78,24 +78,12 @@ namespace Sas.Restaurant.UI.BackOffice.Tanim
             this.groupTanimBilgi.Text = "Tanim İşlemleri";
             this.groupTanimBilgi.Visible = false;
             // 
-            // labelControl6
+            // txtAciklama
             // 
-            this.labelControl6.Appearance.Options.UseTextOptions = true;
-            this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl6.Location = new System.Drawing.Point(12, 48);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(127, 22);
-            this.labelControl6.TabIndex = 2;
-            this.labelControl6.Text = "Tanım";
-            // 
-            // txtTanim
-            // 
-            this.txtTanim.Location = new System.Drawing.Point(145, 48);
-            this.txtTanim.Name = "txtTanim";
-            this.txtTanim.Size = new System.Drawing.Size(738, 22);
-            this.txtTanim.TabIndex = 3;
+            this.txtAciklama.Location = new System.Drawing.Point(145, 75);
+            this.txtAciklama.Name = "txtAciklama";
+            this.txtAciklama.Size = new System.Drawing.Size(738, 96);
+            this.txtAciklama.TabIndex = 5;
             // 
             // labelControl2
             // 
@@ -109,12 +97,24 @@ namespace Sas.Restaurant.UI.BackOffice.Tanim
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "Açıklama";
             // 
-            // txtAciklama
+            // txtTanim
             // 
-            this.txtAciklama.Location = new System.Drawing.Point(145, 75);
-            this.txtAciklama.Name = "txtAciklama";
-            this.txtAciklama.Size = new System.Drawing.Size(738, 96);
-            this.txtAciklama.TabIndex = 5;
+            this.txtTanim.Location = new System.Drawing.Point(145, 48);
+            this.txtTanim.Name = "txtTanim";
+            this.txtTanim.Size = new System.Drawing.Size(738, 22);
+            this.txtTanim.TabIndex = 3;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Options.UseTextOptions = true;
+            this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl6.Location = new System.Drawing.Point(12, 48);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(127, 22);
+            this.labelControl6.TabIndex = 2;
+            this.labelControl6.Text = "Tanım";
             // 
             // groupControl2
             // 
@@ -204,8 +204,8 @@ namespace Sas.Restaurant.UI.BackOffice.Tanim
             this.Text = "FrmTanim";
             ((System.ComponentModel.ISupportInitialize)(this.groupTanimBilgi)).EndInit();
             this.groupTanimBilgi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTanim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTanim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTanim)).EndInit();

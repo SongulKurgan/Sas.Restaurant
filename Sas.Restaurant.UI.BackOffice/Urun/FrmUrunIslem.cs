@@ -109,6 +109,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?","Uyarı",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
                 gridPorsiyon.DeleteSelectedRows();
+                worker.Commit();
             }
         }
 
@@ -169,6 +170,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridMalzeme.DeleteSelectedRows();
+                worker.Commit();
             }
         }
 

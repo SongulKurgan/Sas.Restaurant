@@ -108,6 +108,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             if (MessageBox.Show("Seçili olan kaydı silmek istediğinize emin misiniz?","Uyarı",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
                 gridTelefon.DeleteSelectedRows();
+                worker.Commit();
             }
         }
 
