@@ -80,6 +80,14 @@ namespace Sas.Restaurant.UI.FrontOffice
                 masaButton.Click += MasaSec;
                 flowMasalar.Controls.Add(masaButton);
             }
+            foreach (var adisyon in worker.AdisyonService.GetList(c=>c.AdisyonAcik))
+            {
+               ControlMasaButton buttonMasa=(ControlMasaButton) flowMasalar.Controls.Find(adisyon.MasaId.ToString(), true)[0];
+                if (buttonMasa!=null)
+                {
+                    buttonMasa.
+                }
+            }
         }
 
         private void MasaSec(object sender, EventArgs e)
@@ -91,11 +99,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 secilenAdisyon.Id = Guid.NewGuid();
                 secilenMasa = worker.MasaService.Get(c=>c.Id==button.MasaId);
                 secilenAdisyon.MasaId = button.MasaId;
-                Garson garson = new Garson();
-                garson.Adi = "Erhan";
-                garson.Soyadi = "Güven";
-                garson.Id = Guid.NewGuid();
-                worker.GarsonService.AddOrUpdate(garson);
+                Garson garson = worker.GarsonService.Get(c => c.Adi == "Erhan");
                 secilenAdisyon.GarsonId = garson.Id;
                 button.AdisyonId = secilenAdisyon.Id;
                 navigationMain.SelectedPage = pageAdisyonAyrinti;
@@ -532,6 +536,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
             ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(),true)[0];
             button.MasaDurum = MasaDurum.Dolu;
+            secilenAdisyon.AdisyonAcik = true;
             worker.Commit();
             navigationMain.SelectedPage = pageMasalar;
         }
