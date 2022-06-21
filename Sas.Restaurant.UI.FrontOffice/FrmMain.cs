@@ -82,10 +82,10 @@ namespace Sas.Restaurant.UI.FrontOffice
             }
             foreach (var adisyon in worker.AdisyonService.GetList(c=>c.AdisyonAcik))
             {
-               ControlMasaButton buttonMasa=(ControlMasaButton) flowMasalar.Controls.Find(adisyon.MasaId.ToString(), true)[0];
+                ControlMasaButton buttonMasa= flowMasalar.Controls.Cast<ControlMasaButton>().SingleOrDefault(c => c.MasaId == adisyon.MasaId);
                 if (buttonMasa!=null)
                 {
-                    buttonMasa.
+                    buttonMasa.MasaDurum = MasaDurum.Dolu;
                 }
             }
         }
@@ -541,5 +541,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             navigationMain.SelectedPage = pageMasalar;
         }
     }
+    
 }
 

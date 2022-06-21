@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sas.Restaurant.Entites.Tables
+namespace Sas.Restaurant.Entites.Enums
 {
    public enum TelefonAdresTip
     {

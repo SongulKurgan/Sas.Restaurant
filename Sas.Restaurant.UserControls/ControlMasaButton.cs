@@ -12,7 +12,7 @@ namespace Sas.Restaurant.UserControls
 {
    public class ControlMasaButton:SimpleButton
     {
-        MasaDurum _masaDurum;
+       private MasaDurum _masaDurum;
         public ControlMasaButton()
         {
             MasaDurum = MasaDurum.Bos;

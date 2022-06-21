@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sas.Reustrant.Core.Extensions
+namespace Sas.Restaurant.Core.Extensions
 {
     public static class IncludeMaltiple
     {
