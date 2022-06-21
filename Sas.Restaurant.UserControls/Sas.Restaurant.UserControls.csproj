@@ -68,6 +68,12 @@
     <Compile Include="ControlKategoriUrun.Designer.cs">
       <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlKonumButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlMasaButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlMenuKayit.cs">
       <SubType>UserControl</SubType>
     </Compile>

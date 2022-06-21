@@ -37,23 +37,48 @@ namespace Sas.Restaurant.UI.FrontOffice
             InitializeComponent();
             KategoriButtonOlustur();
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
+            MasaButonOlustur();
 
         }
         void MasaButonOlustur()
         {
             foreach (var konum in worker.TanimService.GetList(c=>c.TanimTip==TanimTip.Konum))
             {
-                SimpleButton button = new SimpleButton
+                ControlKonumButton button = new ControlKonumButton
                 {
                     Name = konum.Id.ToString(),
                     Text = konum.Adi,
-                    Height = 50,
-                    Width=100
+                    Height = 88,
+                    Width=150,
+                    GroupIndex=1,
+                    Font = new Font("Tahoma", 12, FontStyle.Bold),
+                    Masalar =worker.MasaService.GetList(c=>c.KonumId==konum.Id)
 
                 };
+                button.CheckedChanged += KonumSecim;
                 flowKonum.Controls.Add(button);
             }
         }
+
+        private void KonumSecim(object sender, EventArgs e)
+        {
+            ControlKonumButton button = (ControlKonumButton)sender;
+            flowMasalar.Controls.Clear();
+            foreach (var masa in button.Masalar)
+            {
+                ControlMasaButton masaButton = new ControlMasaButton
+                {
+                    Name = masa.Id.ToString(),
+                    Text = masa.Adi + System.Environment.NewLine+ masa.Kapasite.ToString()+" Kişi",
+                    Height = 150,
+                    Width = 150,
+                    Font = new Font("Tahoma", 12, FontStyle.Bold),
+                    MasaDurum = MasaDurum.Dolu
+                };
+                flowMasalar.Controls.Add(masaButton);
+            }
+        }
+
         void MiktarArttir(int sayi)
         {
             UrunHareket row = (UrunHareket)layoutView1.GetFocusedRow();
