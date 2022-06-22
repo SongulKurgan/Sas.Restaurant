@@ -61,6 +61,11 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.controlMenu.Name = "controlMenu";
             this.controlMenu.Size = new System.Drawing.Size(1181, 70);
             this.controlMenu.TabIndex = 0;
+            this.controlMenu.ButtonEkle += new System.EventHandler(this.controlMenu_ButtonEkle);
+            this.controlMenu.ButtonDuzenle += new System.EventHandler(this.controlMenu_ButtonDuzenle);
+            this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
+            this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
+            this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
             // 
             // labelControl1
             // 

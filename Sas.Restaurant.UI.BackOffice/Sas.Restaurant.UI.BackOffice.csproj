@@ -98,6 +98,12 @@
     <Compile Include="Garson\FrmGarson.Designer.cs">
       <DependentUpon>FrmGarson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Garson\FrmGarsonIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garson\FrmGarsonIslem.Designer.cs">
+      <DependentUpon>FrmGarsonIslem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Masa\FrmMasa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Garson\FrmGarson.resx">
       <DependentUpon>FrmGarson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Garson\FrmGarsonIslem.resx">
+      <DependentUpon>FrmGarsonIslem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Masa\FrmMasa.resx">
       <DependentUpon>FrmMasa.cs</DependentUpon>

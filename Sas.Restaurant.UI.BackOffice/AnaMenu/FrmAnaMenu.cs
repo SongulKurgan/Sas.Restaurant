@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Sas.Restaurant.UI.BackOffice.Garson;
 
 namespace Sas.Restaurant.UI.BackOffice.AnaMenu
 {
@@ -42,6 +43,13 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
         private void btnMasa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmMasa form =new FrmMasa();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnGarson_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmGarson form = new FrmGarson();
             form.MdiParent = this;
             form.Show();
         }
