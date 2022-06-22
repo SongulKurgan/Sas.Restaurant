@@ -58,8 +58,8 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             if (MessageBox.Show("Seçili olan veriyi silmek ister misiniz?", "Uyarı", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 gridMusteri.DeleteSelectedRows();
-                worker.Commit();
                 Listele();
+                worker.Commit();
             }
         }
 

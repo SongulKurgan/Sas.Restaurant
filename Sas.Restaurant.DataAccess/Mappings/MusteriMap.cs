@@ -22,6 +22,7 @@ namespace Sas.Restaurant.DataAccess.Mappings
             Property(c => c.Adi).HasColumnName("Adi");
             Property(c => c.Soyadi).HasColumnName("Soyadi");
             Property(c => c.KartNo).HasColumnName("KartNo");
+            Property(c => c.MusteriTip).HasColumnName("MusteriTip");
         }
     }
 }

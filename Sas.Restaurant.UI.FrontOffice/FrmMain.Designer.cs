@@ -31,6 +31,7 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnMusteri = new Sas.Restaurant.UserControls.ControlMusteriButton();
             this.btnGarsonSecim = new Sas.Restaurant.UserControls.ControlGarsonButton();
             this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             this.navigationMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -125,6 +126,8 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnAdisyonDetay = new DevExpress.XtraEditors.SimpleButton();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.pageMusteri = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowMusteri = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -190,10 +193,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
+            this.pageMusteri.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnMusteri);
             this.panelControl1.Controls.Add(this.btnGarsonSecim);
             this.panelControl1.Controls.Add(this.btnKategoriyeDon);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -201,6 +206,24 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1452, 39);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnMusteri
+            // 
+            this.btnMusteri.Adi = null;
+            this.btnMusteri.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMusteri.Appearance.Options.UseFont = true;
+            this.btnMusteri.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMusteri.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMusteri.ImageOptions.Image")));
+            this.btnMusteri.Location = new System.Drawing.Point(912, 2);
+            this.btnMusteri.MusteriId = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.btnMusteri.MusteriTip = Sas.Restaurant.Entites.Enums.MusteriTip.Yok;
+            this.btnMusteri.Name = "btnMusteri";
+            this.btnMusteri.Size = new System.Drawing.Size(222, 35);
+            this.btnMusteri.Soyadi = null;
+            this.btnMusteri.TabIndex = 2;
+            this.btnMusteri.Text = "Musteri Seçilmedi";
+            this.btnMusteri.Visible = false;
+            this.btnMusteri.Click += new System.EventHandler(this.btnMusteri_Click);
             // 
             // btnGarsonSecim
             // 
@@ -210,9 +233,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnGarsonSecim.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnGarsonSecim.GarsonId = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.btnGarsonSecim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGarsonSecim.ImageOptions.Image")));
-            this.btnGarsonSecim.Location = new System.Drawing.Point(1118, 2);
+            this.btnGarsonSecim.Location = new System.Drawing.Point(1134, 2);
             this.btnGarsonSecim.Name = "btnGarsonSecim";
-            this.btnGarsonSecim.Size = new System.Drawing.Size(238, 35);
+            this.btnGarsonSecim.Size = new System.Drawing.Size(222, 35);
             this.btnGarsonSecim.Soyadi = null;
             this.btnGarsonSecim.TabIndex = 1;
             this.btnGarsonSecim.Text = "Garson Seçilmedi";
@@ -315,6 +338,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.navigationKategori.Controls.Add(this.pageUrunPorsiyon);
             this.navigationKategori.Controls.Add(this.pageEkMalzeme);
             this.navigationKategori.Controls.Add(this.pageGarson);
+            this.navigationKategori.Controls.Add(this.pageMusteri);
             this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationKategori.Location = new System.Drawing.Point(298, 2);
             this.navigationKategori.Name = "navigationKategori";
@@ -322,7 +346,8 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageKategoriUrunler,
             this.pageUrunPorsiyon,
             this.pageEkMalzeme,
-            this.pageGarson});
+            this.pageGarson,
+            this.pageMusteri});
             this.navigationKategori.SelectedPage = this.pageKategoriUrunler;
             this.navigationKategori.Size = new System.Drawing.Size(492, 733);
             this.navigationKategori.TabIndex = 2;
@@ -330,7 +355,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // pageKategoriUrunler
             // 
-            this.pageKategoriUrunler.Caption = "pageKategoriUrunler";
             this.pageKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.pageKategoriUrunler.Name = "pageKategoriUrunler";
             this.pageKategoriUrunler.Size = new System.Drawing.Size(492, 733);
@@ -1386,6 +1410,20 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnUrunEkle.TabIndex = 0;
             this.btnUrunEkle.Text = "Ürün Ekle";
             // 
+            // pageMusteri
+            // 
+            this.pageMusteri.Controls.Add(this.flowMusteri);
+            this.pageMusteri.Name = "pageMusteri";
+            this.pageMusteri.Size = new System.Drawing.Size(492, 733);
+            // 
+            // flowMusteri
+            // 
+            this.flowMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowMusteri.Location = new System.Drawing.Point(0, 0);
+            this.flowMusteri.Name = "flowMusteri";
+            this.flowMusteri.Size = new System.Drawing.Size(492, 733);
+            this.flowMusteri.TabIndex = 0;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1464,6 +1502,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
+            this.pageMusteri.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1565,6 +1604,9 @@ namespace Sas.Restaurant.UI.FrontOffice
         private UserControls.ControlGarsonButton btnGarsonSecim;
         private DevExpress.XtraBars.Navigation.NavigationPage pageGarson;
         private System.Windows.Forms.FlowLayoutPanel flowGarson;
+        private UserControls.ControlMusteriButton btnMusteri;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageMusteri;
+        private System.Windows.Forms.FlowLayoutPanel flowMusteri;
     }
 }
 

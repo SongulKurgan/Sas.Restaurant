@@ -41,8 +41,42 @@ namespace Sas.Restaurant.UI.FrontOffice
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             MasaButonOlustur();
             GarsonButtonOlustur();
+            MusteriButtonOlustur();
 
         }
+        void MusteriButtonOlustur()
+        {
+            foreach (var musteri in worker.MusteriService.GetList(null))
+            {
+                ControlMusteriButton button = new ControlMusteriButton
+                {
+                    Name = musteri.Id.ToString(),
+                    Adi=musteri.Adi,
+                    Soyadi=musteri.Soyadi,
+                    MusteriId = musteri.Id,
+                    MusteriTip=musteri.MusteriTip,
+                    Height=150,
+                    Width=150,
+
+
+                };
+                button.Load();
+                button.Click += MusteriSec;
+                flowMusteri.Controls.Add(button);
+            }
+        }
+
+        private void MusteriSec(object sender, EventArgs e)
+        {
+            ControlMusteriButton button = (ControlMusteriButton)sender;
+            btnMusteri.MusteriId = button.MusteriId;
+            btnMusteri.Adi = button.Adi;
+            btnMusteri.Soyadi = button.Soyadi;
+            btnMusteri.MusteriTip = button.MusteriTip;
+            btnMusteri.Load();
+            navigationKategori.SelectedPage = pageKategoriUrunler;
+        }
+
         void GarsonButtonOlustur()
         {
             foreach (var garson in worker.GarsonService.GetList(null))
@@ -126,6 +160,7 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             ControlMasaButton button = (ControlMasaButton)sender;
             btnGarsonSecim.Visible = true;
+            btnMusteri.Visible = true;
             if (button.MasaDurum==MasaDurum.Bos)
             {
                 secilenAdisyon = new Adisyon();
@@ -153,6 +188,15 @@ namespace Sas.Restaurant.UI.FrontOffice
                 else
                 {
                     btnGarsonSecim.Text = "Garson Seçilmedi";
+                }
+                Musteri musteri = worker.MusteriService.Get(c => c.Id == secilenAdisyon.MusteriId);
+                if (musteri!=null)
+                {
+                    btnMusteri.MusteriId = musteri.Id;
+                    btnMusteri.Adi = musteri.Adi;
+                    btnMusteri.Soyadi = musteri.Soyadi;
+                    btnMusteri.MusteriTip = musteri.MusteriTip;
+                    btnMusteri.Load();
                 }
                 button.AdisyonId = secilenAdisyon.Id;
                 navigationMain.SelectedPage = pageAdisyonAyrinti;
@@ -591,6 +635,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             if (layoutView1.RowCount==0)
             {
                 btnGarsonSecim.Visible = false;
+                btnMusteri.Visible = false;
                 navigationMain.SelectedPage = pageMasalar;
                 return;
             }
@@ -600,7 +645,9 @@ namespace Sas.Restaurant.UI.FrontOffice
                 return;
             }
             btnGarsonSecim.Visible = false;
+            btnMusteri.Visible = false;
             secilenAdisyon.GarsonId = btnGarsonSecim.GarsonId;
+            secilenAdisyon.MusteriId = btnMusteri.MusteriId;
             btnGarsonSecim.Clear();
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
             ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(),true)[0];
@@ -617,7 +664,11 @@ namespace Sas.Restaurant.UI.FrontOffice
 
             navigationKategori.SelectedPage = pageGarson;
         }
-        
+
+        private void btnMusteri_Click(object sender, EventArgs e)
+        {
+            navigationKategori.SelectedPage = pageMusteri;
+        }
     }
     
 }

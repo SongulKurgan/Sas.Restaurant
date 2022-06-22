@@ -86,6 +86,9 @@
     <Compile Include="ControlMenuKayit.Designer.cs">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlMusteriButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlPorsiyonButton.cs">
       <SubType>Component</SubType>
     </Compile>
