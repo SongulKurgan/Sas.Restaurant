@@ -31,6 +31,7 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnGarsonSecim = new Sas.Restaurant.UserControls.ControlGarsonButton();
             this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             this.navigationMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.pageMasalar = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -57,6 +58,8 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnEkMalzemeOnay = new DevExpress.XtraEditors.SimpleButton();
+            this.pageGarson = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowGarson = new System.Windows.Forms.FlowLayoutPanel();
             this.panelUrunGrupKeyPad = new DevExpress.XtraEditors.PanelControl();
             this.groupKategori = new DevExpress.XtraEditors.GroupControl();
             this.flowKategori = new System.Windows.Forms.FlowLayoutPanel();
@@ -150,6 +153,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            this.pageGarson.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeyPad)).BeginInit();
             this.panelUrunGrupKeyPad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).BeginInit();
@@ -190,12 +194,30 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnGarsonSecim);
             this.panelControl1.Controls.Add(this.btnKategoriyeDon);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1452, 39);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnGarsonSecim
+            // 
+            this.btnGarsonSecim.Adi = null;
+            this.btnGarsonSecim.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGarsonSecim.Appearance.Options.UseFont = true;
+            this.btnGarsonSecim.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGarsonSecim.GarsonId = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.btnGarsonSecim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGarsonSecim.ImageOptions.Image")));
+            this.btnGarsonSecim.Location = new System.Drawing.Point(1118, 2);
+            this.btnGarsonSecim.Name = "btnGarsonSecim";
+            this.btnGarsonSecim.Size = new System.Drawing.Size(238, 35);
+            this.btnGarsonSecim.Soyadi = null;
+            this.btnGarsonSecim.TabIndex = 1;
+            this.btnGarsonSecim.Text = "Garson Seçilmedi";
+            this.btnGarsonSecim.Visible = false;
+            this.btnGarsonSecim.Click += new System.EventHandler(this.btnGarsonSecim_Click);
             // 
             // btnKategoriyeDon
             // 
@@ -292,13 +314,15 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.navigationKategori.Controls.Add(this.pageKategoriUrunler);
             this.navigationKategori.Controls.Add(this.pageUrunPorsiyon);
             this.navigationKategori.Controls.Add(this.pageEkMalzeme);
+            this.navigationKategori.Controls.Add(this.pageGarson);
             this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationKategori.Location = new System.Drawing.Point(298, 2);
             this.navigationKategori.Name = "navigationKategori";
             this.navigationKategori.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.pageKategoriUrunler,
             this.pageUrunPorsiyon,
-            this.pageEkMalzeme});
+            this.pageEkMalzeme,
+            this.pageGarson});
             this.navigationKategori.SelectedPage = this.pageKategoriUrunler;
             this.navigationKategori.Size = new System.Drawing.Size(492, 733);
             this.navigationKategori.TabIndex = 2;
@@ -475,6 +499,21 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnEkMalzemeOnay.TabIndex = 0;
             this.btnEkMalzemeOnay.Text = "Onayla";
             this.btnEkMalzemeOnay.Click += new System.EventHandler(this.btnEkMalzemeOnay_Click);
+            // 
+            // pageGarson
+            // 
+            this.pageGarson.Caption = "pageGarson";
+            this.pageGarson.Controls.Add(this.flowGarson);
+            this.pageGarson.Name = "pageGarson";
+            this.pageGarson.Size = new System.Drawing.Size(492, 733);
+            // 
+            // flowGarson
+            // 
+            this.flowGarson.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowGarson.Location = new System.Drawing.Point(0, 0);
+            this.flowGarson.Name = "flowGarson";
+            this.flowGarson.Size = new System.Drawing.Size(492, 733);
+            this.flowGarson.TabIndex = 0;
             // 
             // panelUrunGrupKeyPad
             // 
@@ -990,7 +1029,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutViewField_layoutViewColumn1_4,
             this.layoutViewField_layoutViewColumn1,
             this.layoutViewField_layoutViewColumn1_5});
-            this.layoutViewCard1.Name = "layoutViewCard1";
+            this.layoutViewCard1.Name = "layoutViewTemplateCard";
             this.layoutViewCard1.OptionsItemText.TextToControlDistance = 7;
             this.layoutViewCard1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutViewCard1.Text = "TemplateCard";
@@ -1388,6 +1427,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            this.pageGarson.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeyPad)).EndInit();
             this.panelUrunGrupKeyPad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).EndInit();
@@ -1522,6 +1562,9 @@ namespace Sas.Restaurant.UI.FrontOffice
         private System.Windows.Forms.FlowLayoutPanel flowKonum;
         private DevExpress.XtraEditors.GroupControl groupMasalar;
         private DevExpress.XtraEditors.GroupControl groupKonumlar;
+        private UserControls.ControlGarsonButton btnGarsonSecim;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageGarson;
+        private System.Windows.Forms.FlowLayoutPanel flowGarson;
     }
 }
 

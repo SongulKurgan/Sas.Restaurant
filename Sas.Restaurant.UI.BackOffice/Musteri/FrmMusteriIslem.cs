@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Sas.Restaurant.Business.Workers;
+using Sas.Restaurant.Entites.Enums;
 using Sas.Restaurant.Entites.Tables;
 using System;
 using System.Collections.Generic;

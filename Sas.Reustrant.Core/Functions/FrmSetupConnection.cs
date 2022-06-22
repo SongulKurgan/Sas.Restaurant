@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sas.Reustrant.Core.Functions
+namespace Sas.Restaurant.Core.Functions
 {
     public partial class FrmSetupConnection : DevExpress.XtraEditors.XtraForm
     {

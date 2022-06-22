@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sas.Reustrant.Core.Functions
+namespace Sas.Restaurant.Core.Functions
 {
     public class ConnectionStringInfo
     {

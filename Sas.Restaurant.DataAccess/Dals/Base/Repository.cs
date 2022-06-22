@@ -1,6 +1,6 @@
 ﻿using Sas.Restaurant.DataAccess.Interfaces.Base;
 using Sas.Restaurant.Entites.Interfaces;
-using Sas.Reustrant.Core.Extensions;
+using Sas.Restaurant.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

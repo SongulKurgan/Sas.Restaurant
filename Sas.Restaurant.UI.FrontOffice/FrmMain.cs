@@ -5,7 +5,7 @@ using Sas.Restaurant.Entites.Dtos;
 using Sas.Restaurant.Entites.Enums;
 using Sas.Restaurant.Entites.Tables;
 using Sas.Restaurant.UserControls;
-using Sas.Reustrant.Core.Extensions;
+using Sas.Restaurant.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +40,39 @@ namespace Sas.Restaurant.UI.FrontOffice
             KategoriButtonOlustur();
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             MasaButonOlustur();
+            GarsonButtonOlustur();
 
         }
+        void GarsonButtonOlustur()
+        {
+            foreach (var garson in worker.GarsonService.GetList(null))
+            {
+                ControlGarsonCheckButton button = new ControlGarsonCheckButton
+                {
+                    Name = garson.Id.ToString(),
+                    Text=$"{garson.Adi}{garson.Soyadi}",
+                    Height=150,
+                    Width=150,
+                    Font = new Font("Tahoma", 12, FontStyle.Bold),
+                    GroupIndex=1,
+                    GarsonId=garson.Id,
+                    Adi=garson.Adi,
+                    Soyadi=garson.Soyadi
+                };
+                button.CheckedChanged += GarsonSecim;
+                flowGarson.Controls.Add(button);
+            }
+        }
+
+        private void GarsonSecim(object sender, EventArgs e)
+        {
+            ControlGarsonCheckButton button = (ControlGarsonCheckButton)sender;
+            btnGarsonSecim.Adi = button.Adi;
+            btnGarsonSecim.Soyadi = button.Soyadi;
+            btnGarsonSecim.GarsonId = button.GarsonId;
+            navigationKategori.SelectedPage = pageKategoriUrunler;
+        }
+
         void MasaButonOlustur()
         {
             foreach (var konum in worker.TanimService.GetList(c=>c.TanimTip==TanimTip.Konum))
@@ -86,6 +117,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 if (buttonMasa!=null)
                 {
                     buttonMasa.MasaDurum = MasaDurum.Dolu;
+                    buttonMasa.AdisyonId = adisyon.Id;
                 }
             }
         }
@@ -93,16 +125,38 @@ namespace Sas.Restaurant.UI.FrontOffice
         private void MasaSec(object sender, EventArgs e)
         {
             ControlMasaButton button = (ControlMasaButton)sender;
+            btnGarsonSecim.Visible = true;
             if (button.MasaDurum==MasaDurum.Bos)
             {
                 secilenAdisyon = new Adisyon();
                 secilenAdisyon.Id = Guid.NewGuid();
                 secilenMasa = worker.MasaService.Get(c=>c.Id==button.MasaId);
                 secilenAdisyon.MasaId = button.MasaId;
-                Garson garson = worker.GarsonService.Get(c => c.Adi == "Erhan");
-                secilenAdisyon.GarsonId = garson.Id;
+                btnGarsonSecim.Text = "Garson Seçilmedi";
                 button.AdisyonId = secilenAdisyon.Id;
                 navigationMain.SelectedPage = pageAdisyonAyrinti;
+            }
+            else if (button.MasaDurum==MasaDurum.Dolu)
+            {
+                worker.UrunHareketService.Load(c => c.AdisyonId == button.AdisyonId,c=>c.Urun,c=>c.Porsiyon, c => c.Porsiyon.Birim, c => c.EkMalzemeHareketleri);
+                worker.AdisyonService.Load(c => c.Id == button.AdisyonId);
+                worker.EkMalzemeHareketService.Load(null);
+                secilenAdisyon = worker.AdisyonService.Get(c => c.Id == button.AdisyonId);
+                secilenMasa = worker.MasaService.Get(c => c.Id == button.MasaId);
+                Garson garson = worker.GarsonService.Get(c => c.Id == secilenAdisyon.GarsonId);
+                if (garson != null)
+                {
+                    btnGarsonSecim.Adi = garson.Adi;
+                    btnGarsonSecim.Soyadi = garson.Soyadi;
+                    btnGarsonSecim.GarsonId = garson.Id;
+                }
+                else
+                {
+                    btnGarsonSecim.Text = "Garson Seçilmedi";
+                }
+                button.AdisyonId = secilenAdisyon.Id;
+                navigationMain.SelectedPage = pageAdisyonAyrinti;
+                layoutView1.RefreshData();
             }
         }
 
@@ -169,6 +223,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 MessageBox.Show("Bu ürüne atanmış bir porsiyon bulunamadı");
                 return;
             }
+            
             btnKategoriyeDon.Visible = true;
             flowPorsiyon.Controls.Clear();
             urunHareketEntity = new UrunHareket();
@@ -254,15 +309,17 @@ namespace Sas.Restaurant.UI.FrontOffice
             {
                 if (button.Checked)
                 {
-
-                    worker.EkMalzemeHareketService.AddOrUpdate(new EkMalzemeHareket
+                    if (!worker.EkMalzemeHareketService.Exist(c => c.UrunHareketId == urunHareketEntity.Id && c.EkMalzemeId == button.Id))
                     {
-                        Id = Guid.NewGuid(),
-                        UrunHareketId = urunHareketEntity.Id,
-                        EkMalzemeId = button.Id,
-                        Fiyat = button.Fiyat
-                    });
+                        worker.EkMalzemeHareketService.AddOrUpdate(new EkMalzemeHareket
+                        {
+                           Id = Guid.NewGuid(),
+                           UrunHareketId = urunHareketEntity.Id,
+                           EkMalzemeId = button.Id,
+                           Fiyat = button.Fiyat
 
+                        });
+                    }
                 }
                 else
                 {
@@ -299,10 +356,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             txtToplamTutar.Value = txtPorsiyonTutar.Value + txtEkMalzemeTutar.Value;
         }
 
-        private void simpleButton4_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void layoutView1_CustomCardStyle(object sender, DevExpress.XtraGrid.Views.Layout.Events.LayoutViewCardStyleEventArgs e)
         {
@@ -533,13 +587,37 @@ namespace Sas.Restaurant.UI.FrontOffice
 
         private void btnSiparisKaydet_Click(object sender, EventArgs e)
         {
+            
+            if (layoutView1.RowCount==0)
+            {
+                btnGarsonSecim.Visible = false;
+                navigationMain.SelectedPage = pageMasalar;
+                return;
+            }
+            if (btnGarsonSecim.GarsonId==Guid.Empty)
+            {
+                MessageBox.Show("Lütfen kaydedebilmek için bir garson seçin");
+                return;
+            }
+            btnGarsonSecim.Visible = false;
+            secilenAdisyon.GarsonId = btnGarsonSecim.GarsonId;
+            btnGarsonSecim.Clear();
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
             ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(),true)[0];
             button.MasaDurum = MasaDurum.Dolu;
             secilenAdisyon.AdisyonAcik = true;
             worker.Commit();
+            worker = new RestaurantWorker();
+            gridControl1.DataSource = worker.UrunHareketService.BindingList();
             navigationMain.SelectedPage = pageMasalar;
         }
+
+        private void btnGarsonSecim_Click(object sender, EventArgs e)
+        {
+
+            navigationKategori.SelectedPage = pageGarson;
+        }
+        
     }
     
 }

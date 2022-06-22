@@ -1,4 +1,5 @@
-﻿using Sas.Restaurant.Entites.Tables.Base;
+﻿using Sas.Restaurant.Entites.Enums;
+using Sas.Restaurant.Entites.Tables.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

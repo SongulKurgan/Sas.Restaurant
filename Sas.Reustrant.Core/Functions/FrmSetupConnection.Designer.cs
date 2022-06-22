@@ -1,5 +1,5 @@
 ﻿
-namespace Sas.Reustrant.Core.Functions
+namespace Sas.Restaurant.Core.Functions
 {
     partial class FrmSetupConnection
     {

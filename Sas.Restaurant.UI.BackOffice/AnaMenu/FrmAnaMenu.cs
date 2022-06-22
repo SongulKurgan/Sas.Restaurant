@@ -1,7 +1,7 @@
 ﻿using Sas.Restaurant.UI.BackOffice.Masa;
 using Sas.Restaurant.UI.BackOffice.Musteri;
 using Sas.Restaurant.UI.BackOffice.Urun;
-using Sas.Reustrant.Core.Functions;
+using Sas.Restaurant.Core.Functions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

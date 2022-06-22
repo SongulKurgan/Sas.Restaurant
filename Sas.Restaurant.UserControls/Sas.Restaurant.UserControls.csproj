@@ -59,6 +59,12 @@
     <Compile Include="ControlEkMalzemeButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ControlGarsonButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlGarsonCheckButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlKategoriButon.cs">
       <SubType>Component</SubType>
     </Compile>
