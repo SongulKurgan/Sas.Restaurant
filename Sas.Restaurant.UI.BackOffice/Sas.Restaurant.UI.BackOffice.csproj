@@ -92,6 +92,12 @@
     <Compile Include="Fotograf\FrmKamera.Designer.cs">
       <DependentUpon>FrmKamera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Garson\FrmGarson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garson\FrmGarson.Designer.cs">
+      <DependentUpon>FrmGarson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Masa\FrmMasa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmKamera.resx">
       <DependentUpon>FrmKamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Garson\FrmGarson.resx">
+      <DependentUpon>FrmGarson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Masa\FrmMasa.resx">
       <DependentUpon>FrmMasa.cs</DependentUpon>
