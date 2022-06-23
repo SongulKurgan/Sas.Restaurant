@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Utils;
 
 namespace Sas.Restaurant.UI.FrontOffice
 {
@@ -38,12 +39,49 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             InitializeComponent();
             KategoriButtonOlustur();
-            gridControl1.DataSource = worker.UrunHareketService.BindingList();
             MasaButonOlustur();
             GarsonButtonOlustur();
             MusteriButtonOlustur();
+            OdemeTuruButtonOlustur();
 
         }
+        void OdemeTuruButtonOlustur()
+        {
+            foreach (var odemeTuru in worker.OdemeTuruService.GetList(null))
+            {
+                ControlOdemeTuruButton button = new ControlOdemeTuruButton
+                {
+                    Name = odemeTuru.Id.ToString(),
+                    Text = odemeTuru.Adi,
+                    OdemeTuruId = odemeTuru.Id,
+                    Height=75,
+                    Width=125,
+                    Font=new Font("Tahoma",8,FontStyle.Bold),
+                    Appearance = { TextOptions = {WordWrap=WordWrap.Wrap}}
+            };
+                button.Click += OdemeButtonClick;
+                flowOdemeTurleri.Controls.Add(button);
+            }
+        }
+
+        private void OdemeButtonClick(object sender, EventArgs e)
+        {
+            ControlOdemeTuruButton button = (ControlOdemeTuruButton)sender;
+            if (txtKalanTutar.Value==0)
+            {
+                return;
+            }
+            worker.OdemeTuruService.Load(c => c.Id == button.OdemeTuruId);
+            worker.odemeHareketService.AddOrUpdate(new OdemeHareket()
+            {
+                AdisyonId = secilenAdisyon.Id,
+                OdemeTuruId = button.OdemeTuruId,
+                Tutar = txtUrunHareketOdenecekTutar.Value
+            });
+            UrunHareketToplamGetir();
+            
+        }
+
         void MusteriButtonOlustur()
         {
             foreach (var musteri in worker.MusteriService.GetList(null))
@@ -104,6 +142,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             btnGarsonSecim.Adi = button.Adi;
             btnGarsonSecim.Soyadi = button.Soyadi;
             btnGarsonSecim.GarsonId = button.GarsonId;
+            secilenAdisyon.GarsonId = button.GarsonId;
             navigationKategori.SelectedPage = pageKategoriUrunler;
         }
 
@@ -161,6 +200,8 @@ namespace Sas.Restaurant.UI.FrontOffice
             ControlMasaButton button = (ControlMasaButton)sender;
             btnGarsonSecim.Visible = true;
             btnMusteri.Visible = true;
+            gridControl1.DataSource = worker.UrunHareketService.BindingList();
+            gridControlOdeme.DataSource = worker.odemeHareketService.BindingList();
             if (button.MasaDurum==MasaDurum.Bos)
             {
                 secilenAdisyon = new Adisyon();
@@ -169,12 +210,14 @@ namespace Sas.Restaurant.UI.FrontOffice
                 secilenAdisyon.MasaId = button.MasaId;
                 btnGarsonSecim.Text = "Garson Seçilmedi";
                 button.AdisyonId = secilenAdisyon.Id;
+                btnMusteri.Load();
                 navigationMain.SelectedPage = pageAdisyonAyrinti;
             }
             else if (button.MasaDurum==MasaDurum.Dolu)
             {
                 worker.UrunHareketService.Load(c => c.AdisyonId == button.AdisyonId,c=>c.Urun,c=>c.Porsiyon, c => c.Porsiyon.Birim, c => c.EkMalzemeHareketleri);
                 worker.AdisyonService.Load(c => c.Id == button.AdisyonId);
+                worker.odemeHareketService.Load(c => c.AdisyonId == button.AdisyonId,c=>c.OdemeTuru);
                 worker.EkMalzemeHareketService.Load(null);
                 secilenAdisyon = worker.AdisyonService.Get(c => c.Id == button.AdisyonId);
                 secilenMasa = worker.MasaService.Get(c => c.Id == button.MasaId);
@@ -189,18 +232,23 @@ namespace Sas.Restaurant.UI.FrontOffice
                 {
                     btnGarsonSecim.Text = "Garson Seçilmedi";
                 }
-                Musteri musteri = worker.MusteriService.Get(c => c.Id == secilenAdisyon.MusteriId);
-                if (musteri!=null)
+                if (secilenAdisyon.MusteriId!=Guid.Empty)
                 {
-                    btnMusteri.MusteriId = musteri.Id;
-                    btnMusteri.Adi = musteri.Adi;
-                    btnMusteri.Soyadi = musteri.Soyadi;
-                    btnMusteri.MusteriTip = musteri.MusteriTip;
-                    btnMusteri.Load();
+                    Musteri musteri = worker.MusteriService.Get(c => c.Id == secilenAdisyon.MusteriId);
+                    if (musteri != null)
+                    {
+                        btnMusteri.MusteriId = musteri.Id;
+                        btnMusteri.Adi = musteri.Adi;
+                        btnMusteri.Soyadi = musteri.Soyadi;
+                        btnMusteri.MusteriTip = musteri.MusteriTip;
+                        btnMusteri.Load();
+                    }
                 }
+                
                 button.AdisyonId = secilenAdisyon.Id;
                 navigationMain.SelectedPage = pageAdisyonAyrinti;
                 layoutView1.RefreshData();
+                UrunHareketToplamGetir();
             }
         }
 
@@ -214,6 +262,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             }
             row.Miktar += sayi;    //Gelen sayıyı urun harekete atıyor
             layoutView1.RefreshData();
+            UrunHareketToplamGetir();
         }
         private void KategoriButtonOlustur()
         {
@@ -349,6 +398,9 @@ namespace Sas.Restaurant.UI.FrontOffice
 
         private void btnEkMalzemeOnay_Click(object sender, EventArgs e)
         {
+            EkMalzemeHesapla();
+            urunHareketEntity.EkMalzemeFiyat = txtEkMalzemeTutar.Value;
+            UrunHareketEkle();
             foreach (ControlEkMalzemeButton button in flowEkMalzeme.Controls)
             {
                 if (button.Checked)
@@ -370,14 +422,17 @@ namespace Sas.Restaurant.UI.FrontOffice
                     worker.EkMalzemeHareketService.EntityStateChange(c => c.UrunHareketId == urunHareketEntity.Id && c.EkMalzemeId == button.Id, System.Data.Entity.EntityState.Deleted);
                 }
             }
-            EkMalzemeHesapla();
-            urunHareketEntity.BirimFiyat = txtToplamTutar.Value;
-            UrunHareketEkle();
+
             navigationKategori.SelectedPage = pageKategoriUrunler;
 
         }
         void UrunHareketEkle()   //Urun ekleme kısmı
         {
+            if (!worker.AdisyonService.Exist(c=>c.Id==secilenAdisyon.Id))
+            {
+                worker.AdisyonService.AddOrUpdate(secilenAdisyon);
+                worker.Commit();
+            }
             btnKategoriyeDon.Visible = false;
             worker.UrunHareketService.AddOrUpdate(urunHareketEntity);
             worker.UrunService.Load(c => c.Id == urunHareketEntity.UrunId);
@@ -385,6 +440,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             Guid id = urunHareketEntity.Porsiyon.BirimId;
             worker.TanimService.Load(c => c.Id == id);
             layoutView1.RefreshData();
+            UrunHareketToplamGetir();
         }
 
         void EkMalzemeHesapla()
@@ -536,6 +592,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                     break;
             }
             keypadIslem = KeypadIslem.Yok;
+            UrunHareketToplamGetir();
         }
 
         
@@ -548,6 +605,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             {
                 hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
                 layoutView1.RefreshData();
+                UrunHareketToplamGetir();
             }
             else
             {
@@ -567,7 +625,9 @@ namespace Sas.Restaurant.UI.FrontOffice
                 return;
             }
             Porsiyon porsiyonEntity = worker.PorsiyonService.Get(c => c.Id == urunHareketEntity.PorsiyonId);
+
             IEnumerable<EkMalzeme> ekMalzemesList = worker.EkMalzemeService.GetList(c => c.UrunId == urunHareketEntity.UrunId);
+            txtPorsiyonTutar.Value = porsiyonEntity.Fiyat;
             EkMalzemeButonOlustur(porsiyonEntity.EkMalzemeCarpan, ekMalzemesList);
             List<EkMalzemeHareket> HareketList = worker.EkMalzemeHareketService.BindingList().ToList();
             foreach (var hareket in HareketList.Where(c => c.UrunHareketId == urunHareketEntity.Id).ToList())
@@ -575,6 +635,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 ControlEkMalzemeButton button = (ControlEkMalzemeButton)flowEkMalzeme.Controls.Find(hareket.EkMalzemeId.ToString(), true)[0];
                 button.Checked = true;
             }
+            
         }
 
         private void btnİndirim_Click(object sender, EventArgs e)
@@ -601,6 +662,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             {
                 hareketEntity.UrunHareketTip = UrunHareketTip.Iptal;
                 layoutView1.RefreshData();
+                UrunHareketToplamGetir();
             }
             else
             {
@@ -646,9 +708,14 @@ namespace Sas.Restaurant.UI.FrontOffice
             }
             btnGarsonSecim.Visible = false;
             btnMusteri.Visible = false;
+            btnMusteri.Clear();
             secilenAdisyon.GarsonId = btnGarsonSecim.GarsonId;
-            secilenAdisyon.MusteriId = btnMusteri.MusteriId;
+            if (btnMusteri.MusteriId!=Guid.Empty)
+            {
+                secilenAdisyon.MusteriId = btnMusteri.MusteriId;
+            } 
             btnGarsonSecim.Clear();
+            btnMusteri.Clear();
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
             ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(),true)[0];
             button.MasaDurum = MasaDurum.Dolu;
@@ -656,6 +723,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             worker.Commit();
             worker = new RestaurantWorker();
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
+            gridControlOdeme.DataSource = worker.odemeHareketService.BindingList();
             navigationMain.SelectedPage = pageMasalar;
         }
 
@@ -668,6 +736,21 @@ namespace Sas.Restaurant.UI.FrontOffice
         private void btnMusteri_Click(object sender, EventArgs e)
         {
             navigationKategori.SelectedPage = pageMusteri;
+        }
+
+        private void UrunHareketToplamGetir()
+        {
+            AdisyonToplamDto toplamlar= worker.AdisyonService.AdisyonToplamGetir();
+            txtToplamUrunHareketTutar.Value = toplamlar.ToplamTutar;
+            txtUrunHareketIndirimTutar.Value = toplamlar.IndirimTutar;
+            txtUrunHareketOdenecekTutar.Value = toplamlar.OdenecekTutar;
+            txtOdenenTutar.Value = toplamlar.OdenenTutar;
+            txtKalanTutar.Value = toplamlar.KalanTutar;
+        }
+
+        private void btnUrunEkle_Click(object sender, EventArgs e)
+        {
+            navigationKategori.SelectedPage = pageOdemeEkranı;
         }
     }
     

@@ -128,6 +128,18 @@
     <Compile Include="Musteri\FrmMusteriIslem.Designer.cs">
       <DependentUpon>FrmMusteriIslem.cs</DependentUpon>
     </Compile>
+    <Compile Include="OdemeTuru\FrmOdemeTuru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdemeTuru\FrmOdemeTuru.Designer.cs">
+      <DependentUpon>FrmOdemeTuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OdemeTuru\FrmOdemeTuruIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdemeTuru\FrmOdemeTuruIslem.Designer.cs">
+      <DependentUpon>FrmOdemeTuruIslem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tanim\FrmTanim.cs">
@@ -174,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Musteri\FrmMusteriIslem.resx">
       <DependentUpon>FrmMusteriIslem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdemeTuru\FrmOdemeTuru.resx">
+      <DependentUpon>FrmOdemeTuru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdemeTuru\FrmOdemeTuruIslem.resx">
+      <DependentUpon>FrmOdemeTuruIslem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

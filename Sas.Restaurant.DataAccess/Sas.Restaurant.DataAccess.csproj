@@ -69,6 +69,8 @@
     <Compile Include="Dals\GarsonDal.cs" />
     <Compile Include="Dals\MasaDal.cs" />
     <Compile Include="Dals\MusteriDal.cs" />
+    <Compile Include="Dals\OdemeHareketDal.cs" />
+    <Compile Include="Dals\OdemeTuruDal.cs" />
     <Compile Include="Dals\PorsiyonDal.cs" />
     <Compile Include="Dals\TanimDal.cs" />
     <Compile Include="Dals\TelefonDal.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Interfaces\IGarsonDal.cs" />
     <Compile Include="Interfaces\IMasaDal.cs" />
     <Compile Include="Interfaces\IMusteriDal.cs" />
+    <Compile Include="Interfaces\IOdemeHareketDal.cs" />
+    <Compile Include="Interfaces\IOdemeTuruDal.cs" />
     <Compile Include="Interfaces\IPorsiyonDal.cs" />
     <Compile Include="Interfaces\ITanimDal.cs" />
     <Compile Include="Interfaces\ITelefonDal.cs" />
@@ -95,6 +99,8 @@
     <Compile Include="Mappings\GarsonMap.cs" />
     <Compile Include="Mappings\MasaMap.cs" />
     <Compile Include="Mappings\MusteriMap.cs" />
+    <Compile Include="Mappings\OdemeHareketMap.cs" />
+    <Compile Include="Mappings\OdemeTuruMap.cs" />
     <Compile Include="Mappings\PorsiyonMap.cs" />
     <Compile Include="Mappings\TanimMap.cs" />
     <Compile Include="Mappings\TelefonMap.cs" />

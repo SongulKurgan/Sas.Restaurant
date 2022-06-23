@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\AdisyonToplamDto.cs" />
     <Compile Include="Dtos\KategoriDto.cs" />
     <Compile Include="Enums\MasaDurum.cs" />
     <Compile Include="Enums\MusteriTip.cs" />
@@ -57,6 +58,8 @@
     <Compile Include="Tables\Garson.cs" />
     <Compile Include="Tables\Masa.cs" />
     <Compile Include="Tables\Musteri.cs" />
+    <Compile Include="Tables\OdemeHareket.cs" />
+    <Compile Include="Tables\OdemeTuru.cs" />
     <Compile Include="Tables\Porsiyon.cs" />
     <Compile Include="Tables\Tanim.cs" />
     <Compile Include="Tables\Telefon.cs" />

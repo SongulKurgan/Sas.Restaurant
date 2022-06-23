@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Sas.Restaurant.UI.BackOffice.Garson;
+using Sas.Restaurant.UI.BackOffice.OdemeTuru;
 
 namespace Sas.Restaurant.UI.BackOffice.AnaMenu
 {
@@ -50,6 +51,13 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
         private void btnGarson_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmGarson form = new FrmGarson();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnOdemeTur_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmOdemeTuru form = new FrmOdemeTuru();
             form.MdiParent = this;
             form.Show();
         }

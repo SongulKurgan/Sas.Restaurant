@@ -1,5 +1,4 @@
 ﻿using Sas.Restaurant.Business.Services.Base;
-using Sas.Restaurant.Entites.Dtos;
 using Sas.Restaurant.Entites.Tables;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.Business.Services
 {
-  public  interface IAdisyonService: IBaseService<Adisyon>
+    public interface IOdemeTuruService:IBaseService<OdemeTuru>
     {
-        AdisyonToplamDto AdisyonToplamGetir();
     }
 }

@@ -13,12 +13,20 @@ namespace Sas.Restaurant.Entites.Tables
         public UrunHareketTip UrunHareketTip { get; set; }
         public decimal Miktar { get; set; }
         public decimal BirimFiyat { get; set; }
+        public decimal EkMalzemeFiyat { get; set; }
+        public decimal EkMalzemelibirimFiyat
+        {
+            get
+            {
+                return BirimFiyat + EkMalzemeFiyat;
+            }
+        }
         public decimal Indirim { get; set; }
         public decimal ToplamTutar
         {
             get
             {
-                return (Miktar * BirimFiyat) - ((Miktar * BirimFiyat) / 100 * Indirim);
+                return (Miktar * EkMalzemelibirimFiyat) - ((Miktar * EkMalzemelibirimFiyat) / 100 * Indirim);
             }
         }
         public Guid UrunId { get; set; }

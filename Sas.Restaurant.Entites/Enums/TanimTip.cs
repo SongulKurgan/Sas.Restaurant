@@ -10,6 +10,9 @@ namespace Sas.Restaurant.Entites.Enums
     {
         Birim,
         UrunGrup,
-        Konum
+        CagriTipi,
+        Konum,
+        OdemeTuru,
+
     }
 }

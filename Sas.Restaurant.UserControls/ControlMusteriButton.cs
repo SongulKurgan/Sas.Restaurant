@@ -21,7 +21,15 @@ namespace Sas.Restaurant.UserControls
         public MusteriTip MusteriTip { get; set; }
         public void Load()
         {
-            Text = $"{Adi} {Soyadi}";
+            if (Adi==null && Soyadi==null)
+            {
+                Text = "Müşteri seçilmedi";
+            }
+            else
+            {
+                Text = $"{Adi} {Soyadi}";
+            }
+            
             switch (MusteriTip)
             {
                 case MusteriTip.Yok:
@@ -44,6 +52,8 @@ namespace Sas.Restaurant.UserControls
             MusteriId = Guid.Empty;
             Adi = null;
             Soyadi = null;
+            MusteriTip = MusteriTip.Yok;
+            Refresh();
         }
     }
 }

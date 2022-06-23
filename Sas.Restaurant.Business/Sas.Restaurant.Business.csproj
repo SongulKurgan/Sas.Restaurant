@@ -62,6 +62,8 @@
     <Compile Include="Managers\GarsonManager.cs" />
     <Compile Include="Managers\MasaManager.cs" />
     <Compile Include="Managers\MusteriManager.cs" />
+    <Compile Include="Managers\OdemeHareketManager.cs" />
+    <Compile Include="Managers\OdemeTuruManager.cs" />
     <Compile Include="Managers\PorsiyonManager.cs" />
     <Compile Include="Managers\TanimManager.cs" />
     <Compile Include="Managers\TelefonManager.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="Services\IGarsonService.cs" />
     <Compile Include="Services\IMasaService.cs" />
     <Compile Include="Services\IMusteriService.cs" />
+    <Compile Include="Services\IOdemeHareketService.cs" />
+    <Compile Include="Services\IOdemeTuruService.cs" />
     <Compile Include="Services\IPorsiyonService.cs" />
     <Compile Include="Services\ITanimService.cs" />
     <Compile Include="Services\ITelefonService.cs" />
@@ -88,6 +92,8 @@
     <Compile Include="Validations\GarsonValidator.cs" />
     <Compile Include="Validations\MasaValidator.cs" />
     <Compile Include="Validations\MusteriValidator.cs" />
+    <Compile Include="Validations\OdemeHareketValidator.cs" />
+    <Compile Include="Validations\OdemeTuruValidator.cs" />
     <Compile Include="Validations\Porsiyon Validator.cs" />
     <Compile Include="Validations\TanimValidator.cs" />
     <Compile Include="Validations\TelefonValidator.cs" />
