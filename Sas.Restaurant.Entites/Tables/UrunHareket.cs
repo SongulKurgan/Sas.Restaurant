@@ -11,6 +11,7 @@ namespace Sas.Restaurant.Entites.Tables
    public class UrunHareket:EntityBase
     {
         public UrunHareketTip UrunHareketTip { get; set; }
+        public SiparisDurum SiparisDurum { get; set; }
         public decimal Miktar { get; set; }
         public decimal BirimFiyat { get; set; }
         public decimal EkMalzemeFiyat { get; set; }

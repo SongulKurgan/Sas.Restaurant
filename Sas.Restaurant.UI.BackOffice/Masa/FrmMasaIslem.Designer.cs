@@ -215,7 +215,7 @@ namespace Sas.Restaurant.UI.BackOffice.Masa
             this.MinimizeBox = false;
             this.Name = "FrmMasaIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMasaIslem";
+            this.Text = "Masa İşlem Formu";
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

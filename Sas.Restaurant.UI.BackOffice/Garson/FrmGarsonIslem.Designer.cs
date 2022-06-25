@@ -33,6 +33,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSoyadi = new DevExpress.XtraEditors.TextEdit();
             this.txtAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -40,14 +41,13 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnKapat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSoyadi = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -83,6 +83,15 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.labelControl5.Size = new System.Drawing.Size(104, 230);
             this.labelControl5.TabIndex = 6;
             this.labelControl5.Text = "Açıklama :";
+            // 
+            // txtSoyadi
+            // 
+            this.txtSoyadi.Location = new System.Drawing.Point(112, 71);
+            this.txtSoyadi.Name = "txtSoyadi";
+            this.txtSoyadi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSoyadi.Properties.Appearance.Options.UseFont = true;
+            this.txtSoyadi.Size = new System.Drawing.Size(637, 22);
+            this.txtSoyadi.TabIndex = 1;
             // 
             // txtAdi
             // 
@@ -167,15 +176,6 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Garson İşlem Formu";
             // 
-            // txtSoyadi
-            // 
-            this.txtSoyadi.Location = new System.Drawing.Point(112, 71);
-            this.txtSoyadi.Name = "txtSoyadi";
-            this.txtSoyadi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoyadi.Properties.Appearance.Options.UseFont = true;
-            this.txtSoyadi.Size = new System.Drawing.Size(637, 22);
-            this.txtSoyadi.TabIndex = 1;
-            // 
             // FrmGarsonIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -189,14 +189,14 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.MinimizeBox = false;
             this.Name = "FrmGarsonIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGarsonIslem";
+            this.Text = "Garson İşlem Formu";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

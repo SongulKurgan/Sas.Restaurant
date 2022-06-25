@@ -27,7 +27,8 @@ namespace Sas.Restaurant.UI.FrontOffice
             Iade,
             Ikram,
             Bol,
-            Indirim
+            Indirim,
+            OdemeBol
         }
 
         RestaurantWorker worker = new RestaurantWorker();
@@ -71,14 +72,24 @@ namespace Sas.Restaurant.UI.FrontOffice
             {
                 return;
             }
+            if (txtOdemeTutari.Value <= 0)
+            {
+                return;
+            }
             worker.OdemeTuruService.Load(c => c.Id == button.OdemeTuruId);
             worker.odemeHareketService.AddOrUpdate(new OdemeHareket()
             {
                 AdisyonId = secilenAdisyon.Id,
                 OdemeTuruId = button.OdemeTuruId,
-                Tutar = txtUrunHareketOdenecekTutar.Value
+                Tutar = txtOdemeTutari.Value
             });
             UrunHareketToplamGetir();
+            txtOdemeTutari.Value = 0;
+            if (txtKalanTutar.Value < 0)
+            {
+                lblMesaj.Visible = true;
+                lblMesaj.Text=($"Müşteriye ödenecek para üstü{Math.Abs(txtKalanTutar.Value).ToString("C2")}'dir" );
+            }
             
         }
 
@@ -184,7 +195,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 masaButton.Click += MasaSec;
                 flowMasalar.Controls.Add(masaButton);
             }
-            foreach (var adisyon in worker.AdisyonService.GetList(c=>c.AdisyonAcik))
+            foreach (var adisyon in worker.AdisyonService.GetList(c=>c.AdisyonDurum== AdisyonDurum.Acik))
             {
                 ControlMasaButton buttonMasa= flowMasalar.Controls.Cast<ControlMasaButton>().SingleOrDefault(c => c.MasaId == adisyon.MasaId);
                 if (buttonMasa!=null)
@@ -202,6 +213,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             btnMusteri.Visible = true;
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             gridControlOdeme.DataSource = worker.odemeHareketService.BindingList();
+            navigationKategori.SelectedPage = pageKategoriUrunler;
             if (button.MasaDurum==MasaDurum.Bos)
             {
                 secilenAdisyon = new Adisyon();
@@ -211,6 +223,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 btnGarsonSecim.Text = "Garson Seçilmedi";
                 button.AdisyonId = secilenAdisyon.Id;
                 btnMusteri.Load();
+                ToplamlariSifirla();
                 navigationMain.SelectedPage = pageAdisyonAyrinti;
             }
             else if (button.MasaDurum==MasaDurum.Dolu)
@@ -250,8 +263,18 @@ namespace Sas.Restaurant.UI.FrontOffice
                 layoutView1.RefreshData();
                 UrunHareketToplamGetir();
             }
+
         }
 
+        void ToplamlariSifirla()
+        {
+            txtKalanTutar.Value = 0;
+            txtOdemeTutari.Value = 0;
+            txtOdenenTutar.Value = 0;
+            txtToplamUrunHareketTutar.Value = 0;
+            txtUrunHareketIndirimTutar.Value = 0;
+            txtUrunHareketOdenecekTutar.Value = 0;
+        }
         void MiktarArttir(int sayi)
         {
             UrunHareket row = (UrunHareket)layoutView1.GetFocusedRow();
@@ -487,8 +510,17 @@ namespace Sas.Restaurant.UI.FrontOffice
         private void KeyPadSend(object sender, EventArgs e)
         {
             SimpleButton button = (SimpleButton)sender;
-            txtMiktar.Focus();
-            SendKeys.Send(button.Text);
+            if (navigationKategori.SelectedPage==pageOdemeEkrani)
+            {
+                txtOdemeTutari.Focus();
+                SendKeys.Send(button.Text);
+            }
+            else
+            {
+                txtMiktar.Focus();
+                SendKeys.Send(button.Text);
+            }
+
         }
 
         private void btnKategoriyeDon_Click(object sender, EventArgs e)
@@ -589,6 +621,9 @@ namespace Sas.Restaurant.UI.FrontOffice
                     }
                     hareketEntity.Indirim = txtMiktar.Value;
                     layoutView1.RefreshData();
+                    break;
+                case KeypadIslem.OdemeBol:
+                    txtOdemeTutari.Value = txtKalanTutar.Value / txtOdemeTutari.Value;
                     break;
             }
             keypadIslem = KeypadIslem.Yok;
@@ -696,6 +731,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             
             if (layoutView1.RowCount==0)
             {
+                btnMusteri.Clear();
                 btnGarsonSecim.Visible = false;
                 btnMusteri.Visible = false;
                 navigationMain.SelectedPage = pageMasalar;
@@ -706,9 +742,7 @@ namespace Sas.Restaurant.UI.FrontOffice
                 MessageBox.Show("Lütfen kaydedebilmek için bir garson seçin");
                 return;
             }
-            btnGarsonSecim.Visible = false;
-            btnMusteri.Visible = false;
-            btnMusteri.Clear();
+            
             secilenAdisyon.GarsonId = btnGarsonSecim.GarsonId;
             if (btnMusteri.MusteriId!=Guid.Empty)
             {
@@ -716,26 +750,63 @@ namespace Sas.Restaurant.UI.FrontOffice
             } 
             btnGarsonSecim.Clear();
             btnMusteri.Clear();
+            secilenAdisyon.Tutar = txtUrunHareketOdenecekTutar.Value;
+            btnGarsonSecim.Visible = false;
+            btnMusteri.Visible = false;
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
             ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(),true)[0];
-            button.MasaDurum = MasaDurum.Dolu;
-            secilenAdisyon.AdisyonAcik = true;
+            if (secilenAdisyon.AdisyonDurum!=AdisyonDurum.Iptal)
+            {
+                if (txtKalanTutar.Value <= 0)
+                {
+                    button.MasaDurum = MasaDurum.Bos;
+                    secilenAdisyon.AdisyonDurum = AdisyonDurum.Kapali;
+                    btnSiparisKaydet.Text = "Değişiklikleri\nKaydet";
+                    btnSiparisKaydet.ImageOptions.ImageIndex = 0;
+                }
+                else
+                {
+                    button.MasaDurum = MasaDurum.Dolu;
+                    secilenAdisyon.AdisyonDurum = AdisyonDurum.Acik;
+                }
+            }
+            else
+            {
+                button.MasaDurum = MasaDurum.Bos;
+            }
+           
             worker.Commit();
             worker = new RestaurantWorker();
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             gridControlOdeme.DataSource = worker.odemeHareketService.BindingList();
+            lblMesaj.Visible = false;
             navigationMain.SelectedPage = pageMasalar;
         }
 
         private void btnGarsonSecim_Click(object sender, EventArgs e)
         {
 
-            navigationKategori.SelectedPage = pageGarson;
+            if (navigationKategori.SelectedPage == pageGarson)
+            {
+                navigationKategori.SelectedPage = pageKategoriUrunler;
+            }
+            else
+            {
+                navigationKategori.SelectedPage = pageGarson;
+            }
         }
 
         private void btnMusteri_Click(object sender, EventArgs e)
         {
-            navigationKategori.SelectedPage = pageMusteri;
+            if (navigationKategori.SelectedPage == pageMusteri)
+            {
+                navigationKategori.SelectedPage = pageKategoriUrunler;
+            }
+            else
+            {
+                navigationKategori.SelectedPage = pageMusteri;
+            }
+            
         }
 
         private void UrunHareketToplamGetir()
@@ -746,11 +817,94 @@ namespace Sas.Restaurant.UI.FrontOffice
             txtUrunHareketOdenecekTutar.Value = toplamlar.OdenecekTutar;
             txtOdenenTutar.Value = toplamlar.OdenenTutar;
             txtKalanTutar.Value = toplamlar.KalanTutar;
+            if (toplamlar.KalanTutar<=0)
+            {
+                btnSiparisKaydet.ImageOptions.ImageIndex = 1;
+                btnSiparisKaydet.Text = "Masayı Kapat";
+            }
+            else
+            {
+                btnSiparisKaydet.ImageOptions.ImageIndex = 0;
+                btnSiparisKaydet.Text = "Şiparişi\nKaydet";
+            }
         }
 
-        private void btnUrunEkle_Click(object sender, EventArgs e)
+
+        private void btnOdemeTumu_Click(object sender, EventArgs e)
         {
-            navigationKategori.SelectedPage = pageOdemeEkranı;
+            txtOdemeTutari.Value = txtKalanTutar.Value;
+        }
+
+
+        private void btnOdemeYarim_Click(object sender, EventArgs e)
+        {
+            txtOdemeTutari.Value = txtKalanTutar.Value/2;
+        }
+
+        private void btnOdemeCeyrek_Click(object sender, EventArgs e)
+        {
+            txtOdemeTutari.Value = txtKalanTutar.Value/4;
+        }
+
+        private void btnOdemeN_Click(object sender, EventArgs e)
+        {
+            keypadIslem = KeypadIslem.OdemeBol;
+            txtMiktar.Text = null;
+            txtMiktar.Properties.NullValuePrompt = "Lütfen bölünecek değeri girin";
+        }
+
+        private void ParaClick(object sender, EventArgs e)
+        {
+            ControlParaButton button = (ControlParaButton)sender;
+            txtOdemeTutari.Value += button.Deger;
+        }
+
+        private void btnKeypadBack_Click(object sender, EventArgs e)
+        {
+            if (navigationKategori.SelectedPage==pageOdemeEkrani)
+            {
+                txtOdemeTutari.Focus();
+                SendKeys.Send("{BACKSPACE}");
+            }
+            else
+            {
+                txtMiktar.Focus();
+                SendKeys.Send("{BACKSPACE}");
+            }
+        }
+
+        private void btnOdemeYap_Click(object sender, EventArgs e)
+        {
+            if (navigationKategori.SelectedPage == pageOdemeEkrani)
+            {
+                navigationKategori.SelectedPage = pageKategoriUrunler;
+            }
+            else
+            {
+                navigationKategori.SelectedPage = pageOdemeEkrani;
+            }
+        }
+
+        private void btnKeypadDel_Click(object sender, EventArgs e)
+        {
+            if (navigationKategori.SelectedPage == pageOdemeEkrani)
+            {
+                txtOdemeTutari.Value = 0;
+
+            }
+            else
+            {
+                txtMiktar.Value = 0;
+            }
+        }
+
+        private void btnSiparisİptal_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Adisyonu iptal edeceksiniz. Emin misiniz?","Uyarı",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                secilenAdisyon.AdisyonDurum = AdisyonDurum.Iptal;
+                btnSiparisKaydet.PerformClick();
+            }
         }
     }
     

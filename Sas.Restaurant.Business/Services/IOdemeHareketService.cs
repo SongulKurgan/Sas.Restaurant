@@ -1,4 +1,5 @@
 ﻿using Sas.Restaurant.Business.Services.Base;
+using Sas.Restaurant.Entites.Dtos;
 using Sas.Restaurant.Entites.Tables;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,9 @@ namespace Sas.Restaurant.Business.Services
 {
    public interface IOdemeHareketService: IBaseService<OdemeHareket>
     {
+        IEnumerable<OdemeHareket> OdemeHareketListesiGetir(DateTime baslangicTarihi, DateTime bitisTarihi);
+        List<HaftalikKazancDto> HaftalikKazanciGetir();
+        List<AylikKazancDto> AylikKazancıGetir();
+        List<YillikKazancDto> YillikKazancıGetir();
     }
 }

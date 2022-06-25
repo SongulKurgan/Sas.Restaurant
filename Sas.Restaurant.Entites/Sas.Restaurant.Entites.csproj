@@ -41,10 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\AdisyonHareketDto.cs" />
     <Compile Include="Dtos\AdisyonToplamDto.cs" />
+    <Compile Include="Dtos\AylikKazancDto.cs" />
+    <Compile Include="Dtos\EnCokSatanUrunlerDto.cs" />
+    <Compile Include="Dtos\HaftalikKazancDto.cs" />
     <Compile Include="Dtos\KategoriDto.cs" />
+    <Compile Include="Dtos\Mutfak\MutfakAdisyonHareketDto.cs" />
+    <Compile Include="Dtos\Mutfak\MutfakEkMalzemeDto.cs" />
+    <Compile Include="Dtos\Mutfak\MutfakUrunHareketDto.cs" />
+    <Compile Include="Dtos\YillikKazancDto.cs" />
+    <Compile Include="Enums\AdisyonDurum.cs" />
+    <Compile Include="Enums\Aylar.cs" />
+    <Compile Include="Enums\HaftaninGunleri.cs" />
     <Compile Include="Enums\MasaDurum.cs" />
     <Compile Include="Enums\MusteriTip.cs" />
+    <Compile Include="Enums\SiparisDurum.cs" />
     <Compile Include="Enums\TanimTip.cs" />
     <Compile Include="Enums\UrunHareketTip.cs" />
     <Compile Include="Interfaces\IEntity.cs" />

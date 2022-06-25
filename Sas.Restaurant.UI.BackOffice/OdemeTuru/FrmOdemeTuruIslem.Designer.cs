@@ -190,7 +190,7 @@ namespace Sas.Restaurant.UI.BackOffice.OdemeTuru
             this.MinimizeBox = false;
             this.Name = "FrmOdemeTuruIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmOdemeTuruIslem";
+            this.Text = "Ödeme İşlemleri Formu";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).EndInit();

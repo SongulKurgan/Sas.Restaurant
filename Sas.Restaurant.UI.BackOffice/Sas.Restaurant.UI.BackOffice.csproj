@@ -39,13 +39,18 @@
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v21.2" />
+    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v21.2" />
     <Reference Include="DevExpress.Data.v21.2" />
     <Reference Include="DevExpress.Dialogs.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v21.2.Core" />
     <Reference Include="DevExpress.Utils.v21.2" />
+    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v21.2" />
     <Reference Include="DevExpress.Sparkline.v21.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.Wizard, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraDialogs.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2" />
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -74,11 +79,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adisyon\FrmAdisyonHareket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adisyon\FrmAdisyonHareket.Designer.cs">
+      <DependentUpon>FrmAdisyonHareket.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnaMenu\FrmAnaMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AnaMenu\FrmAnaMenu.Designer.cs">
       <DependentUpon>FrmAnaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnaMenu\FrmAnaMenuBilgi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaMenu\FrmAnaMenuBilgi.Designer.cs">
+      <DependentUpon>FrmAnaMenuBilgi.cs</DependentUpon>
     </Compile>
     <Compile Include="Fotograf\FrmImageEditor.cs">
       <SubType>Form</SubType>
@@ -91,6 +108,12 @@
     </Compile>
     <Compile Include="Fotograf\FrmKamera.Designer.cs">
       <DependentUpon>FrmKamera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OdemeHareket\FrmOdemeHareketleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdemeHareket\FrmOdemeHareketleri.Designer.cs">
+      <DependentUpon>FrmOdemeHareketleri.cs</DependentUpon>
     </Compile>
     <Compile Include="Garson\FrmGarson.cs">
       <SubType>Form</SubType>
@@ -148,6 +171,12 @@
     <Compile Include="Tanim\FrmTanim.Designer.cs">
       <DependentUpon>FrmTanim.cs</DependentUpon>
     </Compile>
+    <Compile Include="urunHareket\FrmUrunHareket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunHareket\FrmUrunHareket.Designer.cs">
+      <DependentUpon>FrmUrunHareket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Urun\FrmUrun.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,14 +189,23 @@
     <Compile Include="Urun\FrmUrunIslem.Designer.cs">
       <DependentUpon>FrmUrunIslem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Adisyon\FrmAdisyonHareket.resx">
+      <DependentUpon>FrmAdisyonHareket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AnaMenu\FrmAnaMenu.resx">
       <DependentUpon>FrmAnaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnaMenu\FrmAnaMenuBilgi.resx">
+      <DependentUpon>FrmAnaMenuBilgi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmImageEditor.resx">
       <DependentUpon>FrmImageEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmKamera.resx">
       <DependentUpon>FrmKamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdemeHareket\FrmOdemeHareketleri.resx">
+      <DependentUpon>FrmOdemeHareketleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Garson\FrmGarson.resx">
       <DependentUpon>FrmGarson.cs</DependentUpon>
@@ -205,6 +243,9 @@
     </Compile>
     <EmbeddedResource Include="Tanim\FrmTanim.resx">
       <DependentUpon>FrmTanim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunHareket\FrmUrunHareket.resx">
+      <DependentUpon>FrmUrunHareket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Urun\FrmUrun.resx">
       <DependentUpon>FrmUrun.cs</DependentUpon>

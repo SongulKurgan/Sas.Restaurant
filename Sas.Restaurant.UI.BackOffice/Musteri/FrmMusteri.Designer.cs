@@ -29,6 +29,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMusteri));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.controlMenu = new Sas.Restaurant.UserControls.ControlAnaMenuAlt();
@@ -48,14 +49,19 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseTextOptions = true;
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.labelControl1.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.ImageOptions.Image")));
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(1185, 69);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Ürünler";
+            this.labelControl1.Text = "Müşteriler";
             // 
             // groupControl1
             // 
@@ -151,7 +157,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "FrmMusteri";
-            this.Text = "FrmMusteri";
+            this.Text = "Müşteriler";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMusteri)).EndInit();

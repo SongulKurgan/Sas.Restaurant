@@ -18,7 +18,7 @@ namespace Sas.Restaurant.DataAccess.Mappings
             Property(c => c.EkMalzemeFiyat).HasPrecision(10, 2);
             Ignore(c => c.ToplamTutar);
             Ignore(c => c.EkMalzemelibirimFiyat);
-            ToTable("UrunHareketler");
+            ToTable("UrunHareketleri");
             Property(c => c.Miktar).HasColumnName("Miktar");
             Property(c => c.BirimFiyat).HasColumnName("BirimFiyat");
             Property(c => c.Indirim).HasColumnName("Indirim");
