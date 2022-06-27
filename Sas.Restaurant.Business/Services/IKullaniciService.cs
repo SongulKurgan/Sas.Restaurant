@@ -10,5 +10,6 @@ namespace Sas.Restaurant.Business.Services
 {
     public interface IKullaniciService:IBaseService<Kullanici>
     {
+        Kullanici KullaniciKontrol(string kullaniciAdi, string parola);
     }
 }

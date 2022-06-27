@@ -86,6 +86,12 @@
     <Compile Include="ControlKonumButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ControlKullaniciGiris.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKullaniciGiris.Designer.cs">
+      <DependentUpon>ControlKullaniciGiris.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlMasaButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +120,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="KeyBoardButtonType.cs" />
+    <Compile Include="KullaniciControlEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -131,6 +138,9 @@
     <EmbeddedResource Include="ControlKeyboard.resx">
       <DependentUpon>ControlKeyboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlKullaniciGiris.resx">
+      <DependentUpon>ControlKullaniciGiris.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlMenuKayit.resx">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +151,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sas.Restaurant.Business\Sas.Restaurant.Business.csproj">
+      <Project>{24381F4B-C6F0-4F70-A912-422E4C8C09F2}</Project>
+      <Name>Sas.Restaurant.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sas.Restaurant.Entites\Sas.Restaurant.Entites.csproj">
       <Project>{B187D76F-D2CB-4EA9-AD34-81EA9B8C9B8E}</Project>
       <Name>Sas.Restaurant.Entites</Name>

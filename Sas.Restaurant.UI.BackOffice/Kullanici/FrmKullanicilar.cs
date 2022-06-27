@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Sas.Restaurant.Business.Workers;
 using Sas.Restaurant.Entites.Enums;
+using Sas.Reustrant.Core.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,7 @@ namespace Sas.Restaurant.UI.BackOffice.Kullanici
             _entity = (Entites.Tables.Kullanici)gridView1.GetFocusedRow();
             controlKullaniciMenu.KayitAc = true;
             groupKullaniciBilgi.Visible = true;
+            txtKullaniciAdi.Enabled = false;
             KullaniciBinding();
 
         }
@@ -72,12 +74,20 @@ namespace Sas.Restaurant.UI.BackOffice.Kullanici
         {
             if (txtParola.Text!=txtParolaTekrar.Text)
             {
-                MessageBox.Show("Girdiğiniz parolalar birbirine eşit değil");
-                return;
+                if (!(String.IsNullOrEmpty(txtParola.Text)&&txtKullaniciAdi.Enabled==false))
+                {
+                    MessageBox.Show("Girdiğiniz parolalar birbirine eşit değil");
+                    return;
+                }
+                
             }
             else
             {
-                _entity.Parola = txtParola.Text;
+                if (!(String.IsNullOrEmpty(txtParola.Text) && txtKullaniciAdi.Enabled == false))
+                {
+                    _entity.Parola =Md5Hash.HashMd5(txtParola.Text);
+                }
+                
             }
             worker.KullaniciService.AddOrUpdate(_entity);
             worker.Commit();
@@ -85,6 +95,7 @@ namespace Sas.Restaurant.UI.BackOffice.Kullanici
             groupKullaniciBilgi.Visible = false;
             txtParola.Text = null;
             txtParolaTekrar.Text = null;
+            txtKullaniciAdi.Enabled = false;
         }
 
         private void controlKullaniciMenu_VazgecClick(object sender, EventArgs e)
@@ -92,6 +103,7 @@ namespace Sas.Restaurant.UI.BackOffice.Kullanici
             _entity = null;
             controlKullaniciMenu.KayitAc = false;
             groupKullaniciBilgi.Visible = false;
+            txtKullaniciAdi.Enabled = false;
         }
 
         private void controlKullaniciMenu_KapatClick(object sender, EventArgs e)

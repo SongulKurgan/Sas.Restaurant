@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tools\Md5Hash.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sas.Restaurant.Entites\Sas.Restaurant.Entites.csproj">

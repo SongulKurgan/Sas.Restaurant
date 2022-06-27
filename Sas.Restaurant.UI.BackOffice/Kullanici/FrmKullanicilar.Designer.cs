@@ -170,6 +170,7 @@ namespace Sas.Restaurant.UI.BackOffice.Kullanici
             this.txtParolaTekrar.Name = "txtParolaTekrar";
             this.txtParolaTekrar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtParolaTekrar.Properties.Appearance.Options.UseFont = true;
+            this.txtParolaTekrar.Properties.PasswordChar = '*';
             this.txtParolaTekrar.Size = new System.Drawing.Size(359, 22);
             this.txtParolaTekrar.TabIndex = 4;
             // 
@@ -179,6 +180,7 @@ namespace Sas.Restaurant.UI.BackOffice.Kullanici
             this.txtParola.Name = "txtParola";
             this.txtParola.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtParola.Properties.Appearance.Options.UseFont = true;
+            this.txtParola.Properties.PasswordChar = '*';
             this.txtParola.Size = new System.Drawing.Size(359, 22);
             this.txtParola.TabIndex = 4;
             // 

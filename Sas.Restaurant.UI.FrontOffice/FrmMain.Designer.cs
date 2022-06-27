@@ -1,5 +1,4 @@
-﻿
-using Sas.Restaurant.UserControls;
+﻿using Sas.Restaurant.UserControls;
 
 namespace Sas.Restaurant.UI.FrontOffice
 {
@@ -227,11 +226,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.colBildirimEkMalzeme = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBildirimMasaAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelAnaSolMenu = new DevExpress.XtraEditors.PanelControl();
+            this.controlBadgButton1 = new Sas.Restaurant.UserControls.ControlBadgButton();
             this.btnAramaKaydi = new DevExpress.XtraEditors.SimpleButton();
             this.btnSiparisler = new DevExpress.XtraEditors.SimpleButton();
             this.btnMasalar = new DevExpress.XtraEditors.SimpleButton();
             this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.controlBadgButton1 = new Sas.Restaurant.UserControls.ControlBadgButton();
+            this.pageKullaniciGiris = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -437,10 +437,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.navigationMain.Controls.Add(this.pageSiparis);
             this.navigationMain.Controls.Add(this.pageAramaKaydi);
             this.navigationMain.Controls.Add(this.pageBildirim);
+            this.navigationMain.Controls.Add(this.pageKullaniciGiris);
             this.navigationMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationMain.Location = new System.Drawing.Point(112, 39);
             this.navigationMain.Name = "navigationMain";
             this.navigationMain.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.pageKullaniciGiris,
             this.pageSiparis,
             this.pageMasalar,
             this.pageAramaKaydi,
@@ -454,7 +456,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // pageMasalar
             // 
-            this.pageMasalar.Caption = "pageMasalar";
             this.pageMasalar.Controls.Add(this.groupMasalar);
             this.pageMasalar.Controls.Add(this.groupKonumlar);
             this.pageMasalar.Name = "pageMasalar";
@@ -499,7 +500,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // pageAdisyonAyrinti
             // 
-            this.pageAdisyonAyrinti.Caption = "pageAdisyonAyrinti";
             this.pageAdisyonAyrinti.Controls.Add(this.panelurunHareketHizliSatis);
             this.pageAdisyonAyrinti.Controls.Add(this.panelUrunHareket);
             this.pageAdisyonAyrinti.Controls.Add(this.panelHareketSolMenu);
@@ -2329,7 +2329,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // pageSiparis
             // 
-            this.pageSiparis.Caption = "pageSiparis";
             this.pageSiparis.Controls.Add(this.groupSiparis);
             this.pageSiparis.Name = "pageSiparis";
             this.pageSiparis.Size = new System.Drawing.Size(1371, 729);
@@ -2368,7 +2367,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // pageAramaKaydi
             // 
-            this.pageAramaKaydi.Caption = "pageAramaKaydi";
             this.pageAramaKaydi.Controls.Add(this.gridControl2);
             this.pageAramaKaydi.Name = "pageAramaKaydi";
             this.pageAramaKaydi.Size = new System.Drawing.Size(1371, 729);
@@ -2496,7 +2494,6 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // pageBildirim
             // 
-            this.pageBildirim.Caption = "pageBildirim";
             this.pageBildirim.Controls.Add(this.gridControlBildirim);
             this.pageBildirim.Name = "pageBildirim";
             this.pageBildirim.Size = new System.Drawing.Size(1371, 729);
@@ -2604,6 +2601,27 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelAnaSolMenu.Size = new System.Drawing.Size(112, 729);
             this.panelAnaSolMenu.TabIndex = 2;
             // 
+            // controlBadgButton1
+            // 
+            this.controlBadgButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.controlBadgButton1.Appearance.Options.UseFont = true;
+            this.controlBadgButton1.BadgeAligment = System.Drawing.ContentAlignment.TopRight;
+            this.controlBadgButton1.BadgeBackColor = System.Drawing.Color.Red;
+            this.controlBadgButton1.BadgeFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.controlBadgButton1.BadgeForeColor = System.Drawing.Color.White;
+            this.controlBadgButton1.ContainerControl = this;
+            this.controlBadgButton1.Count = 0;
+            this.controlBadgButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.controlBadgButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("controlBadgButton1.ImageOptions.Image")));
+            this.controlBadgButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.controlBadgButton1.Location = new System.Drawing.Point(2, 299);
+            this.controlBadgButton1.Name = "controlBadgButton1";
+            this.controlBadgButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.controlBadgButton1.Size = new System.Drawing.Size(108, 99);
+            this.controlBadgButton1.TabIndex = 3;
+            this.controlBadgButton1.Text = "Bildirimler";
+            this.controlBadgButton1.Click += new System.EventHandler(this.controlBadgButton1_Click);
+            // 
             // btnAramaKaydi
             // 
             this.btnAramaKaydi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -2656,26 +2674,10 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.ımageList2.Images.SetKeyName(0, "user2.png");
             this.ımageList2.Images.SetKeyName(1, "images (1).jpg");
             // 
-            // controlBadgButton1
+            // pageKullaniciGiris
             // 
-            this.controlBadgButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.controlBadgButton1.Appearance.Options.UseFont = true;
-            this.controlBadgButton1.BadgeAligment = System.Drawing.ContentAlignment.TopRight;
-            this.controlBadgButton1.BadgeBackColor = System.Drawing.Color.Red;
-            this.controlBadgButton1.BadgeFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.controlBadgButton1.BadgeForeColor = System.Drawing.Color.White;
-            this.controlBadgButton1.ContainerControl = this;
-            this.controlBadgButton1.Count = 0;
-            this.controlBadgButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.controlBadgButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("controlBadgButton1.ImageOptions.Image")));
-            this.controlBadgButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.controlBadgButton1.Location = new System.Drawing.Point(2, 299);
-            this.controlBadgButton1.Name = "controlBadgButton1";
-            this.controlBadgButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.controlBadgButton1.Size = new System.Drawing.Size(108, 99);
-            this.controlBadgButton1.TabIndex = 3;
-            this.controlBadgButton1.Text = "Bildirimler";
-            this.controlBadgButton1.Click += new System.EventHandler(this.controlBadgButton1_Click);
+            this.pageKullaniciGiris.Name = "pageKullaniciGiris";
+            this.pageKullaniciGiris.Size = new System.Drawing.Size(1371, 729);
             // 
             // FrmMain
             // 
@@ -2998,6 +3000,7 @@ namespace Sas.Restaurant.UI.FrontOffice
         private DevExpress.XtraGrid.Columns.GridColumn colBildirimEkMalzeme;
         private DevExpress.XtraGrid.Columns.GridColumn colBildirimMasaAdi;
         private ControlBadgButton controlBadgButton1;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageKullaniciGiris;
     }
 }
 
