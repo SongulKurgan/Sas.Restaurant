@@ -20,6 +20,7 @@ namespace Sas.Restaurant.DataAccess.Mappings
             Property(c => c.GarsonId).HasColumnName("GarsonId");
             Property(c => c.MasaId).HasColumnName("MasaId");
             Property(c => c.AdisyonDurum).HasColumnName("AdisyonDurum");
+            Property(c => c.AdisyonTipi).HasColumnName("AdisyonTipi");
 
         }
     }

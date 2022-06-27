@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.Business.Managers
 {
-    public class GarsonManager : BaseManager<Garson>, IGarsonService
+    public class GarsonManager : BaseManager<Personel>, IGarsonService
     {
         public GarsonManager(IUnitOfWork uow) : base(uow)
         {

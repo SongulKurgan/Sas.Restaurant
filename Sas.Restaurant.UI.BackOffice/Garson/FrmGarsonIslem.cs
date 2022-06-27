@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Sas.Restaurant.Business.Workers;
+using Sas.Restaurant.Entites.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,14 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
 {
     public partial class FrmGarsonIslem : DevExpress.XtraEditors.XtraForm
     {
-       private Entites.Tables.Garson _garson;
+       private Entites.Tables.Personel _garson;
         public bool Kaydedildi = false;
         RestaurantWorker worker = new RestaurantWorker();
-        public FrmGarsonIslem(Entites.Tables.Garson garson)
+        public FrmGarsonIslem(Entites.Tables.Personel garson)
         {
             InitializeComponent();
             _garson = garson;
+            lookTelefonTip.Properties.DataSource = Enum.GetValues(typeof(PersonelTipi));
             GarsonBinding();
         }
         void GarsonBinding()
@@ -28,10 +30,11 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             txtAdi.DataBindings.Clear();
             txtSoyadi.DataBindings.Clear();
             txtAciklama.DataBindings.Clear();
-
+            lookTelefonTip.DataBindings.Clear();
             txtAdi.DataBindings.Add("Text", _garson, "Adi", false, DataSourceUpdateMode.OnPropertyChanged);
             txtSoyadi.DataBindings.Add("Text", _garson, "Soyadi", false, DataSourceUpdateMode.OnPropertyChanged);
             txtAciklama.DataBindings.Add("Text", _garson, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
+            lookTelefonTip.DataBindings.Add("EditValue", _garson, "PersonelTipi", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void btnKapat_Click(object sender, EventArgs e)

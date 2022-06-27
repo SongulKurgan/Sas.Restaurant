@@ -56,10 +56,12 @@
   <ItemGroup>
     <Compile Include="Managers\AdisyonManager.cs" />
     <Compile Include="Managers\AdresManager.cs" />
+    <Compile Include="Managers\AramaKaydiManager.cs" />
     <Compile Include="Managers\Base\BaseManager.cs" />
     <Compile Include="Managers\EkMalzemeHareketManager.cs" />
     <Compile Include="Managers\EkMalzemeManager.cs" />
     <Compile Include="Managers\GarsonManager.cs" />
+    <Compile Include="Managers\KullaniciManager.cs" />
     <Compile Include="Managers\MasaManager.cs" />
     <Compile Include="Managers\MusteriManager.cs" />
     <Compile Include="Managers\OdemeHareketManager.cs" />
@@ -69,13 +71,16 @@
     <Compile Include="Managers\TelefonManager.cs" />
     <Compile Include="Managers\UrunHareketManager.cs" />
     <Compile Include="Managers\UrunManager.cs" />
+    <Compile Include="Managers\UrunNotManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\IBaseService.cs" />
     <Compile Include="Services\IAdisyonService.cs" />
     <Compile Include="Services\IAdresService.cs" />
+    <Compile Include="Services\IAramaKaydiService.cs" />
     <Compile Include="Services\IEkMalzemeHareketService.cs" />
     <Compile Include="Services\IEkMalzemeService.cs" />
     <Compile Include="Services\IGarsonService.cs" />
+    <Compile Include="Services\IKullaniciService.cs" />
     <Compile Include="Services\IMasaService.cs" />
     <Compile Include="Services\IMusteriService.cs" />
     <Compile Include="Services\IOdemeHareketService.cs" />
@@ -84,12 +89,15 @@
     <Compile Include="Services\ITanimService.cs" />
     <Compile Include="Services\ITelefonService.cs" />
     <Compile Include="Services\IUrunHareketService.cs" />
+    <Compile Include="Services\IUrunNotService.cs" />
     <Compile Include="Services\IUrunService.cs" />
     <Compile Include="Validations\AdisyonValidator.cs" />
     <Compile Include="Validations\AdresValidator.cs" />
+    <Compile Include="Validations\AramaKaydiValidator.cs" />
     <Compile Include="Validations\EkMalzemeHareketValidator.cs" />
     <Compile Include="Validations\EkMalzemeValidator.cs" />
     <Compile Include="Validations\GarsonValidator.cs" />
+    <Compile Include="Validations\KullaniciValidator.cs" />
     <Compile Include="Validations\MasaValidator.cs" />
     <Compile Include="Validations\MusteriValidator.cs" />
     <Compile Include="Validations\OdemeHareketValidator.cs" />
@@ -98,6 +106,7 @@
     <Compile Include="Validations\TanimValidator.cs" />
     <Compile Include="Validations\TelefonValidator.cs" />
     <Compile Include="Validations\UrunHareketValidator.cs" />
+    <Compile Include="Validations\UrunNotValidator.cs" />
     <Compile Include="Validations\UrunValidator.cs" />
     <Compile Include="Workers\IWorker.cs" />
     <Compile Include="Workers\RestaurantWorker.cs" />

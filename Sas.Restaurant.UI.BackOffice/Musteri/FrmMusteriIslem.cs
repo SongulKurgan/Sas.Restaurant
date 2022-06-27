@@ -21,7 +21,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
         private Telefon _telefonEntity;
         private Adres _adresEntity;
         public bool Kaydedildi = false;
-        public FrmMusteriIslem(Entites.Tables.Musteri musteriEntity)
+        public FrmMusteriIslem(Entites.Tables.Musteri musteriEntity,Telefon telefonEntity=null)
         {
             InitializeComponent();
             _musteriEntity = musteriEntity;
@@ -36,6 +36,11 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             lookTelefonTip.Properties.DataSource = Enum.GetValues(typeof(TelefonAdresTip));
             lookAdresTip.Properties.DataSource = Enum.GetValues(typeof(TelefonAdresTip));
             MusteriBinding();
+            if (telefonEntity!=null)
+            {
+                telefonEntity.MusteriId = musteriEntity.Id;
+                worker.TelefonService.Add(telefonEntity);
+            }
         }
         void MusteriBinding()
         {
@@ -58,7 +63,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             txtTelefonNumarasi.DataBindings.Clear();
             txtTelefonAciklama.DataBindings.Clear();
             lookTelefonTip.DataBindings.Clear();
-            txtTelefonNumarasi.DataBindings.Add("Text", _telefonEntity, "Telefonu", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtTelefonNumarasi.DataBindings.Add("EditValue", _telefonEntity, "Telefonu", false, DataSourceUpdateMode.OnPropertyChanged);
             txtTelefonAciklama.DataBindings.Add("Text", _telefonEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
             lookTelefonTip.DataBindings.Add("EditValue", _telefonEntity, "TelefonTip", false, DataSourceUpdateMode.OnPropertyChanged);
         }

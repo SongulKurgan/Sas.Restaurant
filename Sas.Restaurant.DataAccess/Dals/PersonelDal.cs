@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.DataAccess.Dals
 {
-    public class GarsonDal : Repository<Garson>, IGarsonDal
+    public class PersonelDal : Repository<Personel>, IGarsonDal
     {
-        public GarsonDal(DbContext context) : base(context)
+        public PersonelDal(DbContext context) : base(context)
         {
         }
     }

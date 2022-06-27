@@ -97,6 +97,12 @@
     <Compile Include="AnaMenu\FrmAnaMenuBilgi.Designer.cs">
       <DependentUpon>FrmAnaMenuBilgi.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnaMenu\XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaMenu\XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fotograf\FrmImageEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     <EmbeddedResource Include="AnaMenu\FrmAnaMenuBilgi.resx">
       <DependentUpon>FrmAnaMenuBilgi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnaMenu\XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmImageEditor.resx">
       <DependentUpon>FrmImageEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +278,10 @@
     <ProjectReference Include="..\Sas.Restaurant.Business\Sas.Restaurant.Business.csproj">
       <Project>{24381f4b-c6f0-4f70-a912-422e4c8c09f2}</Project>
       <Name>Sas.Restaurant.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sas.Restaurant.Components\Sas.Restaurant.Components.csproj">
+      <Project>{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}</Project>
+      <Name>Sas.Restaurant.Components</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sas.Restaurant.Entites\Sas.Restaurant.Entites.csproj">
       <Project>{b187d76f-d2cb-4ea9-ad34-81ea9b8c9b8e}</Project>

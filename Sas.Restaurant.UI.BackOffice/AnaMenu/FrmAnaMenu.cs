@@ -87,5 +87,11 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
             form.MdiParent = this;
             form.Show();
         }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraForm1 form = new XtraForm1();
+            form.Show();
+        }
     }
 }

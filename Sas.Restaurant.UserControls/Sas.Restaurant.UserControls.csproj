@@ -56,6 +56,9 @@
     <Compile Include="ControlAnaMenuAlt.Designer.cs">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlBadgButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlEkMalzemeButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -73,6 +76,12 @@
     </Compile>
     <Compile Include="ControlKategoriUrun.Designer.cs">
       <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKeyboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKeyboard.Designer.cs">
+      <DependentUpon>ControlKeyboard.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlKonumButton.cs">
       <SubType>Component</SubType>
@@ -98,6 +107,13 @@
     <Compile Include="ControlPorsiyonButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ControlSiparisButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KeyboardButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KeyBoardButtonType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -111,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlKategoriUrun.resx">
       <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKeyboard.resx">
+      <DependentUpon>ControlKeyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlMenuKayit.resx">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>

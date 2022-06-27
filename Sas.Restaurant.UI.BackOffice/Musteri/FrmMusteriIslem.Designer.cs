@@ -461,7 +461,7 @@ namespace Sas.Restaurant.UI.BackOffice.Musteri
             this.txtTelefonNumarasi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtTelefonNumarasi.Properties.Appearance.Options.UseFont = true;
             this.txtTelefonNumarasi.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
-            this.txtTelefonNumarasi.Properties.MaskSettings.Set("mask", "(000) 000-0000");
+            this.txtTelefonNumarasi.Properties.MaskSettings.Set("MaskManagerSignature", "ignoreMaskBlank=True");
             this.txtTelefonNumarasi.Size = new System.Drawing.Size(615, 22);
             this.txtTelefonNumarasi.TabIndex = 1;
             // 

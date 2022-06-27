@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.DataAccess.Interfaces
 {
-   public interface IGarsonDal: IRepository<Garson>
+   public interface IGarsonDal: IRepository<Personel>
     {
     }
 }

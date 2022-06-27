@@ -18,5 +18,7 @@ namespace Sas.Restaurant.Entites.Dtos.Mutfak
         public string Porsiyon  { get; set; }
         public string Birim { get; set; }
         public string EkMalzeme { get; set; }
+        public virtual Adisyon Adisyon { get; set; }
+        public virtual Masa Masa { get; set; }
     }
 }

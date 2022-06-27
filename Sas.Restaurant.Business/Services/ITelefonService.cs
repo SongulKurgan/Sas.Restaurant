@@ -10,5 +10,6 @@ namespace Sas.Restaurant.Business.Services
 {
    public interface ITelefonService: IBaseService<Telefon>
     {
+
     }
 }

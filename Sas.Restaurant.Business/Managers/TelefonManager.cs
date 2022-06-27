@@ -14,6 +14,8 @@ namespace Sas.Restaurant.Business.Managers
     {
         public TelefonManager(IUnitOfWork uow) : base(uow)
         {
+            
         }
+
     }
 }

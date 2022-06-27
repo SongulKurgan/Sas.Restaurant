@@ -26,7 +26,9 @@ namespace Sas.Restaurant.Business.Workers
         public IMasaService MasaService { get; set; }
         public IUrunHareketService UrunHareketService { get; set; }
         public IOdemeTuruService OdemeTuruService { get; set; }
-        public IOdemeHareketService odemeHareketService { get; set; }
+        public IOdemeHareketService OdemeHareketService { get; set; }
+        public IUrunNotService UrunNotService { get; set; }
+        public IAramaKaydiService AramaKaydiService { get; set; }
 
         public RestaurantWorker(string connetionString=null)
         {
@@ -44,7 +46,9 @@ namespace Sas.Restaurant.Business.Workers
             MasaService = new MasaManager(_uow);
             UrunHareketService = new UrunHareketManager(_uow);
             OdemeTuruService = new OdemeTuruManager(_uow);
-            odemeHareketService = new OdemeHareketManager(_uow);
+            OdemeHareketService = new OdemeHareketManager(_uow);
+            UrunNotService = new UrunNotManager(_uow);
+            AramaKaydiService = new AramaKaydiManager(_uow);
         }
 
         public bool Commit()

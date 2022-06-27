@@ -63,10 +63,12 @@
     <Compile Include="Contexts\Restaurant\RestaurantContext.cs" />
     <Compile Include="Dals\AdisyonDal.cs" />
     <Compile Include="Dals\AdresDal.cs" />
+    <Compile Include="Dals\AramaKaydiDal.cs" />
     <Compile Include="Dals\Base\Repository.cs" />
     <Compile Include="Dals\EkMalzemeDal.cs" />
     <Compile Include="Dals\EkMalzemeHareketDal.cs" />
-    <Compile Include="Dals\GarsonDal.cs" />
+    <Compile Include="Dals\KullaniciDal.cs" />
+    <Compile Include="Dals\PersonelDal.cs" />
     <Compile Include="Dals\MasaDal.cs" />
     <Compile Include="Dals\MusteriDal.cs" />
     <Compile Include="Dals\OdemeHareketDal.cs" />
@@ -76,13 +78,16 @@
     <Compile Include="Dals\TelefonDal.cs" />
     <Compile Include="Dals\UrunDal.cs" />
     <Compile Include="Dals\UrunHareketDal.cs" />
+    <Compile Include="Dals\UrunNotDal.cs" />
     <Compile Include="Functions\EntityBaseInfo.cs" />
     <Compile Include="Interfaces\Base\IRepository.cs" />
     <Compile Include="Interfaces\IAdisyonDal.cs" />
     <Compile Include="Interfaces\IAdresDal.cs" />
+    <Compile Include="Interfaces\IAramaKaydiDal.cs" />
     <Compile Include="Interfaces\IEkMalzemeDal.cs" />
     <Compile Include="Interfaces\IEkMalzemeHareketDal.cs" />
     <Compile Include="Interfaces\IGarsonDal.cs" />
+    <Compile Include="Interfaces\IKullaniciDal.cs" />
     <Compile Include="Interfaces\IMasaDal.cs" />
     <Compile Include="Interfaces\IMusteriDal.cs" />
     <Compile Include="Interfaces\IOdemeHareketDal.cs" />
@@ -92,11 +97,14 @@
     <Compile Include="Interfaces\ITelefonDal.cs" />
     <Compile Include="Interfaces\IUrunDal.cs" />
     <Compile Include="Interfaces\IUrunHareketDal.cs" />
+    <Compile Include="Interfaces\IUrunNotDal.cs" />
     <Compile Include="Mappings\AdisyonMap.cs" />
     <Compile Include="Mappings\AdresMap.cs" />
+    <Compile Include="Mappings\AramaKaydiMap.cs" />
     <Compile Include="Mappings\EkMalzemeHareketMap.cs" />
     <Compile Include="Mappings\EkMalzemeMap.cs" />
-    <Compile Include="Mappings\GarsonMap.cs" />
+    <Compile Include="Mappings\KullaniciMap.cs" />
+    <Compile Include="Mappings\PersonelMap.cs" />
     <Compile Include="Mappings\MasaMap.cs" />
     <Compile Include="Mappings\MusteriMap.cs" />
     <Compile Include="Mappings\OdemeHareketMap.cs" />
@@ -106,6 +114,7 @@
     <Compile Include="Mappings\TelefonMap.cs" />
     <Compile Include="Mappings\UrunHareketMap.cs" />
     <Compile Include="Mappings\UrunMap.cs" />
+    <Compile Include="Mappings\UrunNotMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

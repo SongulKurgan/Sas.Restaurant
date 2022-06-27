@@ -44,6 +44,7 @@
     <Compile Include="Dtos\AdisyonHareketDto.cs" />
     <Compile Include="Dtos\AdisyonToplamDto.cs" />
     <Compile Include="Dtos\AylikKazancDto.cs" />
+    <Compile Include="Dtos\DtoAramaKaydi.cs" />
     <Compile Include="Dtos\EnCokSatanUrunlerDto.cs" />
     <Compile Include="Dtos\HaftalikKazancDto.cs" />
     <Compile Include="Dtos\KategoriDto.cs" />
@@ -52,10 +53,13 @@
     <Compile Include="Dtos\Mutfak\MutfakUrunHareketDto.cs" />
     <Compile Include="Dtos\YillikKazancDto.cs" />
     <Compile Include="Enums\AdisyonDurum.cs" />
+    <Compile Include="Enums\AdisyonTipi.cs" />
     <Compile Include="Enums\Aylar.cs" />
     <Compile Include="Enums\HaftaninGunleri.cs" />
+    <Compile Include="Enums\KullaniciRol.cs" />
     <Compile Include="Enums\MasaDurum.cs" />
     <Compile Include="Enums\MusteriTip.cs" />
+    <Compile Include="Enums\PersonelTipi.cs" />
     <Compile Include="Enums\SiparisDurum.cs" />
     <Compile Include="Enums\TanimTip.cs" />
     <Compile Include="Enums\UrunHareketTip.cs" />
@@ -63,11 +67,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tables\Adisyon.cs" />
     <Compile Include="Tables\Adres.cs" />
+    <Compile Include="Tables\AramaKaydi.cs" />
     <Compile Include="Tables\Base\EntityBase.cs" />
     <Compile Include="Enums\TelefonAdresTip.cs" />
     <Compile Include="Tables\EkMalzeme.cs" />
     <Compile Include="Tables\EkMalzemeHareket.cs" />
-    <Compile Include="Tables\Garson.cs" />
+    <Compile Include="Tables\Kullanici.cs" />
+    <Compile Include="Tables\Personel.cs" />
     <Compile Include="Tables\Masa.cs" />
     <Compile Include="Tables\Musteri.cs" />
     <Compile Include="Tables\OdemeHareket.cs" />
@@ -77,6 +83,7 @@
     <Compile Include="Tables\Telefon.cs" />
     <Compile Include="Tables\Urun.cs" />
     <Compile Include="Tables\UrunHareket.cs" />
+    <Compile Include="Tables\UrunNot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

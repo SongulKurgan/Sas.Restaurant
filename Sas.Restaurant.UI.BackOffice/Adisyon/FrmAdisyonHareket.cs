@@ -75,7 +75,7 @@ namespace Sas.Restaurant.UI.BackOffice.Adisyon
                     e.ChildList = worker.UrunHareketService.GetList(c => c.AdisyonId == entity.AdisyonId, c => c.Urun, c => c.Porsiyon, c => c.Porsiyon.Birim).ToList();
                     break;
                 case 1:
-                    e.ChildList = worker.odemeHareketService.GetList(c => c.AdisyonId == entity.AdisyonId, c => c.OdemeTuru, c => c.OdemeTuru.OdemeTur).ToList();
+                    e.ChildList = worker.OdemeHareketService.GetList(c => c.AdisyonId == entity.AdisyonId, c => c.OdemeTuru, c => c.OdemeTuru.OdemeTur).ToList();
                     break;
             }
             

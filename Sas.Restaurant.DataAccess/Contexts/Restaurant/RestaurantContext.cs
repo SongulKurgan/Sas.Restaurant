@@ -33,11 +33,14 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
         public DbSet<Adres> Adresler { get; set; }
         public DbSet<Adisyon> Adisyonlar { get; set; }
         public DbSet<EkMalzemeHareket> EkMalzemeHareketleri { get; set; }
-        public DbSet<Garson> Garsonlar { get; set; }
+        public DbSet<Personel> Garsonlar { get; set; }
         public DbSet<Masa> Masalar { get; set; }
         public DbSet<UrunHareket> UrunHareketler { get; set; }
         public DbSet<OdemeTuru> OdemeTurleri { get; set; }
         public DbSet<OdemeHareket> OdemeHareketleri { get; set; }
+        public DbSet<UrunNot> UrunNotlari { get; set; }
+        public DbSet<AramaKaydi> AramaKayitlari { get; set; }
+        public DbSet<Kullanici> Kullanicilar { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -63,10 +66,12 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Entity<EkMalzeme>().HasRequired(c => c.Urun).WithMany(c => c.EkMalzemeler).HasForeignKey(c => c.UrunId);
             modelBuilder.Entity<Urun>().HasRequired(c => c.UrunGrup).WithOptional().Map(c => c.MapKey("UrunGrupId"));
             modelBuilder.Entity<Porsiyon>().HasRequired(c => c.Birim).WithOptional().Map(c => c.MapKey("BirimId"));
+            modelBuilder.Entity<UrunNot>().HasRequired(c => c.Urun).WithMany(c => c.UrunNotlari).HasForeignKey(c => c.UrunId);
             //Müsteri ilişkileri
             modelBuilder.Entity<Telefon>().HasRequired(c => c.Musteri).WithMany(c => c.Telefonlar).HasForeignKey(c => c.MusteriId);
             modelBuilder.Entity<Adres>().HasRequired(c => c.Musteri).WithMany(c => c.Adresler).HasForeignKey(c => c.MusteriId);
             modelBuilder.Entity<Adisyon>().HasOptional(c => c.Musteri).WithMany(c => c.Adisyonlar).HasForeignKey(c => c.MusteriId);
+            modelBuilder.Entity<AramaKaydi>().HasOptional(c => c.Musteri).WithMany(c => c.AramaKayitlari).HasForeignKey(c => c.MusteriId);
             //Masa İlişkileri
             modelBuilder.Entity<Masa>().HasRequired(c => c.Konum).WithOptional().Map(c => c.MapKey("KonumId"));
             modelBuilder.Entity<Adisyon>().HasOptional(c => c.Masa).WithMany().HasForeignKey(c => c.MasaId);
@@ -82,6 +87,7 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Entity<OdemeHareket>().HasRequired(c => c.Adisyon).WithMany(c => c.OdemeHareketleri).HasForeignKey(c => c.AdisyonId);
             modelBuilder.Entity<OdemeTuru>().HasRequired(c => c.OdemeTur).WithMany().HasForeignKey(c => c.OdemeTurId);
 
+
             modelBuilder.Configurations.Add(new UrunMap());
             modelBuilder.Configurations.Add(new TanimMap());
             modelBuilder.Configurations.Add(new PorsiyonMap());
@@ -91,11 +97,14 @@ namespace Sas.Restaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Configurations.Add(new AdresMap());
             modelBuilder.Configurations.Add(new AdisyonMap());
             modelBuilder.Configurations.Add(new EkMalzemeHareketMap());
-            modelBuilder.Configurations.Add(new GarsonMap());
+            modelBuilder.Configurations.Add(new PersonelMap());
             modelBuilder.Configurations.Add(new MasaMap());
             modelBuilder.Configurations.Add(new UrunHareketMap());
             modelBuilder.Configurations.Add(new OdemeTuruMap());
             modelBuilder.Configurations.Add(new OdemeHareketMap());
+            modelBuilder.Configurations.Add(new UrunNotMap());
+            modelBuilder.Configurations.Add(new AramaKaydiMap());
+            modelBuilder.Configurations.Add(new KullaniciMap());
         }
     }
 }

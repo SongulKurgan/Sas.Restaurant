@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sas.Restaurant.UI.FrontOffi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sas.Restaurant.Mutfak", "Sas.Restaurant.Mutfak\Sas.Restaurant.Mutfak.csproj", "{CA5953E6-02C8-4F3B-9829-666CB80C1DA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sas.Restaurant.Components", "Sas.Restaurant.Components\Sas.Restaurant.Components.csproj", "{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{CA5953E6-02C8-4F3B-9829-666CB80C1DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5953E6-02C8-4F3B-9829-666CB80C1DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5953E6-02C8-4F3B-9829-666CB80C1DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
 		{88736260-7C0F-4E0E-9BA8-48697DCD8E74} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
 		{CA5953E6-02C8-4F3B-9829-666CB80C1DA2} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
+		{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A} = {F6CE9CC7-68F4-4BD9-91AC-2A5843079425}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58784C35-56AF-487A-BCA9-F729BA7F4D37}

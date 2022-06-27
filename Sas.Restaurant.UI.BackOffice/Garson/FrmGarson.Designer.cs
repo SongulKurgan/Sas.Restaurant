@@ -38,6 +38,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.colAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoyadi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPersonelTipi = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGarson)).BeginInit();
@@ -100,6 +101,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             // gridGarson
             // 
             this.gridGarson.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPersonelTipi,
             this.colAdi,
             this.colSoyadi,
             this.colAciklama});
@@ -113,7 +115,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.colAdi.MinWidth = 25;
             this.colAdi.Name = "colAdi";
             this.colAdi.Visible = true;
-            this.colAdi.VisibleIndex = 0;
+            this.colAdi.VisibleIndex = 1;
             this.colAdi.Width = 94;
             // 
             // colSoyadi
@@ -123,7 +125,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.colSoyadi.MinWidth = 25;
             this.colSoyadi.Name = "colSoyadi";
             this.colSoyadi.Visible = true;
-            this.colSoyadi.VisibleIndex = 1;
+            this.colSoyadi.VisibleIndex = 2;
             this.colSoyadi.Width = 94;
             // 
             // colAciklama
@@ -133,8 +135,18 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.colAciklama.MinWidth = 25;
             this.colAciklama.Name = "colAciklama";
             this.colAciklama.Visible = true;
-            this.colAciklama.VisibleIndex = 2;
+            this.colAciklama.VisibleIndex = 3;
             this.colAciklama.Width = 94;
+            // 
+            // colPersonelTipi
+            // 
+            this.colPersonelTipi.Caption = "Personel Tipi";
+            this.colPersonelTipi.FieldName = "PersonelTipi";
+            this.colPersonelTipi.MinWidth = 25;
+            this.colPersonelTipi.Name = "colPersonelTipi";
+            this.colPersonelTipi.Visible = true;
+            this.colPersonelTipi.VisibleIndex = 0;
+            this.colPersonelTipi.Width = 94;
             // 
             // FrmGarson
             // 
@@ -164,5 +176,6 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
         private DevExpress.XtraGrid.Columns.GridColumn colAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colSoyadi;
         private DevExpress.XtraGrid.Columns.GridColumn colAciklama;
+        private DevExpress.XtraGrid.Columns.GridColumn colPersonelTipi;
     }
 }

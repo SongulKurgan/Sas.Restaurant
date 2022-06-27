@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sas.Restaurant.Business.Services
 {
-   public interface IGarsonService: IBaseService<Garson>
+   public interface IGarsonService: IBaseService<Personel>
     {
     }
 }

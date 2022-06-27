@@ -41,6 +41,8 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnKapat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.lookTelefonTip = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).BeginInit();
@@ -48,26 +50,29 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             ((System.ComponentModel.ISupportInitialize)(this.txtAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.lookTelefonTip);
             this.groupControl1.Controls.Add(this.txtAciklama);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.txtSoyadi);
             this.groupControl1.Controls.Add(this.txtAdi);
+            this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 69);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(767, 341);
+            this.groupControl1.Size = new System.Drawing.Size(767, 366);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Garson Bilgisi";
             // 
             // txtAciklama
             // 
-            this.txtAciklama.Location = new System.Drawing.Point(112, 99);
+            this.txtAciklama.Location = new System.Drawing.Point(118, 119);
             this.txtAciklama.Name = "txtAciklama";
             this.txtAciklama.Size = new System.Drawing.Size(637, 230);
             this.txtAciklama.TabIndex = 7;
@@ -78,7 +83,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl5.Location = new System.Drawing.Point(6, 99);
+            this.labelControl5.Location = new System.Drawing.Point(12, 119);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(104, 230);
             this.labelControl5.TabIndex = 6;
@@ -86,7 +91,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             // 
             // txtSoyadi
             // 
-            this.txtSoyadi.Location = new System.Drawing.Point(112, 71);
+            this.txtSoyadi.Location = new System.Drawing.Point(118, 91);
             this.txtSoyadi.Name = "txtSoyadi";
             this.txtSoyadi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtSoyadi.Properties.Appearance.Options.UseFont = true;
@@ -95,7 +100,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             // 
             // txtAdi
             // 
-            this.txtAdi.Location = new System.Drawing.Point(112, 42);
+            this.txtAdi.Location = new System.Drawing.Point(118, 62);
             this.txtAdi.Name = "txtAdi";
             this.txtAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAdi.Properties.Appearance.Options.UseFont = true;
@@ -108,7 +113,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl3.Location = new System.Drawing.Point(8, 71);
+            this.labelControl3.Location = new System.Drawing.Point(14, 91);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(99, 22);
             this.labelControl3.TabIndex = 2;
@@ -120,7 +125,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl2.Location = new System.Drawing.Point(8, 42);
+            this.labelControl2.Location = new System.Drawing.Point(14, 62);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(99, 22);
             this.labelControl2.TabIndex = 2;
@@ -131,7 +136,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.groupAltMenu.Controls.Add(this.btnKaydet);
             this.groupAltMenu.Controls.Add(this.btnKapat);
             this.groupAltMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupAltMenu.Location = new System.Drawing.Point(0, 410);
+            this.groupAltMenu.Location = new System.Drawing.Point(0, 435);
             this.groupAltMenu.Name = "groupAltMenu";
             this.groupAltMenu.Size = new System.Drawing.Size(767, 81);
             this.groupAltMenu.TabIndex = 8;
@@ -176,11 +181,34 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Garson İşlem Formu";
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Options.UseTextOptions = true;
+            this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl4.Location = new System.Drawing.Point(14, 34);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(99, 22);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "Personel Tipi :";
+            // 
+            // lookTelefonTip
+            // 
+            this.lookTelefonTip.Location = new System.Drawing.Point(118, 34);
+            this.lookTelefonTip.Name = "lookTelefonTip";
+            this.lookTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookTelefonTip.Properties.NullText = "Lütfen Bir Personel Tipi Seçin";
+            this.lookTelefonTip.Properties.ShowFooter = false;
+            this.lookTelefonTip.Size = new System.Drawing.Size(637, 22);
+            this.lookTelefonTip.TabIndex = 8;
+            // 
             // FrmGarsonIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 491);
+            this.ClientSize = new System.Drawing.Size(767, 516);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupAltMenu);
             this.Controls.Add(this.labelControl1);
@@ -197,6 +225,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             ((System.ComponentModel.ISupportInitialize)(this.txtAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +243,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
         private DevExpress.XtraEditors.SimpleButton btnKapat;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtSoyadi;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LookUpEdit lookTelefonTip;
     }
 }

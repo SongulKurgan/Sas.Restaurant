@@ -24,7 +24,7 @@ namespace Sas.Restaurant.UI.BackOffice
         }
         void Listele(DateTime baslangic, DateTime bitis)
         {
-            gridControlAdisyonHareket.DataSource = worker.odemeHareketService.OdemeHareketListesiGetir(baslangic, bitis);
+            gridControlAdisyonHareket.DataSource = worker.OdemeHareketService.OdemeHareketListesiGetir(baslangic, bitis);
         }
 
         private void dateGunSecim_SelectionChanged(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
 
         private void controlMenu_ButtonEkle(object sender, EventArgs e)
         {
-            FrmGarsonIslem form = new FrmGarsonIslem(new Entites.Tables.Garson());
+            FrmGarsonIslem form = new FrmGarsonIslem(new Entites.Tables.Personel());
             form.ShowDialog();
             if (form.Kaydedildi)
             {
@@ -42,7 +42,7 @@ namespace Sas.Restaurant.UI.BackOffice.Garson
             {
                 return;
             }
-            FrmGarsonIslem form = new FrmGarsonIslem((Entites.Tables.Garson)gridGarson.GetFocusedRow());
+            FrmGarsonIslem form = new FrmGarsonIslem((Entites.Tables.Personel)gridGarson.GetFocusedRow());
             form.ShowDialog();
             if (form.Kaydedildi)
             {

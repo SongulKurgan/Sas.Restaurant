@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,9 +62,9 @@ namespace Sas.Restaurant.Business.Managers
             }, c => c.Garson, c => c.Masa, c => c.Musteri).ToList();
         }
 
-        public List<MutfakUrunHareketDto> MutfakUrunHareketGetir(Guid adisyonId)
+        public List<MutfakUrunHareketDto> MutfakUrunHareketGetir( Expression<Func<UrunHareket, bool>> filter)
         {
-            var result= _uow.UrunHareketDal.Select(c => c.AdisyonId == adisyonId, c => new MutfakUrunHareketDto
+            var result= _uow.UrunHareketDal.Select(filter, c => new MutfakUrunHareketDto
             {
                 Id = c.Id,
                 AdisyonId = c.AdisyonId,
@@ -72,8 +73,10 @@ namespace Sas.Restaurant.Business.Managers
                 Miktar = c.Miktar,
                 UrunAdi = c.Urun.Adi,
                 SiparisDurum = c.SiparisDurum,
-                EkMalzeme = ""
-            }, c => c.Porsiyon, c => c.Porsiyon.Birim, c => c.Urun).ToList();
+                EkMalzeme = "",
+                Adisyon=c.Adisyon,
+                Masa = c.Adisyon.Masa,
+            }, c => c.Porsiyon, c => c.Porsiyon.Birim, c => c.Urun,c=>c.Adisyon,c=>c.Adisyon.Masa).ToList();
             return result.Select(c => new MutfakUrunHareketDto
             {
                 Id = c.Id,
@@ -83,6 +86,8 @@ namespace Sas.Restaurant.Business.Managers
                 Miktar = c.Miktar,
                 UrunAdi = c.UrunAdi,
                 SiparisDurum = c.SiparisDurum,
+                Adisyon=c.Adisyon,
+                Masa=c.Masa,
                 EkMalzeme = String.Join(", ", _uow.EkMalzemeHareketDal.Select(f => f.UrunHareketId == c.Id, f => f.EkMalzeme.Adi, f => f.EkMalzeme).ToList())
             }).ToList();
 

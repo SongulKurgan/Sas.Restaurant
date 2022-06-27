@@ -5,6 +5,7 @@ using Sas.Restaurant.Entites.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Sas.Restaurant.Business.Services
         AdisyonToplamDto AdisyonToplamGetir();
         List<AdisyonHareketDto> AdisyonHareketGetir(DateTime Tarih1, DateTime Tarih2);
         List<MutfakAdisyonHareketDto> MutfakAdisyonHareketGetir(Guid[] adisyonListe);
-        List<MutfakUrunHareketDto> MutfakUrunHareketGetir(Guid adisyonId);
+        List<MutfakUrunHareketDto> MutfakUrunHareketGetir(Expression<Func<UrunHareket,bool>> filter=null);
         List<MutfakEkMalzemeDto> MutfakEkMalzemeHareketGetir(Guid urunHareketId);
     }
 }

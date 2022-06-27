@@ -33,14 +33,27 @@ namespace Sas.Restaurant.UI.FrontOffice
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition4 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition5 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition6 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition7 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition8 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition9 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition10 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblMesaj = new DevExpress.XtraEditors.LabelControl();
             this.btnMusteri = new Sas.Restaurant.UserControls.ControlMusteriButton();
@@ -111,6 +124,18 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.flowOdemeTurleri = new System.Windows.Forms.FlowLayoutPanel();
+            this.pageUrunNotlari = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.flowUrunNotlari = new System.Windows.Forms.FlowLayoutPanel();
+            this.controlKeyboard1 = new Sas.Restaurant.UserControls.ControlKeyboard();
+            this.txturunNotu = new DevExpress.XtraEditors.MemoEdit();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUrunNotOnayla = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelUrunGrupKeyPad = new DevExpress.XtraEditors.PanelControl();
             this.groupKategori = new DevExpress.XtraEditors.GroupControl();
             this.flowKategori = new System.Windows.Forms.FlowLayoutPanel();
@@ -154,6 +179,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.item5 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.item6 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnUrunNotu = new DevExpress.XtraEditors.SimpleButton();
             this.btnİndirim = new DevExpress.XtraEditors.SimpleButton();
             this.btnBol = new DevExpress.XtraEditors.SimpleButton();
             this.btnIade = new DevExpress.XtraEditors.SimpleButton();
@@ -177,6 +203,35 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnAdisyonDetay = new DevExpress.XtraEditors.SimpleButton();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnOdemeYap = new DevExpress.XtraEditors.SimpleButton();
+            this.pageSiparis = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.groupSiparis = new DevExpress.XtraEditors.GroupControl();
+            this.flowSiparis = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnYeniSiparisEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.pageAramaKaydi = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTarih = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSaat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMusteriAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTelefon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colYeniKayit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repoYeniKayitEkle = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colAdisyonOlustur = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repoAdisyonOlustur = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.pageBildirim = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.gridControlBildirim = new DevExpress.XtraGrid.GridControl();
+            this.gridBildirim = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colBildirimSiparisDurum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBildirimUrunAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBildirimMiktar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBildirimEkMalzeme = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBildirimMasaAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelAnaSolMenu = new DevExpress.XtraEditors.PanelControl();
+            this.btnAramaKaydi = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSiparisler = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMasalar = new DevExpress.XtraEditors.SimpleButton();
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.controlBadgButton1 = new Sas.Restaurant.UserControls.ControlBadgButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -235,6 +290,21 @@ namespace Sas.Restaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            this.pageUrunNotlari.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
+            this.splitContainerControl1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
+            this.splitContainerControl1.Panel2.SuspendLayout();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txturunNotu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            this.panelControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
+            this.layoutControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeyPad)).BeginInit();
             this.panelUrunGrupKeyPad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).BeginInit();
@@ -271,6 +341,20 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
+            this.pageSiparis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupSiparis)).BeginInit();
+            this.groupSiparis.SuspendLayout();
+            this.flowSiparis.SuspendLayout();
+            this.pageAramaKaydi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoYeniKayitEkle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoAdisyonOlustur)).BeginInit();
+            this.pageBildirim.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlBildirim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBildirim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAnaSolMenu)).BeginInit();
+            this.panelAnaSolMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -282,7 +366,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1452, 39);
+            this.panelControl1.Size = new System.Drawing.Size(1483, 39);
             this.panelControl1.TabIndex = 0;
             // 
             // lblMesaj
@@ -305,7 +389,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnMusteri.Appearance.Options.UseFont = true;
             this.btnMusteri.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMusteri.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMusteri.ImageOptions.Image")));
-            this.btnMusteri.Location = new System.Drawing.Point(912, 2);
+            this.btnMusteri.Location = new System.Drawing.Point(943, 2);
             this.btnMusteri.MusteriId = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.btnMusteri.MusteriTip = Sas.Restaurant.Entites.Enums.MusteriTip.Yok;
             this.btnMusteri.Name = "btnMusteri";
@@ -324,7 +408,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnGarsonSecim.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnGarsonSecim.GarsonId = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.btnGarsonSecim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGarsonSecim.ImageOptions.Image")));
-            this.btnGarsonSecim.Location = new System.Drawing.Point(1134, 2);
+            this.btnGarsonSecim.Location = new System.Drawing.Point(1165, 2);
             this.btnGarsonSecim.Name = "btnGarsonSecim";
             this.btnGarsonSecim.Size = new System.Drawing.Size(222, 35);
             this.btnGarsonSecim.Soyadi = null;
@@ -337,7 +421,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             this.btnKategoriyeDon.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnKategoriyeDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKategoriyeDon.ImageOptions.Image")));
-            this.btnKategoriyeDon.Location = new System.Drawing.Point(1356, 2);
+            this.btnKategoriyeDon.Location = new System.Drawing.Point(1387, 2);
             this.btnKategoriyeDon.Name = "btnKategoriyeDon";
             this.btnKategoriyeDon.Size = new System.Drawing.Size(94, 35);
             this.btnKategoriyeDon.TabIndex = 0;
@@ -347,18 +431,26 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // navigationMain
             // 
+            this.navigationMain.AllowTransitionAnimation = DevExpress.Utils.DefaultBoolean.False;
             this.navigationMain.Controls.Add(this.pageMasalar);
             this.navigationMain.Controls.Add(this.pageAdisyonAyrinti);
+            this.navigationMain.Controls.Add(this.pageSiparis);
+            this.navigationMain.Controls.Add(this.pageAramaKaydi);
+            this.navigationMain.Controls.Add(this.pageBildirim);
             this.navigationMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationMain.Location = new System.Drawing.Point(0, 39);
+            this.navigationMain.Location = new System.Drawing.Point(112, 39);
             this.navigationMain.Name = "navigationMain";
             this.navigationMain.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.pageSiparis,
             this.pageMasalar,
+            this.pageAramaKaydi,
+            this.pageBildirim,
             this.pageAdisyonAyrinti});
-            this.navigationMain.SelectedPage = this.pageMasalar;
-            this.navigationMain.Size = new System.Drawing.Size(1452, 737);
+            this.navigationMain.SelectedPage = this.pageSiparis;
+            this.navigationMain.Size = new System.Drawing.Size(1371, 729);
             this.navigationMain.TabIndex = 1;
             this.navigationMain.Text = "navigationFrame1";
+            this.navigationMain.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.navigationMain_SelectedPageChanged);
             // 
             // pageMasalar
             // 
@@ -366,7 +458,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageMasalar.Controls.Add(this.groupMasalar);
             this.pageMasalar.Controls.Add(this.groupKonumlar);
             this.pageMasalar.Name = "pageMasalar";
-            this.pageMasalar.Size = new System.Drawing.Size(1452, 737);
+            this.pageMasalar.Size = new System.Drawing.Size(1371, 729);
             // 
             // groupMasalar
             // 
@@ -374,7 +466,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupMasalar.Location = new System.Drawing.Point(0, 124);
             this.groupMasalar.Name = "groupMasalar";
-            this.groupMasalar.Size = new System.Drawing.Size(1452, 613);
+            this.groupMasalar.Size = new System.Drawing.Size(1371, 605);
             this.groupMasalar.TabIndex = 2;
             this.groupMasalar.Text = "Masalar";
             // 
@@ -385,7 +477,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.flowMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowMasalar.Location = new System.Drawing.Point(2, 28);
             this.flowMasalar.Name = "flowMasalar";
-            this.flowMasalar.Size = new System.Drawing.Size(1448, 583);
+            this.flowMasalar.Size = new System.Drawing.Size(1367, 575);
             this.flowMasalar.TabIndex = 1;
             // 
             // groupKonumlar
@@ -394,7 +486,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
             this.groupKonumlar.Name = "groupKonumlar";
-            this.groupKonumlar.Size = new System.Drawing.Size(1452, 124);
+            this.groupKonumlar.Size = new System.Drawing.Size(1371, 124);
             this.groupKonumlar.TabIndex = 3;
             this.groupKonumlar.Text = "Konumlar";
             // 
@@ -412,7 +504,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageAdisyonAyrinti.Controls.Add(this.panelUrunHareket);
             this.pageAdisyonAyrinti.Controls.Add(this.panelHareketSolMenu);
             this.pageAdisyonAyrinti.Name = "pageAdisyonAyrinti";
-            this.pageAdisyonAyrinti.Size = new System.Drawing.Size(1452, 737);
+            this.pageAdisyonAyrinti.Size = new System.Drawing.Size(1371, 729);
             // 
             // panelurunHareketHizliSatis
             // 
@@ -421,7 +513,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelurunHareketHizliSatis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelurunHareketHizliSatis.Location = new System.Drawing.Point(675, 0);
             this.panelurunHareketHizliSatis.Name = "panelurunHareketHizliSatis";
-            this.panelurunHareketHizliSatis.Size = new System.Drawing.Size(777, 737);
+            this.panelurunHareketHizliSatis.Size = new System.Drawing.Size(696, 729);
             this.panelurunHareketHizliSatis.TabIndex = 2;
             // 
             // navigationKategori
@@ -433,6 +525,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.navigationKategori.Controls.Add(this.pageGarson);
             this.navigationKategori.Controls.Add(this.pageMusteri);
             this.navigationKategori.Controls.Add(this.pageOdemeEkrani);
+            this.navigationKategori.Controls.Add(this.pageUrunNotlari);
             this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationKategori.Location = new System.Drawing.Point(298, 2);
             this.navigationKategori.Name = "navigationKategori";
@@ -442,9 +535,10 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageEkMalzeme,
             this.pageGarson,
             this.pageMusteri,
-            this.pageOdemeEkrani});
+            this.pageOdemeEkrani,
+            this.pageUrunNotlari});
             this.navigationKategori.SelectedPage = this.pageKategoriUrunler;
-            this.navigationKategori.Size = new System.Drawing.Size(477, 733);
+            this.navigationKategori.Size = new System.Drawing.Size(396, 725);
             this.navigationKategori.TabIndex = 2;
             this.navigationKategori.Text = "navigationFrame2";
             // 
@@ -453,14 +547,14 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageKategoriUrunler.Caption = "pageKategoriUrunler";
             this.pageKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.pageKategoriUrunler.Name = "pageKategoriUrunler";
-            this.pageKategoriUrunler.Size = new System.Drawing.Size(477, 733);
+            this.pageKategoriUrunler.Size = new System.Drawing.Size(396, 725);
             // 
             // flowKategoriUrunleri
             // 
             this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKategoriUrunleri.Location = new System.Drawing.Point(0, 0);
             this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
-            this.flowKategoriUrunleri.Size = new System.Drawing.Size(477, 733);
+            this.flowKategoriUrunleri.Size = new System.Drawing.Size(396, 725);
             this.flowKategoriUrunleri.TabIndex = 1;
             // 
             // pageUrunPorsiyon
@@ -468,14 +562,14 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageUrunPorsiyon.Caption = "pageUrunPorsiyon";
             this.pageUrunPorsiyon.Controls.Add(this.flowPorsiyon);
             this.pageUrunPorsiyon.Name = "pageUrunPorsiyon";
-            this.pageUrunPorsiyon.Size = new System.Drawing.Size(477, 733);
+            this.pageUrunPorsiyon.Size = new System.Drawing.Size(396, 725);
             // 
             // flowPorsiyon
             // 
             this.flowPorsiyon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowPorsiyon.Location = new System.Drawing.Point(0, 0);
             this.flowPorsiyon.Name = "flowPorsiyon";
-            this.flowPorsiyon.Size = new System.Drawing.Size(477, 733);
+            this.flowPorsiyon.Size = new System.Drawing.Size(396, 725);
             this.flowPorsiyon.TabIndex = 0;
             // 
             // pageEkMalzeme
@@ -484,14 +578,14 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageEkMalzeme.Controls.Add(this.flowEkMalzeme);
             this.pageEkMalzeme.Controls.Add(this.panelControl3);
             this.pageEkMalzeme.Name = "pageEkMalzeme";
-            this.pageEkMalzeme.Size = new System.Drawing.Size(477, 733);
+            this.pageEkMalzeme.Size = new System.Drawing.Size(396, 725);
             // 
             // flowEkMalzeme
             // 
             this.flowEkMalzeme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowEkMalzeme.Location = new System.Drawing.Point(0, 0);
             this.flowEkMalzeme.Name = "flowEkMalzeme";
-            this.flowEkMalzeme.Size = new System.Drawing.Size(477, 659);
+            this.flowEkMalzeme.Size = new System.Drawing.Size(396, 651);
             this.flowEkMalzeme.TabIndex = 0;
             // 
             // panelControl3
@@ -499,9 +593,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl3.Controls.Add(this.layoutControl2);
             this.panelControl3.Controls.Add(this.btnEkMalzemeOnay);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 659);
+            this.panelControl3.Location = new System.Drawing.Point(0, 651);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(477, 74);
+            this.panelControl3.Size = new System.Drawing.Size(396, 74);
             this.panelControl3.TabIndex = 1;
             // 
             // layoutControl2
@@ -513,7 +607,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControl2.Location = new System.Drawing.Point(2, 2);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(381, 70);
+            this.layoutControl2.Size = new System.Drawing.Size(300, 70);
             this.layoutControl2.TabIndex = 1;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -532,7 +626,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.txtToplamTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtToplamTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtToplamTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtToplamTutar.Size = new System.Drawing.Size(253, 30);
+            this.txtToplamTutar.Size = new System.Drawing.Size(252, 30);
             this.txtToplamTutar.StyleController = this.layoutControl2;
             this.txtToplamTutar.TabIndex = 2;
             // 
@@ -570,7 +664,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.txtEkMalzemeTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtEkMalzemeTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtEkMalzemeTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtEkMalzemeTutar.Size = new System.Drawing.Size(63, 30);
+            this.txtEkMalzemeTutar.Size = new System.Drawing.Size(62, 30);
             this.txtEkMalzemeTutar.StyleController = this.layoutControl2;
             this.txtEkMalzemeTutar.TabIndex = 2;
             // 
@@ -584,7 +678,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem3});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(381, 70);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(380, 70);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem1
@@ -592,7 +686,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem1.Control = this.txtEkMalzemeTutar;
             this.layoutControlItem1.Location = new System.Drawing.Point(190, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(191, 34);
+            this.layoutControlItem1.Size = new System.Drawing.Size(190, 34);
             this.layoutControlItem1.Text = "Ek Malzeme Tutar :";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(112, 16);
             // 
@@ -601,7 +695,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem2.Control = this.txtToplamTutar;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(381, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(380, 36);
             this.layoutControlItem2.Text = "Toplam Tutar :";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(112, 16);
             // 
@@ -619,7 +713,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnEkMalzemeOnay.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEkMalzemeOnay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEkMalzemeOnay.ImageOptions.Image")));
             this.btnEkMalzemeOnay.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnEkMalzemeOnay.Location = new System.Drawing.Point(383, 2);
+            this.btnEkMalzemeOnay.Location = new System.Drawing.Point(302, 2);
             this.btnEkMalzemeOnay.Name = "btnEkMalzemeOnay";
             this.btnEkMalzemeOnay.Size = new System.Drawing.Size(92, 70);
             this.btnEkMalzemeOnay.TabIndex = 0;
@@ -631,14 +725,14 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageGarson.Caption = "pageGarson";
             this.pageGarson.Controls.Add(this.flowGarson);
             this.pageGarson.Name = "pageGarson";
-            this.pageGarson.Size = new System.Drawing.Size(477, 733);
+            this.pageGarson.Size = new System.Drawing.Size(396, 725);
             // 
             // flowGarson
             // 
             this.flowGarson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowGarson.Location = new System.Drawing.Point(0, 0);
             this.flowGarson.Name = "flowGarson";
-            this.flowGarson.Size = new System.Drawing.Size(477, 733);
+            this.flowGarson.Size = new System.Drawing.Size(396, 725);
             this.flowGarson.TabIndex = 0;
             // 
             // pageMusteri
@@ -646,25 +740,26 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.pageMusteri.Caption = "pageMusteri";
             this.pageMusteri.Controls.Add(this.flowMusteri);
             this.pageMusteri.Name = "pageMusteri";
-            this.pageMusteri.Size = new System.Drawing.Size(477, 733);
+            this.pageMusteri.Size = new System.Drawing.Size(396, 725);
             // 
             // flowMusteri
             // 
             this.flowMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowMusteri.Location = new System.Drawing.Point(1, 1);
+            this.flowMusteri.Location = new System.Drawing.Point(0, 0);
             this.flowMusteri.Name = "flowMusteri";
-            this.flowMusteri.Size = new System.Drawing.Size(477, 733);
+            this.flowMusteri.Size = new System.Drawing.Size(396, 725);
             this.flowMusteri.TabIndex = 0;
             // 
             // pageOdemeEkrani
             // 
+            this.pageOdemeEkrani.Caption = "pageOdemeEkrani";
             this.pageOdemeEkrani.Controls.Add(this.gridControlOdeme);
             this.pageOdemeEkrani.Controls.Add(this.panelControl6);
             this.pageOdemeEkrani.Controls.Add(this.layoutControl4);
             this.pageOdemeEkrani.Controls.Add(this.panelControl5);
             this.pageOdemeEkrani.Controls.Add(this.flowOdemeTurleri);
             this.pageOdemeEkrani.Name = "pageOdemeEkrani";
-            this.pageOdemeEkrani.Size = new System.Drawing.Size(477, 733);
+            this.pageOdemeEkrani.Size = new System.Drawing.Size(396, 725);
             // 
             // gridControlOdeme
             // 
@@ -673,7 +768,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.gridControlOdeme.Location = new System.Drawing.Point(0, 135);
             this.gridControlOdeme.MainView = this.gridOdeme;
             this.gridControlOdeme.Name = "gridControlOdeme";
-            this.gridControlOdeme.Size = new System.Drawing.Size(396, 464);
+            this.gridControlOdeme.Size = new System.Drawing.Size(315, 456);
             this.gridControlOdeme.TabIndex = 1;
             this.gridControlOdeme.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridOdeme});
@@ -723,9 +818,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl6.Controls.Add(this.btnOdemeYarim);
             this.panelControl6.Controls.Add(this.btnOdemeTumu);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl6.Location = new System.Drawing.Point(396, 135);
+            this.panelControl6.Location = new System.Drawing.Point(315, 135);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(81, 464);
+            this.panelControl6.Size = new System.Drawing.Size(81, 456);
             this.panelControl6.TabIndex = 4;
             // 
             // btnOdemeN
@@ -791,7 +886,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControl4.Location = new System.Drawing.Point(0, 81);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.layoutControlGroup3;
-            this.layoutControl4.Size = new System.Drawing.Size(477, 54);
+            this.layoutControl4.Size = new System.Drawing.Size(396, 54);
             this.layoutControl4.TabIndex = 3;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -810,7 +905,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.txtOdemeTutari.Properties.DisplayFormat.FormatString = "C2";
             this.txtOdemeTutari.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtOdemeTutari.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.txtOdemeTutari.Size = new System.Drawing.Size(369, 46);
+            this.txtOdemeTutari.Size = new System.Drawing.Size(288, 46);
             this.txtOdemeTutari.StyleController = this.layoutControl4;
             this.txtOdemeTutari.TabIndex = 2;
             // 
@@ -822,7 +917,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem6});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(477, 54);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(396, 54);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem6
@@ -830,7 +925,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem6.Control = this.txtOdemeTutari;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(473, 50);
+            this.layoutControlItem6.Size = new System.Drawing.Size(392, 50);
             this.layoutControlItem6.Text = "Ödeme Tutarı :";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(88, 16);
             // 
@@ -839,9 +934,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl5.Controls.Add(this.layoutControl5);
             this.panelControl5.Controls.Add(this.layoutControl3);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl5.Location = new System.Drawing.Point(0, 599);
+            this.panelControl5.Location = new System.Drawing.Point(0, 591);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(477, 134);
+            this.panelControl5.Size = new System.Drawing.Size(396, 134);
             this.panelControl5.TabIndex = 2;
             // 
             // layoutControl5
@@ -856,7 +951,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControl5.Location = new System.Drawing.Point(2, 2);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup4;
-            this.layoutControl5.Size = new System.Drawing.Size(473, 88);
+            this.layoutControl5.Size = new System.Drawing.Size(392, 88);
             this.layoutControl5.TabIndex = 1;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -865,9 +960,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btn200Tl.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn200Tl.Appearance.Options.UseFont = true;
             this.btn200Tl.Deger = 200;
-            this.btn200Tl.Location = new System.Drawing.Point(316, 46);
+            this.btn200Tl.Location = new System.Drawing.Point(262, 46);
             this.btn200Tl.Name = "btn200Tl";
-            this.btn200Tl.Size = new System.Drawing.Size(153, 38);
+            this.btn200Tl.Size = new System.Drawing.Size(126, 38);
             this.btn200Tl.StyleController = this.layoutControl5;
             this.btn200Tl.TabIndex = 5;
             this.btn200Tl.Text = "200₺";
@@ -878,9 +973,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btn100Tl.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn100Tl.Appearance.Options.UseFont = true;
             this.btn100Tl.Deger = 100;
-            this.btn100Tl.Location = new System.Drawing.Point(160, 46);
+            this.btn100Tl.Location = new System.Drawing.Point(133, 46);
             this.btn100Tl.Name = "btn100Tl";
-            this.btn100Tl.Size = new System.Drawing.Size(152, 38);
+            this.btn100Tl.Size = new System.Drawing.Size(125, 38);
             this.btn100Tl.StyleController = this.layoutControl5;
             this.btn100Tl.TabIndex = 8;
             this.btn100Tl.Text = "100₺";
@@ -893,7 +988,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btn50Tl.Deger = 50;
             this.btn50Tl.Location = new System.Drawing.Point(4, 46);
             this.btn50Tl.Name = "btn50Tl";
-            this.btn50Tl.Size = new System.Drawing.Size(152, 38);
+            this.btn50Tl.Size = new System.Drawing.Size(125, 38);
             this.btn50Tl.StyleController = this.layoutControl5;
             this.btn50Tl.TabIndex = 7;
             this.btn50Tl.Text = "50₺";
@@ -904,9 +999,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btn20Tl.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn20Tl.Appearance.Options.UseFont = true;
             this.btn20Tl.Deger = 20;
-            this.btn20Tl.Location = new System.Drawing.Point(316, 4);
+            this.btn20Tl.Location = new System.Drawing.Point(262, 4);
             this.btn20Tl.Name = "btn20Tl";
-            this.btn20Tl.Size = new System.Drawing.Size(153, 38);
+            this.btn20Tl.Size = new System.Drawing.Size(126, 38);
             this.btn20Tl.StyleController = this.layoutControl5;
             this.btn20Tl.TabIndex = 6;
             this.btn20Tl.Text = "20₺";
@@ -917,9 +1012,9 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btn10Tl.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn10Tl.Appearance.Options.UseFont = true;
             this.btn10Tl.Deger = 10;
-            this.btn10Tl.Location = new System.Drawing.Point(160, 4);
+            this.btn10Tl.Location = new System.Drawing.Point(133, 4);
             this.btn10Tl.Name = "btn10Tl";
-            this.btn10Tl.Size = new System.Drawing.Size(152, 38);
+            this.btn10Tl.Size = new System.Drawing.Size(125, 38);
             this.btn10Tl.StyleController = this.layoutControl5;
             this.btn10Tl.TabIndex = 5;
             this.btn10Tl.Text = "10₺";
@@ -932,7 +1027,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btn5Tl.Deger = 5;
             this.btn5Tl.Location = new System.Drawing.Point(4, 4);
             this.btn5Tl.Name = "btn5Tl";
-            this.btn5Tl.Size = new System.Drawing.Size(152, 38);
+            this.btn5Tl.Size = new System.Drawing.Size(125, 38);
             this.btn5Tl.StyleController = this.layoutControl5;
             this.btn5Tl.TabIndex = 4;
             this.btn5Tl.Text = "5₺";
@@ -951,25 +1046,25 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem12});
             this.layoutControlGroup4.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            columnDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition6.Width = 100D;
-            columnDefinition7.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition7.Width = 100D;
-            columnDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition8.Width = 100D;
+            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition1.Width = 100D;
+            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition2.Width = 100D;
+            columnDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition3.Width = 100D;
             this.layoutControlGroup4.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition6,
-            columnDefinition7,
-            columnDefinition8});
-            rowDefinition4.Height = 100D;
-            rowDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition5.Height = 100D;
-            rowDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition1,
+            columnDefinition2,
+            columnDefinition3});
+            rowDefinition1.Height = 100D;
+            rowDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition2.Height = 100D;
+            rowDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup4.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition4,
-            rowDefinition5});
+            rowDefinition1,
+            rowDefinition2});
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(473, 88);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(392, 88);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem7
@@ -978,7 +1073,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(25, 31);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(156, 42);
+            this.layoutControlItem7.Size = new System.Drawing.Size(129, 42);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
@@ -986,11 +1081,11 @@ namespace Sas.Restaurant.UI.FrontOffice
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btn10Tl;
-            this.layoutControlItem8.Location = new System.Drawing.Point(156, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(129, 0);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(32, 31);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem8.Size = new System.Drawing.Size(156, 42);
+            this.layoutControlItem8.Size = new System.Drawing.Size(129, 42);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
@@ -998,11 +1093,11 @@ namespace Sas.Restaurant.UI.FrontOffice
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btn20Tl;
-            this.layoutControlItem9.Location = new System.Drawing.Point(312, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(258, 0);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(32, 31);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem9.Size = new System.Drawing.Size(157, 42);
+            this.layoutControlItem9.Size = new System.Drawing.Size(130, 42);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
@@ -1014,7 +1109,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem10.MinSize = new System.Drawing.Size(32, 31);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem10.Size = new System.Drawing.Size(156, 42);
+            this.layoutControlItem10.Size = new System.Drawing.Size(129, 42);
             this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
@@ -1022,12 +1117,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btn100Tl;
-            this.layoutControlItem11.Location = new System.Drawing.Point(156, 42);
+            this.layoutControlItem11.Location = new System.Drawing.Point(129, 42);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(39, 31);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem11.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem11.Size = new System.Drawing.Size(156, 42);
+            this.layoutControlItem11.Size = new System.Drawing.Size(129, 42);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
@@ -1035,12 +1130,12 @@ namespace Sas.Restaurant.UI.FrontOffice
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.btn200Tl;
-            this.layoutControlItem12.Location = new System.Drawing.Point(312, 42);
+            this.layoutControlItem12.Location = new System.Drawing.Point(258, 42);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(39, 31);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem12.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem12.Size = new System.Drawing.Size(157, 42);
+            this.layoutControlItem12.Size = new System.Drawing.Size(130, 42);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -1053,7 +1148,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControl3.Location = new System.Drawing.Point(2, 90);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup1;
-            this.layoutControl3.Size = new System.Drawing.Size(473, 42);
+            this.layoutControl3.Size = new System.Drawing.Size(392, 42);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -1064,7 +1159,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             0,
             0,
             0});
-            this.txtKalanTutar.Location = new System.Drawing.Point(338, 4);
+            this.txtKalanTutar.Location = new System.Drawing.Point(298, 4);
             this.txtKalanTutar.Name = "txtKalanTutar";
             this.txtKalanTutar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKalanTutar.Properties.Appearance.Options.UseFont = true;
@@ -1073,7 +1168,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.txtKalanTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtKalanTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtKalanTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtKalanTutar.Size = new System.Drawing.Size(131, 34);
+            this.txtKalanTutar.Size = new System.Drawing.Size(90, 34);
             this.txtKalanTutar.StyleController = this.layoutControl3;
             this.txtKalanTutar.TabIndex = 2;
             // 
@@ -1093,7 +1188,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.txtOdenenTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtOdenenTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtOdenenTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtOdenenTutar.Size = new System.Drawing.Size(130, 34);
+            this.txtOdenenTutar.Size = new System.Drawing.Size(90, 34);
             this.txtOdenenTutar.StyleController = this.layoutControl3;
             this.txtOdenenTutar.TabIndex = 2;
             // 
@@ -1106,19 +1201,19 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem5});
             this.layoutControlGroup1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            columnDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition9.Width = 100D;
-            columnDefinition10.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition10.Width = 100D;
+            columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition4.Width = 100D;
+            columnDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition5.Width = 100D;
             this.layoutControlGroup1.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition9,
-            columnDefinition10});
-            rowDefinition6.Height = 100D;
-            rowDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition4,
+            columnDefinition5});
+            rowDefinition3.Height = 100D;
+            rowDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup1.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition6});
+            rowDefinition3});
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(473, 42);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(392, 42);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem4
@@ -1129,7 +1224,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(166, 34);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(234, 38);
+            this.layoutControlItem4.Size = new System.Drawing.Size(194, 38);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "Ödenen Tutar :";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(88, 16);
@@ -1139,11 +1234,11 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.layoutControlItem5.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem5.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.layoutControlItem5.Control = this.txtKalanTutar;
-            this.layoutControlItem5.Location = new System.Drawing.Point(234, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(194, 0);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(166, 34);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem5.Size = new System.Drawing.Size(235, 38);
+            this.layoutControlItem5.Size = new System.Drawing.Size(194, 38);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "Kalan Tutar :";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(88, 16);
@@ -1153,8 +1248,159 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.flowOdemeTurleri.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowOdemeTurleri.Location = new System.Drawing.Point(0, 0);
             this.flowOdemeTurleri.Name = "flowOdemeTurleri";
-            this.flowOdemeTurleri.Size = new System.Drawing.Size(477, 81);
+            this.flowOdemeTurleri.Size = new System.Drawing.Size(396, 81);
             this.flowOdemeTurleri.TabIndex = 0;
+            // 
+            // pageUrunNotlari
+            // 
+            this.pageUrunNotlari.Caption = "pageUrunNotlari";
+            this.pageUrunNotlari.Controls.Add(this.splitContainerControl1);
+            this.pageUrunNotlari.Controls.Add(this.panelControl7);
+            this.pageUrunNotlari.Name = "pageUrunNotlari";
+            this.pageUrunNotlari.Size = new System.Drawing.Size(396, 725);
+            // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 117);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            // 
+            // splitContainerControl1.Panel1
+            // 
+            this.splitContainerControl1.Panel1.Controls.Add(this.flowUrunNotlari);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl1.Panel2
+            // 
+            this.splitContainerControl1.Panel2.Controls.Add(this.controlKeyboard1);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(396, 608);
+            this.splitContainerControl1.SplitterPosition = 434;
+            this.splitContainerControl1.TabIndex = 3;
+            // 
+            // flowUrunNotlari
+            // 
+            this.flowUrunNotlari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowUrunNotlari.Location = new System.Drawing.Point(0, 0);
+            this.flowUrunNotlari.Name = "flowUrunNotlari";
+            this.flowUrunNotlari.Size = new System.Drawing.Size(396, 434);
+            this.flowUrunNotlari.TabIndex = 3;
+            // 
+            // controlKeyboard1
+            // 
+            this.controlKeyboard1.CapsLock = true;
+            this.controlKeyboard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlKeyboard1.FocusTextBox = this.txturunNotu;
+            this.controlKeyboard1.KeyBoardButtonType = Sas.Restaurant.UserControls.KeyBoardButtonType.Standart;
+            this.controlKeyboard1.Location = new System.Drawing.Point(0, 0);
+            this.controlKeyboard1.Name = "controlKeyboard1";
+            this.controlKeyboard1.Size = new System.Drawing.Size(396, 162);
+            this.controlKeyboard1.TabIndex = 0;
+            // 
+            // txturunNotu
+            // 
+            this.txturunNotu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txturunNotu.Location = new System.Drawing.Point(2, 2);
+            this.txturunNotu.Name = "txturunNotu";
+            this.txturunNotu.Size = new System.Drawing.Size(258, 113);
+            this.txturunNotu.TabIndex = 0;
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.Controls.Add(this.txturunNotu);
+            this.panelControl7.Controls.Add(this.layoutControl6);
+            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl7.Location = new System.Drawing.Point(0, 0);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(396, 117);
+            this.panelControl7.TabIndex = 0;
+            // 
+            // layoutControl6
+            // 
+            this.layoutControl6.Controls.Add(this.simpleButton1);
+            this.layoutControl6.Controls.Add(this.btnUrunNotOnayla);
+            this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.layoutControl6.Location = new System.Drawing.Point(260, 2);
+            this.layoutControl6.Name = "layoutControl6";
+            this.layoutControl6.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(464, 260, 812, 500);
+            this.layoutControl6.Root = this.layoutControlGroup5;
+            this.layoutControl6.Size = new System.Drawing.Size(134, 113);
+            this.layoutControl6.TabIndex = 1;
+            this.layoutControl6.Text = "layoutControl6";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.simpleButton1.Location = new System.Drawing.Point(3, 58);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(128, 52);
+            this.simpleButton1.StyleController = this.layoutControl6;
+            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.Text = "Vazgeç";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
+            // 
+            // btnUrunNotOnayla
+            // 
+            this.btnUrunNotOnayla.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUrunNotOnayla.ImageOptions.Image")));
+            this.btnUrunNotOnayla.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnUrunNotOnayla.Location = new System.Drawing.Point(3, 3);
+            this.btnUrunNotOnayla.Name = "btnUrunNotOnayla";
+            this.btnUrunNotOnayla.Size = new System.Drawing.Size(128, 51);
+            this.btnUrunNotOnayla.StyleController = this.layoutControl6;
+            this.btnUrunNotOnayla.TabIndex = 0;
+            this.btnUrunNotOnayla.Text = "Onayla";
+            this.btnUrunNotOnayla.Click += new System.EventHandler(this.btnUrunNotOnayla_Click);
+            // 
+            // layoutControlGroup5
+            // 
+            this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup5.GroupBordersVisible = false;
+            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem13,
+            this.layoutControlItem14});
+            this.layoutControlGroup5.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
+            this.layoutControlGroup5.Name = "Root";
+            columnDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition6.Width = 100D;
+            this.layoutControlGroup5.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
+            columnDefinition6});
+            rowDefinition4.Height = 100D;
+            rowDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition5.Height = 100D;
+            rowDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
+            this.layoutControlGroup5.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
+            rowDefinition4,
+            rowDefinition5});
+            this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(134, 113);
+            this.layoutControlGroup5.TextVisible = false;
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.btnUrunNotOnayla;
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem13.MaxSize = new System.Drawing.Size(0, 60);
+            this.layoutControlItem13.MinSize = new System.Drawing.Size(25, 25);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(132, 55);
+            this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextVisible = false;
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.simpleButton1;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 55);
+            this.layoutControlItem14.MaxSize = new System.Drawing.Size(0, 60);
+            this.layoutControlItem14.MinSize = new System.Drawing.Size(25, 25);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.OptionsTableLayoutItem.RowIndex = 1;
+            this.layoutControlItem14.Size = new System.Drawing.Size(132, 56);
+            this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
             // 
             // panelUrunGrupKeyPad
             // 
@@ -1163,7 +1409,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunGrupKeyPad.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUrunGrupKeyPad.Location = new System.Drawing.Point(2, 2);
             this.panelUrunGrupKeyPad.Name = "panelUrunGrupKeyPad";
-            this.panelUrunGrupKeyPad.Size = new System.Drawing.Size(296, 733);
+            this.panelUrunGrupKeyPad.Size = new System.Drawing.Size(296, 725);
             this.panelUrunGrupKeyPad.TabIndex = 0;
             // 
             // groupKategori
@@ -1172,7 +1418,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.groupKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupKategori.Location = new System.Drawing.Point(2, 336);
             this.groupKategori.Name = "groupKategori";
-            this.groupKategori.Size = new System.Drawing.Size(292, 395);
+            this.groupKategori.Size = new System.Drawing.Size(292, 387);
             this.groupKategori.TabIndex = 1;
             this.groupKategori.Text = "Ürün Grupları";
             // 
@@ -1182,7 +1428,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.flowKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKategori.Location = new System.Drawing.Point(2, 28);
             this.flowKategori.Name = "flowKategori";
-            this.flowKategori.Size = new System.Drawing.Size(288, 365);
+            this.flowKategori.Size = new System.Drawing.Size(288, 357);
             this.flowKategori.TabIndex = 0;
             // 
             // layoutControl1
@@ -1397,7 +1643,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareket.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUrunHareket.Location = new System.Drawing.Point(101, 0);
             this.panelUrunHareket.Name = "panelUrunHareket";
-            this.panelUrunHareket.Size = new System.Drawing.Size(574, 737);
+            this.panelUrunHareket.Size = new System.Drawing.Size(574, 729);
             this.panelUrunHareket.TabIndex = 1;
             // 
             // gridControl1
@@ -1406,7 +1652,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.gridControl1.Location = new System.Drawing.Point(2, 82);
             this.gridControl1.MainView = this.layoutView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(570, 573);
+            this.gridControl1.Size = new System.Drawing.Size(570, 565);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.layoutView1});
@@ -1734,6 +1980,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.btnUrunNotu);
             this.panelControl4.Controls.Add(this.btnİndirim);
             this.panelControl4.Controls.Add(this.btnBol);
             this.panelControl4.Controls.Add(this.btnIade);
@@ -1744,16 +1991,30 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl4.Size = new System.Drawing.Size(570, 40);
             this.panelControl4.TabIndex = 3;
             // 
+            // btnUrunNotu
+            // 
+            this.btnUrunNotu.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUrunNotu.Appearance.Options.UseFont = true;
+            this.btnUrunNotu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUrunNotu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUrunNotu.ImageOptions.Image")));
+            this.btnUrunNotu.Location = new System.Drawing.Point(454, 2);
+            this.btnUrunNotu.Name = "btnUrunNotu";
+            this.btnUrunNotu.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnUrunNotu.Size = new System.Drawing.Size(113, 36);
+            this.btnUrunNotu.TabIndex = 11;
+            this.btnUrunNotu.Text = "Ürün Notu";
+            this.btnUrunNotu.Click += new System.EventHandler(this.btnUrunNotu_Click);
+            // 
             // btnİndirim
             // 
             this.btnİndirim.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnİndirim.Appearance.Options.UseFont = true;
             this.btnİndirim.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnİndirim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnİndirim.ImageOptions.Image")));
-            this.btnİndirim.Location = new System.Drawing.Point(428, 2);
+            this.btnİndirim.Location = new System.Drawing.Point(341, 2);
             this.btnİndirim.Name = "btnİndirim";
             this.btnİndirim.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnİndirim.Size = new System.Drawing.Size(142, 36);
+            this.btnİndirim.Size = new System.Drawing.Size(113, 36);
             this.btnİndirim.TabIndex = 10;
             this.btnİndirim.Text = "İndirim";
             this.btnİndirim.Click += new System.EventHandler(this.btnİndirim_Click);
@@ -1764,10 +2025,10 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnBol.Appearance.Options.UseFont = true;
             this.btnBol.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnBol.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBol.ImageOptions.Image")));
-            this.btnBol.Location = new System.Drawing.Point(286, 2);
+            this.btnBol.Location = new System.Drawing.Point(228, 2);
             this.btnBol.Name = "btnBol";
             this.btnBol.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnBol.Size = new System.Drawing.Size(142, 36);
+            this.btnBol.Size = new System.Drawing.Size(113, 36);
             this.btnBol.TabIndex = 9;
             this.btnBol.Text = "Böl";
             this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
@@ -1778,10 +2039,10 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnIade.Appearance.Options.UseFont = true;
             this.btnIade.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnIade.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIade.ImageOptions.Image")));
-            this.btnIade.Location = new System.Drawing.Point(144, 2);
+            this.btnIade.Location = new System.Drawing.Point(115, 2);
             this.btnIade.Name = "btnIade";
             this.btnIade.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnIade.Size = new System.Drawing.Size(142, 36);
+            this.btnIade.Size = new System.Drawing.Size(113, 36);
             this.btnIade.TabIndex = 8;
             this.btnIade.Text = "İade";
             this.btnIade.Click += new System.EventHandler(this.btnIade_Click);
@@ -1795,7 +2056,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnMiktarAzalt.Location = new System.Drawing.Point(2, 2);
             this.btnMiktarAzalt.Name = "btnMiktarAzalt";
             this.btnMiktarAzalt.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnMiktarAzalt.Size = new System.Drawing.Size(142, 36);
+            this.btnMiktarAzalt.Size = new System.Drawing.Size(113, 36);
             this.btnMiktarAzalt.TabIndex = 7;
             this.btnMiktarAzalt.Text = "Azalt";
             this.btnMiktarAzalt.Click += new System.EventHandler(this.btnMiktarAzalt_Click_1);
@@ -1809,7 +2070,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.labelControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 655);
+            this.panelControl2.Location = new System.Drawing.Point(2, 647);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(570, 80);
             this.panelControl2.TabIndex = 1;
@@ -1982,7 +2243,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelHareketSolMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelHareketSolMenu.Location = new System.Drawing.Point(0, 0);
             this.panelHareketSolMenu.Name = "panelHareketSolMenu";
-            this.panelHareketSolMenu.Size = new System.Drawing.Size(101, 737);
+            this.panelHareketSolMenu.Size = new System.Drawing.Size(101, 729);
             this.panelHareketSolMenu.TabIndex = 0;
             // 
             // btnSiparisKaydet
@@ -1993,7 +2254,7 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnSiparisKaydet.ImageOptions.ImageIndex = 0;
             this.btnSiparisKaydet.ImageOptions.ImageList = this.ımageList1;
             this.btnSiparisKaydet.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnSiparisKaydet.Location = new System.Drawing.Point(2, 651);
+            this.btnSiparisKaydet.Location = new System.Drawing.Point(2, 643);
             this.btnSiparisKaydet.Name = "btnSiparisKaydet";
             this.btnSiparisKaydet.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnSiparisKaydet.Size = new System.Drawing.Size(97, 84);
@@ -2066,12 +2327,363 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.btnOdemeYap.Text = "Ödeme Ekle";
             this.btnOdemeYap.Click += new System.EventHandler(this.btnOdemeYap_Click);
             // 
+            // pageSiparis
+            // 
+            this.pageSiparis.Caption = "pageSiparis";
+            this.pageSiparis.Controls.Add(this.groupSiparis);
+            this.pageSiparis.Name = "pageSiparis";
+            this.pageSiparis.Size = new System.Drawing.Size(1371, 729);
+            // 
+            // groupSiparis
+            // 
+            this.groupSiparis.Controls.Add(this.flowSiparis);
+            this.groupSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupSiparis.Location = new System.Drawing.Point(0, 0);
+            this.groupSiparis.Name = "groupSiparis";
+            this.groupSiparis.Size = new System.Drawing.Size(1371, 729);
+            this.groupSiparis.TabIndex = 1;
+            this.groupSiparis.Text = "Siparişler";
+            // 
+            // flowSiparis
+            // 
+            this.flowSiparis.Controls.Add(this.btnYeniSiparisEkle);
+            this.flowSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowSiparis.Location = new System.Drawing.Point(2, 28);
+            this.flowSiparis.Name = "flowSiparis";
+            this.flowSiparis.Size = new System.Drawing.Size(1367, 699);
+            this.flowSiparis.TabIndex = 0;
+            // 
+            // btnYeniSiparisEkle
+            // 
+            this.btnYeniSiparisEkle.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYeniSiparisEkle.Appearance.Options.UseFont = true;
+            this.btnYeniSiparisEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYeniSiparisEkle.ImageOptions.Image")));
+            this.btnYeniSiparisEkle.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnYeniSiparisEkle.Location = new System.Drawing.Point(3, 3);
+            this.btnYeniSiparisEkle.Name = "btnYeniSiparisEkle";
+            this.btnYeniSiparisEkle.Size = new System.Drawing.Size(200, 100);
+            this.btnYeniSiparisEkle.TabIndex = 0;
+            this.btnYeniSiparisEkle.Text = "Yeni Siparis Ekle";
+            this.btnYeniSiparisEkle.Click += new System.EventHandler(this.btnYeniSiparisEkle_Click);
+            // 
+            // pageAramaKaydi
+            // 
+            this.pageAramaKaydi.Caption = "pageAramaKaydi";
+            this.pageAramaKaydi.Controls.Add(this.gridControl2);
+            this.pageAramaKaydi.Name = "pageAramaKaydi";
+            this.pageAramaKaydi.Size = new System.Drawing.Size(1371, 729);
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView1;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repoYeniKayitEkle,
+            this.repoAdisyonOlustur});
+            this.gridControl2.Size = new System.Drawing.Size(1371, 729);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTarih,
+            this.colSaat,
+            this.colMusteriAdi,
+            this.colTelefon,
+            this.colYeniKayit,
+            this.colAdisyonOlustur});
+            this.gridView1.GridControl = this.gridControl2;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.RowHeight = 30;
+            // 
+            // colTarih
+            // 
+            this.colTarih.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colTarih.AppearanceCell.Options.UseFont = true;
+            this.colTarih.Caption = "Tarih";
+            this.colTarih.DisplayFormat.FormatString = "d";
+            this.colTarih.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colTarih.FieldName = "Tarih";
+            this.colTarih.MinWidth = 25;
+            this.colTarih.Name = "colTarih";
+            this.colTarih.Visible = true;
+            this.colTarih.VisibleIndex = 0;
+            this.colTarih.Width = 223;
+            // 
+            // colSaat
+            // 
+            this.colSaat.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colSaat.AppearanceCell.Options.UseFont = true;
+            this.colSaat.Caption = "Saat";
+            this.colSaat.DisplayFormat.FormatString = "T";
+            this.colSaat.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colSaat.FieldName = "Tarih";
+            this.colSaat.MinWidth = 25;
+            this.colSaat.Name = "colSaat";
+            this.colSaat.Visible = true;
+            this.colSaat.VisibleIndex = 1;
+            this.colSaat.Width = 223;
+            // 
+            // colMusteriAdi
+            // 
+            this.colMusteriAdi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colMusteriAdi.AppearanceCell.Options.UseFont = true;
+            this.colMusteriAdi.Caption = "Müşteri Adı";
+            this.colMusteriAdi.FieldName = "MusteriAdi";
+            this.colMusteriAdi.MinWidth = 25;
+            this.colMusteriAdi.Name = "colMusteriAdi";
+            this.colMusteriAdi.Visible = true;
+            this.colMusteriAdi.VisibleIndex = 2;
+            this.colMusteriAdi.Width = 223;
+            // 
+            // colTelefon
+            // 
+            this.colTelefon.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colTelefon.AppearanceCell.Options.UseFont = true;
+            this.colTelefon.Caption = "Telefon";
+            this.colTelefon.FieldName = "Telefon";
+            this.colTelefon.MinWidth = 25;
+            this.colTelefon.Name = "colTelefon";
+            this.colTelefon.Visible = true;
+            this.colTelefon.VisibleIndex = 3;
+            this.colTelefon.Width = 427;
+            // 
+            // colYeniKayit
+            // 
+            this.colYeniKayit.Caption = "Kayıt Ekle";
+            this.colYeniKayit.ColumnEdit = this.repoYeniKayitEkle;
+            this.colYeniKayit.MaxWidth = 91;
+            this.colYeniKayit.MinWidth = 91;
+            this.colYeniKayit.Name = "colYeniKayit";
+            this.colYeniKayit.Visible = true;
+            this.colYeniKayit.VisibleIndex = 4;
+            this.colYeniKayit.Width = 91;
+            // 
+            // repoYeniKayitEkle
+            // 
+            this.repoYeniKayitEkle.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.repoYeniKayitEkle.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repoYeniKayitEkle.Name = "repoYeniKayitEkle";
+            this.repoYeniKayitEkle.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repoYeniKayitEkle.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoYeniKayitEkle_ButtonClick);
+            // 
+            // colAdisyonOlustur
+            // 
+            this.colAdisyonOlustur.Caption = "Adisyon Olustur";
+            this.colAdisyonOlustur.ColumnEdit = this.repoAdisyonOlustur;
+            this.colAdisyonOlustur.MaxWidth = 91;
+            this.colAdisyonOlustur.MinWidth = 91;
+            this.colAdisyonOlustur.Name = "colAdisyonOlustur";
+            this.colAdisyonOlustur.Visible = true;
+            this.colAdisyonOlustur.VisibleIndex = 5;
+            this.colAdisyonOlustur.Width = 91;
+            // 
+            // repoAdisyonOlustur
+            // 
+            this.repoAdisyonOlustur.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.repoAdisyonOlustur.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repoAdisyonOlustur.Name = "repoAdisyonOlustur";
+            this.repoAdisyonOlustur.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repoAdisyonOlustur.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoAdisyonOlustur_ButtonClick);
+            // 
+            // pageBildirim
+            // 
+            this.pageBildirim.Caption = "pageBildirim";
+            this.pageBildirim.Controls.Add(this.gridControlBildirim);
+            this.pageBildirim.Name = "pageBildirim";
+            this.pageBildirim.Size = new System.Drawing.Size(1371, 729);
+            // 
+            // gridControlBildirim
+            // 
+            this.gridControlBildirim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlBildirim.Location = new System.Drawing.Point(0, 0);
+            this.gridControlBildirim.MainView = this.gridBildirim;
+            this.gridControlBildirim.Name = "gridControlBildirim";
+            this.gridControlBildirim.Size = new System.Drawing.Size(1371, 729);
+            this.gridControlBildirim.TabIndex = 0;
+            this.gridControlBildirim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridBildirim});
+            // 
+            // gridBildirim
+            // 
+            this.gridBildirim.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBildirimSiparisDurum,
+            this.colBildirimUrunAdi,
+            this.colBildirimMiktar,
+            this.colBildirimEkMalzeme,
+            this.colBildirimMasaAdi});
+            this.gridBildirim.GridControl = this.gridControlBildirim;
+            this.gridBildirim.GroupCount = 1;
+            this.gridBildirim.Name = "gridBildirim";
+            this.gridBildirim.RowHeight = 25;
+            this.gridBildirim.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colBildirimMasaAdi, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colBildirimSiparisDurum
+            // 
+            this.colBildirimSiparisDurum.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colBildirimSiparisDurum.AppearanceCell.Options.UseFont = true;
+            this.colBildirimSiparisDurum.Caption = "Sipariş Durumu";
+            this.colBildirimSiparisDurum.FieldName = "SiparisDurum";
+            this.colBildirimSiparisDurum.MinWidth = 25;
+            this.colBildirimSiparisDurum.Name = "colBildirimSiparisDurum";
+            this.colBildirimSiparisDurum.OptionsColumn.AllowEdit = false;
+            this.colBildirimSiparisDurum.Visible = true;
+            this.colBildirimSiparisDurum.VisibleIndex = 0;
+            this.colBildirimSiparisDurum.Width = 94;
+            // 
+            // colBildirimUrunAdi
+            // 
+            this.colBildirimUrunAdi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colBildirimUrunAdi.AppearanceCell.Options.UseFont = true;
+            this.colBildirimUrunAdi.Caption = "ÜrünAdi";
+            this.colBildirimUrunAdi.FieldName = "UrunAdi";
+            this.colBildirimUrunAdi.MinWidth = 25;
+            this.colBildirimUrunAdi.Name = "colBildirimUrunAdi";
+            this.colBildirimUrunAdi.OptionsColumn.AllowEdit = false;
+            this.colBildirimUrunAdi.Visible = true;
+            this.colBildirimUrunAdi.VisibleIndex = 1;
+            this.colBildirimUrunAdi.Width = 94;
+            // 
+            // colBildirimMiktar
+            // 
+            this.colBildirimMiktar.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colBildirimMiktar.AppearanceCell.Options.UseFont = true;
+            this.colBildirimMiktar.Caption = "Miktar";
+            this.colBildirimMiktar.FieldName = "Miktar";
+            this.colBildirimMiktar.MinWidth = 25;
+            this.colBildirimMiktar.Name = "colBildirimMiktar";
+            this.colBildirimMiktar.OptionsColumn.AllowEdit = false;
+            this.colBildirimMiktar.Visible = true;
+            this.colBildirimMiktar.VisibleIndex = 2;
+            this.colBildirimMiktar.Width = 94;
+            // 
+            // colBildirimEkMalzeme
+            // 
+            this.colBildirimEkMalzeme.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colBildirimEkMalzeme.AppearanceCell.Options.UseFont = true;
+            this.colBildirimEkMalzeme.Caption = "Ek Malzeme";
+            this.colBildirimEkMalzeme.FieldName = "EkMalzeme";
+            this.colBildirimEkMalzeme.MinWidth = 25;
+            this.colBildirimEkMalzeme.Name = "colBildirimEkMalzeme";
+            this.colBildirimEkMalzeme.OptionsColumn.AllowEdit = false;
+            this.colBildirimEkMalzeme.Visible = true;
+            this.colBildirimEkMalzeme.VisibleIndex = 3;
+            this.colBildirimEkMalzeme.Width = 94;
+            // 
+            // colBildirimMasaAdi
+            // 
+            this.colBildirimMasaAdi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.colBildirimMasaAdi.AppearanceCell.Options.UseFont = true;
+            this.colBildirimMasaAdi.Caption = "Masa Adı";
+            this.colBildirimMasaAdi.FieldName = "Masa.Adi";
+            this.colBildirimMasaAdi.MinWidth = 25;
+            this.colBildirimMasaAdi.Name = "colBildirimMasaAdi";
+            this.colBildirimMasaAdi.OptionsColumn.AllowEdit = false;
+            this.colBildirimMasaAdi.Visible = true;
+            this.colBildirimMasaAdi.VisibleIndex = 4;
+            this.colBildirimMasaAdi.Width = 94;
+            // 
+            // panelAnaSolMenu
+            // 
+            this.panelAnaSolMenu.Controls.Add(this.controlBadgButton1);
+            this.panelAnaSolMenu.Controls.Add(this.btnAramaKaydi);
+            this.panelAnaSolMenu.Controls.Add(this.btnSiparisler);
+            this.panelAnaSolMenu.Controls.Add(this.btnMasalar);
+            this.panelAnaSolMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelAnaSolMenu.Location = new System.Drawing.Point(0, 39);
+            this.panelAnaSolMenu.Name = "panelAnaSolMenu";
+            this.panelAnaSolMenu.Size = new System.Drawing.Size(112, 729);
+            this.panelAnaSolMenu.TabIndex = 2;
+            // 
+            // btnAramaKaydi
+            // 
+            this.btnAramaKaydi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAramaKaydi.Appearance.Options.UseFont = true;
+            this.btnAramaKaydi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAramaKaydi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAramaKaydi.ImageOptions.Image")));
+            this.btnAramaKaydi.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnAramaKaydi.Location = new System.Drawing.Point(2, 200);
+            this.btnAramaKaydi.Name = "btnAramaKaydi";
+            this.btnAramaKaydi.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAramaKaydi.Size = new System.Drawing.Size(108, 99);
+            this.btnAramaKaydi.TabIndex = 2;
+            this.btnAramaKaydi.Text = "Arama\r\nKaydı";
+            this.btnAramaKaydi.Click += new System.EventHandler(this.btnAramaKaydi_Click);
+            // 
+            // btnSiparisler
+            // 
+            this.btnSiparisler.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSiparisler.Appearance.Options.UseFont = true;
+            this.btnSiparisler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSiparisler.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSiparisler.ImageOptions.Image")));
+            this.btnSiparisler.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnSiparisler.Location = new System.Drawing.Point(2, 101);
+            this.btnSiparisler.Name = "btnSiparisler";
+            this.btnSiparisler.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnSiparisler.Size = new System.Drawing.Size(108, 99);
+            this.btnSiparisler.TabIndex = 1;
+            this.btnSiparisler.Text = "Siparişler";
+            this.btnSiparisler.Click += new System.EventHandler(this.btnSiparisler_Click);
+            // 
+            // btnMasalar
+            // 
+            this.btnMasalar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMasalar.Appearance.Options.UseFont = true;
+            this.btnMasalar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMasalar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMasalar.ImageOptions.Image")));
+            this.btnMasalar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnMasalar.Location = new System.Drawing.Point(2, 2);
+            this.btnMasalar.Name = "btnMasalar";
+            this.btnMasalar.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnMasalar.Size = new System.Drawing.Size(108, 99);
+            this.btnMasalar.TabIndex = 0;
+            this.btnMasalar.Text = "Masalar";
+            this.btnMasalar.Click += new System.EventHandler(this.btnMasalar_Click);
+            // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "user2.png");
+            this.ımageList2.Images.SetKeyName(1, "images (1).jpg");
+            // 
+            // controlBadgButton1
+            // 
+            this.controlBadgButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.controlBadgButton1.Appearance.Options.UseFont = true;
+            this.controlBadgButton1.BadgeAligment = System.Drawing.ContentAlignment.TopRight;
+            this.controlBadgButton1.BadgeBackColor = System.Drawing.Color.Red;
+            this.controlBadgButton1.BadgeFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.controlBadgButton1.BadgeForeColor = System.Drawing.Color.White;
+            this.controlBadgButton1.ContainerControl = this;
+            this.controlBadgButton1.Count = 0;
+            this.controlBadgButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.controlBadgButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("controlBadgButton1.ImageOptions.Image")));
+            this.controlBadgButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.controlBadgButton1.Location = new System.Drawing.Point(2, 299);
+            this.controlBadgButton1.Name = "controlBadgButton1";
+            this.controlBadgButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.controlBadgButton1.Size = new System.Drawing.Size(108, 99);
+            this.controlBadgButton1.TabIndex = 3;
+            this.controlBadgButton1.Text = "Bildirimler";
+            this.controlBadgButton1.Click += new System.EventHandler(this.controlBadgButton1_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 776);
+            this.ClientSize = new System.Drawing.Size(1483, 768);
             this.Controls.Add(this.navigationMain);
+            this.Controls.Add(this.panelAnaSolMenu);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -2137,6 +2749,21 @@ namespace Sas.Restaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            this.pageUrunNotlari.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
+            this.splitContainerControl1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
+            this.splitContainerControl1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txturunNotu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            this.panelControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
+            this.layoutControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeyPad)).EndInit();
             this.panelUrunGrupKeyPad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).EndInit();
@@ -2173,6 +2800,20 @@ namespace Sas.Restaurant.UI.FrontOffice
             this.panelUrunHareketMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
+            this.pageSiparis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupSiparis)).EndInit();
+            this.groupSiparis.ResumeLayout(false);
+            this.flowSiparis.ResumeLayout(false);
+            this.pageAramaKaydi.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoYeniKayitEkle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoAdisyonOlustur)).EndInit();
+            this.pageBildirim.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlBildirim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBildirim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAnaSolMenu)).EndInit();
+            this.panelAnaSolMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2315,6 +2956,48 @@ namespace Sas.Restaurant.UI.FrontOffice
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private System.Windows.Forms.ImageList ımageList1;
         private DevExpress.XtraEditors.LabelControl lblMesaj;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageUrunNotlari;
+        private DevExpress.XtraEditors.SimpleButton btnUrunNotOnayla;
+        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.MemoEdit txturunNotu;
+        private DevExpress.XtraEditors.SimpleButton btnUrunNotu;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private System.Windows.Forms.FlowLayoutPanel flowUrunNotlari;
+        private ControlKeyboard controlKeyboard1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageSiparis;
+        private DevExpress.XtraEditors.GroupControl groupSiparis;
+        private System.Windows.Forms.FlowLayoutPanel flowSiparis;
+        private DevExpress.XtraEditors.PanelControl panelAnaSolMenu;
+        private DevExpress.XtraEditors.SimpleButton btnSiparisler;
+        private DevExpress.XtraEditors.SimpleButton btnMasalar;
+        private DevExpress.XtraEditors.SimpleButton btnYeniSiparisEkle;
+        private System.Windows.Forms.ImageList ımageList2;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageAramaKaydi;
+        private DevExpress.XtraEditors.SimpleButton btnAramaKaydi;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTarih;
+        private DevExpress.XtraGrid.Columns.GridColumn colSaat;
+        private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdi;
+        private DevExpress.XtraGrid.Columns.GridColumn colTelefon;
+        private DevExpress.XtraGrid.Columns.GridColumn colYeniKayit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoYeniKayitEkle;
+        private DevExpress.XtraGrid.Columns.GridColumn colAdisyonOlustur;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoAdisyonOlustur;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageBildirim;
+        private DevExpress.XtraGrid.GridControl gridControlBildirim;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridBildirim;
+        private DevExpress.XtraGrid.Columns.GridColumn colBildirimSiparisDurum;
+        private DevExpress.XtraGrid.Columns.GridColumn colBildirimUrunAdi;
+        private DevExpress.XtraGrid.Columns.GridColumn colBildirimMiktar;
+        private DevExpress.XtraGrid.Columns.GridColumn colBildirimEkMalzeme;
+        private DevExpress.XtraGrid.Columns.GridColumn colBildirimMasaAdi;
+        private ControlBadgButton controlBadgButton1;
     }
 }
 

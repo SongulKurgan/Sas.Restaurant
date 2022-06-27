@@ -53,8 +53,19 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.3.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +74,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TableDependency.SqlClient, Version=8.5.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlTableDependency.8.5.8\lib\net451\TableDependency.SqlClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FrmMain.cs">
@@ -103,9 +117,17 @@
       <Project>{24381F4B-C6F0-4F70-A912-422E4C8C09F2}</Project>
       <Name>Sas.Restaurant.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sas.Restaurant.Components\Sas.Restaurant.Components.csproj">
+      <Project>{B34B4708-A1D2-4A89-8D0B-D8FD641F0A9A}</Project>
+      <Name>Sas.Restaurant.Components</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sas.Restaurant.Entites\Sas.Restaurant.Entites.csproj">
       <Project>{B187D76F-D2CB-4EA9-AD34-81EA9B8C9B8E}</Project>
       <Name>Sas.Restaurant.Entites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sas.Restaurant.UI.BackOffice\Sas.Restaurant.UI.BackOffice.csproj">
+      <Project>{51B91B67-D8F1-4BDC-AF3B-64CBCDEF7478}</Project>
+      <Name>Sas.Restaurant.UI.BackOffice</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sas.Restaurant.UserControls\Sas.Restaurant.UserControls.csproj">
       <Project>{D90046B7-C2EB-4A6B-9A70-30B3BDCAF056}</Project>

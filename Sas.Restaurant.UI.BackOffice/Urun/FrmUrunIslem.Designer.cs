@@ -1,5 +1,4 @@
-﻿
-namespace Sas.Restaurant.UI.BackOffice.Urun
+﻿namespace Sas.Restaurant.UI.BackOffice.Urun
 {
     partial class FrmUrunIslem
     {
@@ -83,6 +82,18 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtMalzemeAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.tabNotlar = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.gridControlNotlar = new DevExpress.XtraGrid.GridControl();
+            this.gridNotlar = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colUrunNotu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupNotMenu = new DevExpress.XtraEditors.GroupControl();
+            this.controlNotlar = new Sas.Restaurant.UserControls.ControlMenuKayit();
+            this.groupUrunNotu = new DevExpress.XtraEditors.GroupControl();
+            this.txtUrunNotAciklama = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txturunNotu = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -117,6 +128,15 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeFiyat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeAdi.Properties)).BeginInit();
+            this.tabNotlar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotlar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridNotlar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupNotMenu)).BeginInit();
+            this.groupNotMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupUrunNotu)).BeginInit();
+            this.groupUrunNotu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunNotAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txturunNotu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -174,6 +194,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.tabPane1.Controls.Add(this.tabUrunBilgi);
             this.tabPane1.Controls.Add(this.tabPorsiyon);
             this.tabPane1.Controls.Add(this.tabEkMalzeme);
+            this.tabPane1.Controls.Add(this.tabNotlar);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPane1.Location = new System.Drawing.Point(0, 69);
             this.tabPane1.Name = "tabPane1";
@@ -181,7 +202,8 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabUrunBilgi,
             this.tabPorsiyon,
-            this.tabEkMalzeme});
+            this.tabEkMalzeme,
+            this.tabNotlar});
             this.tabPane1.RegularSize = new System.Drawing.Size(767, 511);
             this.tabPane1.SelectedPage = this.tabUrunBilgi;
             this.tabPane1.Size = new System.Drawing.Size(767, 511);
@@ -369,6 +391,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colPorsiyonAdi.FieldName = "Adi";
             this.colPorsiyonAdi.MinWidth = 25;
             this.colPorsiyonAdi.Name = "colPorsiyonAdi";
+            this.colPorsiyonAdi.OptionsColumn.AllowEdit = false;
             this.colPorsiyonAdi.Visible = true;
             this.colPorsiyonAdi.VisibleIndex = 0;
             this.colPorsiyonAdi.Width = 304;
@@ -379,6 +402,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colPorsiyonFiyat.FieldName = "Fiyat";
             this.colPorsiyonFiyat.MinWidth = 25;
             this.colPorsiyonFiyat.Name = "colPorsiyonFiyat";
+            this.colPorsiyonFiyat.OptionsColumn.AllowEdit = false;
             this.colPorsiyonFiyat.Visible = true;
             this.colPorsiyonFiyat.VisibleIndex = 2;
             this.colPorsiyonFiyat.Width = 184;
@@ -389,6 +413,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colPorsiyonCarpan.FieldName = "EkMalzemeCarpan";
             this.colPorsiyonCarpan.MinWidth = 25;
             this.colPorsiyonCarpan.Name = "colPorsiyonCarpan";
+            this.colPorsiyonCarpan.OptionsColumn.AllowEdit = false;
             this.colPorsiyonCarpan.Visible = true;
             this.colPorsiyonCarpan.VisibleIndex = 3;
             this.colPorsiyonCarpan.Width = 115;
@@ -399,6 +424,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colPorsiyonBirim.FieldName = "Birim.Adi";
             this.colPorsiyonBirim.MinWidth = 25;
             this.colPorsiyonBirim.Name = "colPorsiyonBirim";
+            this.colPorsiyonBirim.OptionsColumn.AllowEdit = false;
             this.colPorsiyonBirim.Visible = true;
             this.colPorsiyonBirim.VisibleIndex = 1;
             this.colPorsiyonBirim.Width = 134;
@@ -593,6 +619,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colMalzemeAdi.FieldName = "Adi";
             this.colMalzemeAdi.MinWidth = 25;
             this.colMalzemeAdi.Name = "colMalzemeAdi";
+            this.colMalzemeAdi.OptionsColumn.AllowEdit = false;
             this.colMalzemeAdi.Visible = true;
             this.colMalzemeAdi.VisibleIndex = 0;
             this.colMalzemeAdi.Width = 94;
@@ -603,6 +630,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colMalzemeFiyat.FieldName = "Fiyat";
             this.colMalzemeFiyat.MinWidth = 25;
             this.colMalzemeFiyat.Name = "colMalzemeFiyat";
+            this.colMalzemeFiyat.OptionsColumn.AllowEdit = false;
             this.colMalzemeFiyat.Visible = true;
             this.colMalzemeFiyat.VisibleIndex = 1;
             this.colMalzemeFiyat.Width = 94;
@@ -613,6 +641,7 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.colMalzemeAciklama.FieldName = "Aciklama";
             this.colMalzemeAciklama.MinWidth = 25;
             this.colMalzemeAciklama.Name = "colMalzemeAciklama";
+            this.colMalzemeAciklama.OptionsColumn.AllowEdit = false;
             this.colMalzemeAciklama.Visible = true;
             this.colMalzemeAciklama.VisibleIndex = 2;
             this.colMalzemeAciklama.Width = 94;
@@ -721,6 +750,138 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             this.labelControl13.TabIndex = 1;
             this.labelControl13.Text = "Malzeme Adı :";
             // 
+            // tabNotlar
+            // 
+            this.tabNotlar.Caption = "Notlar";
+            this.tabNotlar.Controls.Add(this.gridControlNotlar);
+            this.tabNotlar.Controls.Add(this.groupNotMenu);
+            this.tabNotlar.Controls.Add(this.groupUrunNotu);
+            this.tabNotlar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabNotlar.ImageOptions.Image")));
+            this.tabNotlar.Name = "tabNotlar";
+            this.tabNotlar.Size = new System.Drawing.Size(767, 466);
+            // 
+            // gridControlNotlar
+            // 
+            this.gridControlNotlar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlNotlar.Location = new System.Drawing.Point(0, 251);
+            this.gridControlNotlar.MainView = this.gridNotlar;
+            this.gridControlNotlar.Name = "gridControlNotlar";
+            this.gridControlNotlar.Size = new System.Drawing.Size(767, 215);
+            this.gridControlNotlar.TabIndex = 4;
+            this.gridControlNotlar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridNotlar});
+            // 
+            // gridNotlar
+            // 
+            this.gridNotlar.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUrunNotu,
+            this.colAciklama});
+            this.gridNotlar.GridControl = this.gridControlNotlar;
+            this.gridNotlar.Name = "gridNotlar";
+            this.gridNotlar.OptionsView.ShowGroupPanel = false;
+            // 
+            // colUrunNotu
+            // 
+            this.colUrunNotu.Caption = "Not";
+            this.colUrunNotu.FieldName = "Notu";
+            this.colUrunNotu.MinWidth = 25;
+            this.colUrunNotu.Name = "colUrunNotu";
+            this.colUrunNotu.OptionsColumn.AllowEdit = false;
+            this.colUrunNotu.Visible = true;
+            this.colUrunNotu.VisibleIndex = 0;
+            this.colUrunNotu.Width = 94;
+            // 
+            // colAciklama
+            // 
+            this.colAciklama.Caption = "Açıklama";
+            this.colAciklama.FieldName = "Aciklama";
+            this.colAciklama.MinWidth = 25;
+            this.colAciklama.Name = "colAciklama";
+            this.colAciklama.OptionsColumn.AllowEdit = false;
+            this.colAciklama.Visible = true;
+            this.colAciklama.VisibleIndex = 1;
+            this.colAciklama.Width = 94;
+            // 
+            // groupNotMenu
+            // 
+            this.groupNotMenu.Controls.Add(this.controlNotlar);
+            this.groupNotMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupNotMenu.Location = new System.Drawing.Point(0, 151);
+            this.groupNotMenu.Name = "groupNotMenu";
+            this.groupNotMenu.Size = new System.Drawing.Size(767, 100);
+            this.groupNotMenu.TabIndex = 6;
+            this.groupNotMenu.Text = "Ek Malzeme Menüsü";
+            // 
+            // controlNotlar
+            // 
+            this.controlNotlar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlNotlar.KapatVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlNotlar.KayitAc = false;
+            this.controlNotlar.Location = new System.Drawing.Point(2, 28);
+            this.controlNotlar.Name = "controlNotlar";
+            this.controlNotlar.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlNotlar.Size = new System.Drawing.Size(763, 70);
+            this.controlNotlar.TabIndex = 0;
+            this.controlNotlar.EkleClick += new System.EventHandler(this.controlNotlar_EkleClick);
+            this.controlNotlar.DuzenleClick += new System.EventHandler(this.controlNotlar_DuzenleClick);
+            this.controlNotlar.SilClick += new System.EventHandler(this.controlNotlar_SilClick);
+            this.controlNotlar.KaydetClick += new System.EventHandler(this.controlNotlar_KaydetClick);
+            this.controlNotlar.VazgecClick += new System.EventHandler(this.controlNotlar_VazgecClick);
+            // 
+            // groupUrunNotu
+            // 
+            this.groupUrunNotu.Controls.Add(this.txtUrunNotAciklama);
+            this.groupUrunNotu.Controls.Add(this.labelControl10);
+            this.groupUrunNotu.Controls.Add(this.txturunNotu);
+            this.groupUrunNotu.Controls.Add(this.labelControl16);
+            this.groupUrunNotu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupUrunNotu.Location = new System.Drawing.Point(0, 0);
+            this.groupUrunNotu.Name = "groupUrunNotu";
+            this.groupUrunNotu.Size = new System.Drawing.Size(767, 151);
+            this.groupUrunNotu.TabIndex = 5;
+            this.groupUrunNotu.Text = "Ek Malzeme Bilgisi";
+            this.groupUrunNotu.Visible = false;
+            // 
+            // txtUrunNotAciklama
+            // 
+            this.txtUrunNotAciklama.Location = new System.Drawing.Point(117, 69);
+            this.txtUrunNotAciklama.Name = "txtUrunNotAciklama";
+            this.txtUrunNotAciklama.Size = new System.Drawing.Size(644, 62);
+            this.txtUrunNotAciklama.TabIndex = 4;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Options.UseTextOptions = true;
+            this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl10.Location = new System.Drawing.Point(11, 70);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(99, 61);
+            this.labelControl10.TabIndex = 5;
+            this.labelControl10.Text = "Açıklama :";
+            // 
+            // txturunNotu
+            // 
+            this.txturunNotu.Location = new System.Drawing.Point(117, 41);
+            this.txturunNotu.Name = "txturunNotu";
+            this.txturunNotu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txturunNotu.Properties.Appearance.Options.UseFont = true;
+            this.txturunNotu.Size = new System.Drawing.Size(645, 22);
+            this.txturunNotu.TabIndex = 1;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Appearance.Options.UseTextOptions = true;
+            this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl16.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl16.Location = new System.Drawing.Point(12, 41);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(99, 22);
+            this.labelControl16.TabIndex = 1;
+            this.labelControl16.Text = "Ürün Notu :";
+            // 
             // FrmUrunIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -769,6 +930,15 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeFiyat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMalzemeAdi.Properties)).EndInit();
+            this.tabNotlar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotlar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridNotlar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupNotMenu)).EndInit();
+            this.groupNotMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupUrunNotu)).EndInit();
+            this.groupUrunNotu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunNotAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txturunNotu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -828,5 +998,17 @@ namespace Sas.Restaurant.UI.BackOffice.Urun
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeAciklama;
         private UserControls.ControlMenuKayit controlMenuPorsiyon;
         private UserControls.ControlMenuKayit controlMenuEkMalzeme;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNotlar;
+        private DevExpress.XtraGrid.GridControl gridControlNotlar;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridNotlar;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunNotu;
+        private DevExpress.XtraGrid.Columns.GridColumn colAciklama;
+        private DevExpress.XtraEditors.GroupControl groupNotMenu;
+        private UserControls.ControlMenuKayit controlNotlar;
+        private DevExpress.XtraEditors.GroupControl groupUrunNotu;
+        private DevExpress.XtraEditors.TextEdit txturunNotu;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.MemoEdit txtUrunNotAciklama;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }

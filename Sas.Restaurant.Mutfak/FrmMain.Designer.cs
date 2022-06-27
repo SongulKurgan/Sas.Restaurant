@@ -1,5 +1,4 @@
-﻿
-namespace Sas.Restaurant.Mutfak
+﻿namespace Sas.Restaurant.Mutfak
 {
     partial class FrmMain
     {
