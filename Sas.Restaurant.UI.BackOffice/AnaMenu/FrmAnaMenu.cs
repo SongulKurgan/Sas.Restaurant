@@ -14,6 +14,7 @@ using Sas.Restaurant.UI.BackOffice.Garson;
 using Sas.Restaurant.UI.BackOffice.OdemeTuru;
 using Sas.Restaurant.UI.BackOffice.Adisyon;
 using Sas.Restaurant.UI.BackOffice.urunHareket;
+using Sas.Restaurant.UI.BackOffice.Kullanici;
 
 namespace Sas.Restaurant.UI.BackOffice.AnaMenu
 {
@@ -92,6 +93,12 @@ namespace Sas.Restaurant.UI.BackOffice.AnaMenu
         {
             XtraForm1 form = new XtraForm1();
             form.Show();
+        }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmKullanicilar form = new FrmKullanicilar();
+            form.ShowDialog();
         }
     }
 }

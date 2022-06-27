@@ -1,5 +1,6 @@
 ﻿using Sas.Restaurant.Business.Managers.Base;
 using Sas.Restaurant.Business.Services;
+using Sas.Restaurant.DataAccess.UnitOfWork;
 using Sas.Restaurant.Entites.Tables;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,9 @@ namespace Sas.Restaurant.Business.Managers
 {
    public class KullaniciManager:BaseManager<Kullanici>,IKullaniciService
     {
+        public KullaniciManager(IUnitOfWork uow):base(uow)
+        {
+
+        }
     }
 }

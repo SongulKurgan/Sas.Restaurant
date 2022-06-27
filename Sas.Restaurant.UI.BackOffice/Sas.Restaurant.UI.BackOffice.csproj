@@ -115,6 +115,12 @@
     <Compile Include="Fotograf\FrmKamera.Designer.cs">
       <DependentUpon>FrmKamera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kullanici\FrmKullanicilar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kullanici\FrmKullanicilar.Designer.cs">
+      <DependentUpon>FrmKullanicilar.cs</DependentUpon>
+    </Compile>
     <Compile Include="OdemeHareket\FrmOdemeHareketleri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmKamera.resx">
       <DependentUpon>FrmKamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kullanici\FrmKullanicilar.resx">
+      <DependentUpon>FrmKullanicilar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OdemeHareket\FrmOdemeHareketleri.resx">
       <DependentUpon>FrmOdemeHareketleri.cs</DependentUpon>
